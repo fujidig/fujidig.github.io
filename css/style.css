@@ -1,0 +1,197 @@
+@charset "utf-8";
+
+html, body,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, address, pre, div, form, hr,
+ul, ol, li, dl, dt, dd,
+table, caption, tr, td, th,
+ins, del,
+a, sup, sub,
+em, strong, dfn, code, samp, kbd, var, cite, abbr, acronym {
+	margin: 0;
+	padding: 0;
+	font-style: normal;
+	font-weight: normal;
+	/* text-align: left; */
+	text-decoration: none;
+}
+
+body {
+	padding-top: 1em;
+	max-width: 900px;
+	margin: 0 auto;
+	line-height: 1.5;
+	color: #000;
+	background-color: #f8f8f8;
+	font-size: 100%;
+}
+
+p, ul, ol, dl, pre, form, address {
+	margin: 1em 30px;
+	letter-spacing: 0.01em;
+}
+
+p {
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0.5em 0; 
+}
+
+h1 {
+	margin-top: 0;
+	font-size: 200%;
+	text-align: center;
+}
+
+/* 背景色を枠の外へ飛び出す */
+/* https://hail2u.net/blog/webdesign/expand-pre-background.html */
+/*h1 { position: relative; }
+h1, h1:before, h1:after { background: none; }
+h1:before, h1:after { display: block; position: absolute; top: 0; width: 10000px; height: 100%; content: ""; }
+h1:before { right: 100%; }
+h1:after { left: 100%; }
+*/
+
+h2 {
+	padding: 0 10px;
+	background-color: #ceeee6;
+	font-size: 160%;
+}
+
+h3 {
+	padding: 0 15px;
+	border: solid #b8d8cf;
+	border-width: 1px 0;
+	background-color: #edf5f3;
+	font-size: 140%;
+}
+
+h4 {
+	padding: 0 20px;
+	border-bottom: 2px dotted #b8d8cf;
+	font-size: 125%;
+}
+
+h5 {
+	padding: 0 25px;
+	font-size: 100%;
+}
+
+h6 {
+	padding: 0 30px;
+	font-size: 100%;
+}
+
+pre {
+	padding: 0.5em 10px;
+	background-color: #fff;
+	white-space: pre;
+}
+
+address {
+	text-align: right;
+}
+
+blockquote {
+	margin: 1.5em 30px;
+	border: 1px solid #700;
+}
+
+li {
+	margin: 0.1em 10px;
+}
+
+li li, li p, li pre, li dt, li dd,
+dd li, dd p, dd pre, dd dt, dd dd {
+	font-size: 100%;
+}
+
+li ul, li ol, li dl, li p,
+dd ul, dd ol, dd dl, dd p {
+	margin: 0.1em 10px;
+}
+
+dt {
+	margin: 0.6em 10px 0.1em 10px;
+	background-color: #e8e8e8;
+}
+
+dd {
+	margin: 0.1em 10px 0.6em 30px;
+}
+
+table {
+	margin: 0 30px 0.5em 30px;
+	border-collapse: collapse;
+}
+td, th {
+	border: 1px solid #CCC;
+	padding: 0.1em 5px;
+}
+th {
+	background: #F3F3F3;
+}
+
+a:link, a:visited, a:active, a:hover, a:focus {
+	border-bottom: 1px solid;
+}
+
+a:link {
+	border-bottom-color: blue;
+	color: blue;
+}
+
+a:visited {
+	border-bottom-color: purple;
+	color: purple;
+}
+
+a:active, a:hover {
+	border-bottom-color: red;
+	color: red;
+}
+
+em, strong {
+	color: #d30e0e;
+}
+
+strong {
+	font-weight: bold;
+}
+
+dfn {
+	font-weight: bold;
+}
+
+kbd {
+	padding: 0 0.3em; 
+	border: 1px solid #ccc;
+	background-color: #f5f5f5;
+}
+
+q {
+	quotes: "「" "」";
+	color: #700;
+}
+
+del, del * {
+	color: #999;
+	text-decoration: line-through;
+}
+
+ins {
+	border-bottom: 1px dashed #999;
+}
+
+.framed {
+  border: 1px solid #666666;
+  padding: 20px;
+  margin: 20px 0;
+  margin: 1em 30px;
+  letter-spacing: 0.1em;
+  border-radius: 5px;
+}
+footer {
+	text-align: right;
+}
