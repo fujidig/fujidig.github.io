@@ -10,7 +10,8 @@ $(function () {
 	}).done(function (res) {
 		var $ul = $("<ul/>");
 		res.responseData.feed.entries.forEach(function (entry) {
-			$ul.append($("<li/>").append($("<a/>").attr("href", entry.link).text(entry.title)));
+			var dateStr = new Date(entry.publishedDate).toLocaleDateString();
+			$ul.append($("<li/>").append($("<span/>").text(dateStr+" ")).append($("<a/>").attr("href", entry.link).text(entry.title)));
 		});
 		$container.append($ul);
 	}).fail(function () {
