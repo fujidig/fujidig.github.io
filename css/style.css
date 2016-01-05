@@ -44,15 +44,6 @@ h1 {
 	text-align: center;
 }
 
-/* 背景色を枠の外へ飛び出す */
-/* https://hail2u.net/blog/webdesign/expand-pre-background.html */
-/*h1 { position: relative; }
-h1, h1:before, h1:after { background: none; }
-h1:before, h1:after { display: block; position: absolute; top: 0; width: 10000px; height: 100%; content: ""; }
-h1:before { right: 100%; }
-h1:after { left: 100%; }
-*/
-
 h2 {
 	padding: 0 10px;
 	background-color: #ceeee6;
@@ -60,25 +51,17 @@ h2 {
 }
 
 h3 {
-	padding: 0 15px;
-	border: solid #b8d8cf;
-	border-width: 1px 0;
-	background-color: #edf5f3;
-	font-size: 140%;
-}
-
-h4 {
 	padding: 0 20px;
 	border-bottom: 2px dotted #b8d8cf;
 	font-size: 125%;
 }
 
-h5 {
+h4 {
 	padding: 0 25px;
 	font-size: 100%;
 }
 
-h6 {
+h5, h6 {
 	padding: 0 30px;
 	font-size: 100%;
 }
