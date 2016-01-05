@@ -150,19 +150,19 @@ $$|\xi_1|+\ldots+|\xi_n| \le \lambda$$
 を満たす$(x_1, \ldots, x_n)$全体の集合を$R$とする．
 $n$次元横ベクトルの間の線形写像$\mathbf{x} \mapsto \mathbf{x} A$を$T$とする．
 <p>
-$P = T(R)$とすると，
-$$P = \{(\xi_1, \ldots, \xi_n) \in \mathbb{R}^n | |\xi_1|+\ldots+|\xi_n| \le \lambda \}$$
+$R' = T(R)$とすると，
+$$R' = \{(\xi_1, \ldots, \xi_n) \in \mathbb{R}^n | |\xi_1|+\ldots+|\xi_n| \le \lambda \}$$
 である．
 <p>
-$P$が凸集合で原点対称な閉領域なので線形変換$T^{-1}$を施して得られる$R$も凸集合で原点対称な閉領域である．
+$R'$が凸集合で原点対称な閉領域なので線形変換$T^{-1}$を施して得られる$R$も凸集合で原点対称な閉領域である．
 <p>
-$P = T(R)$の関係より$P$と$R$の体積には
-$$V(P) = |\det A| V(R)$$
+$R' = T(R)$の関係より$R'$と$R$の体積には
+$$V(R') = |\det A| V(R)$$
 の関係がある．
 <p>
-$P$の体積を求めよう．
-$$P = \{(\xi_1, \ldots, \xi_n) \in \mathbb{R}^n | |\xi_1|+\ldots+|\xi_n| \le \lambda \}$$
-なので，$P$は$2, 3$次元だと次のように，正方形，正八面体になる．
+$R'$の体積を求めよう．
+$$R' = \{(\xi_1, \ldots, \xi_n) \in \mathbb{R}^n | |\xi_1|+\ldots+|\xi_n| \le \lambda \}$$
+なので，$R'$は$2, 3$次元だと次のように，正方形，正八面体になる．
 <p>
 <img src="octahedron2d.png" height=200><img src="octahedron3d.png" height=200>
 <p>
@@ -172,14 +172,14 @@ $n = 3$を例にとる．対称性より$\xi_1,\xi_2, \xi_3 \ge 0$の部分の�
 $$\lambda^3 \int_0^1 \int_0^{1-x} \int_0^{1-x-y} dz dy dx$$
 を計算すればよい．
 <p>
-結果$n = 3$のとき$V(P) = (2\lambda)^3 / 6$．
+結果$n = 3$のとき$V(R') = (2\lambda)^3 / 6$．
 <p>
 一般に
-$$V(P) =  \frac{(2\lambda)^n}{n!}$$
+$$V(R') =  \frac{(2\lambda)^n}{n!}$$
 となる．
 <p>
 よって
-$$V(R) = \frac{V(P)}{|\det A|} = \frac{(2\lambda)^n}{n! |\det A|}$$
+$$V(R) = \frac{V(R')}{|\det A|} = \frac{(2\lambda)^n}{n! |\det A|}$$
 であるが，$\lambda = (n! |\det A|)^{1/n}$だったので，
 $$V(R) = 2^n.$$
 したがって閉領域$R$はミンコフスキーの定理の前提条件を満たす．ゆえに$R$には原点以外の整数座標の点が存在する． □
