@@ -47,7 +47,7 @@ $$
 <p>
 (なお，この図は一辺の長さ$1$の立方体全体ではなく原点付近の一辺の長さ$0.01$の立方体だけ取り出して描いている．)
 <p>
-したがって線形合同法をモンテカルロ法に用いるのは不適当であるとされる．
+したがって線形合同法をモンテカルロ法など精度が要求される場面に用いるのは不適当であるとされる．
 <p>
 George Marsagliaが発表した事実を詳しく述べると次のようになる．
 
@@ -203,7 +203,7 @@ $U_i = X_i / M$とおく．すると$0 \le U_i < 1$である．
 <p>
 証明は次の4ステップからなる．
 <ul>
-<li>Step 1. $c_1,\ldots,c_n$が$c_1 + c_2 a + c_3 a^2 + \ldots + c_n a^{n−1} \equiv 0 \pmod{M}$を満たすならば任意の$i$について$c_1 U_i + c_2 U_{i+1} + \ldots + c_n U_{i+n−1}$は整数になる．
+<li>Step 1. 整数$c_1,\ldots,c_n$が$c_1 + c_2 a + c_3 a^2 + \ldots + c_n a^{n−1} \equiv 0 \pmod{M}$を満たすならば任意の$i$について$c_1 U_i + c_2 U_{i+1} + \ldots + c_n U_{i+n−1}$は整数になる．
 <li>Step 2. 点$\pi_i=(U_i, \ldots, U_{i+n−1})$は次の超平面のうちの一つに属する:
 $$c_1 x_1 + c_2 x_2 + \ldots + c_n x_n = 0, \pm 1, \pm 2, \pm 3, \ldots$$
 <li>Step 3. この形の超平面で単位超立方体$0 < x_1 < 1, \ldots, 0 < x_n < 1$を横切るものはたかだか
@@ -211,11 +211,11 @@ $$|c_1|+|c_2|+\ldots+|c_n|$$
 個である．
 <li>Step 4. $c_1+c_2 a + c_3 a^2 \ldots c_n a^{n−1} \equiv 0 \pmod{M}$かつ
 $$|c_1|+|c_2|+\ldots+|c_n|\le(n!M)^{1∕n}$$
-をみたす$c_1,\ldots, c_n$ (not all zero)が存在する．
+をみたす整数$c_1,\ldots, c_n$ (not all zero)が存在する．
 </ul>
 <h3>Step 1</h3>
 <div class="framed">
-$c_1,\ldots,c_n$が$c_1 + c_2 a + c_3 a^2 + \ldots + c_n a^{n−1} \equiv 0 \pmod{M}$を満たすならば任意の$i$について$c_1 U_i + c_2 U_{i+1} + \ldots + c_n U_{i+n−1}$は整数になる．
+整数$c_1,\ldots,c_n$が$c_1 + c_2 a + c_3 a^2 + \ldots + c_n a^{n−1} \equiv 0 \pmod{M}$を満たすならば任意の$i$について$c_1 U_i + c_2 U_{i+1} + \ldots + c_n U_{i+n−1}$は整数になる．
 </div>
 <p>
 $i = 0$の場合を示せば十分である．
@@ -239,7 +239,7 @@ $$c_1 x_1 + c_2 x_2 + \ldots + c_n x_n = 0, \pm 1, \pm 2, \pm 3, \ldots$$
 Step 1より明らかである． (Step 2の証明終)
 <h3>Step 3</h3>
 <div class="framed">
-$c_1, \ldots, c_n$を固定する．
+整数$c_1, \ldots, c_n$を固定する．
 $c_1 x_1 + c_2 x_2 + \ldots + c_n x_n = k\ (k \in \mathbb{Z})$の形の超平面で単位超立方体$0 < x_1 < 1, \ldots, 0 < x_n < 1$を横切るものはたかだか
 $$|c_1|+|c_2|+\ldots+|c_n|$$
 個である．
@@ -263,7 +263,7 @@ $$\sum_{c_i > 0} |c_i| - (- \sum_{c_i < 0} |c_i|) - 1 = \sum_i |c_i| - 1$$
 <div class="framed">
 $c_1+c_2 a + c_3 a^2 \ldots c_n a^{n−1} \equiv 0 \pmod{M}$かつ
 $$|c_1|+|c_2|+\ldots+|c_n|\le(n!M)^{1∕n}$$
-をみたす$c_1,\ldots, c_n$ (not all zero)が存在する．
+をみたす整数$c_1,\ldots, c_n$ (not all zero)が存在する．
 </div>
 <p>
 まず$c_1, \ldots, c_n$の方程式
