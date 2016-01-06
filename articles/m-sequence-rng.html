@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>M系列乱数</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../css/style.css">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+  TeX: {
+    Macros: {
+      floor: ['{\\lfloor #1 \\rfloor}', 1],
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+<style>
+.quesiton {
+  border-left: 10px solid #ccc;
+  margin: 0 20px;
+  padding-left: 20px;
+}
+</style>
+</head>
+<body>
+<h1>M系列乱数</h1>
+<p>
+有限体$K$の元を項とする数列で漸化式が
+$$x_{n+m} = a_{m-1} x_{n+m-1} + \ldots + a_1 x_{n+1} + a_0 x_n \; (n = 0, 1, 2, \ldots)$$
+で定められるものを考える。 (ただし$a_0, \ldots, a_{m-1} \in K$)
+<p>
+この数列の周期は$\#(K)^m-1$を超えない。この周期をもつとき周期は最長であるといい、数列$\{x_n\}$はM系列であるという。M系列は疑似乱数として使われる。 
+<p>
+$1$階化を行うことでこの数列の漸化式は行列で表せられる。その行列の固有多項式が「原始多項式」であることが周期が最長となる必要十分条件になる。このことを示す。
+<p>
+$2^{19937}-1$という長い周期を持ち質の高い乱数を生成することで名高いMersenne Twisterという疑似乱数生成器がある。Mersenne Twisterも漸化式を行列で表せるので、この記事の内容はMersenne Twisterに適用可能である。
+<p>
+この記事はMersenne Twisterの開発者の一人、松本眞氏による<a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/TEACH/0407-2.pdf">有限体の擬似乱数への応用</a>に書いてある以上のことは何も書かれていない。数学的素養がある方はそちらを見ればよい。
+<p>
+具体的な目標があった方が分かりやすいので$\mathbb{F}_2$の元を項とする数列
+$$
+x_{n+1279} = x_{n+418} + x_n
+$$
+が周期$2^{1279} - 1$を達成することの確認を目標とする。
+<p>
+
+
+
+<h2>原始多項式であることの確認</h2>
+<p>
+PARI/GPを用いる。
+<pre>
+isprimitive(g, n)=
+{
+  local(factors, p);
+  factors = factor(n);
+  for (i = 1, matsize(factors)[1],
+    p = factors[i, 1];
+    if (g^(n/p) == 1, return(0););
+  );
+  return(1);
+}
+
+f = Mod(x, Mod(1,2)*(x^1279+x^418+1))
+print(if(isprimitive(f, 2^1279-1), "primitive", "not primitive"))
+</pre>
+<p>
+これを実行するとprimitiveと出力されるので、$\mathbb{F}_2$上の多項式$x^{1279}+x^{418}+1$は原始多項式である。
+ゆえに
+$$
+x_{n+1279} = x_{n+418} + x_n
+$$
+で定められる数列はM系列である。
+<div class="quesiton">
+問題.
+$\mathbb{F}_2$の元を項とし
+$$
+x_{n+521} = x_{n+489} + x_n
+$$
+で定義される数列がM系列であることを確認せよ。
+</div>
+
+<h2>参考文献</h2>
+<p>[1] 松本眞 (2004) “<a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/TEACH/0407-2.pdf">有限体の擬似乱数への応用</a>”
+
+<footer>
+author: fujidig<br>
+created on: 2016/1/??<br>
+<a href="..">トップページへ</a>
+</footer>
+</body>
+</html>
