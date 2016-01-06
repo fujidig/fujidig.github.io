@@ -10,6 +10,7 @@ $(function () {
 	}).done(function (res) {
 		var $ul = $("<ul/>");
 		res.responseData.feed.entries.forEach(function (entry) {
+			if (entry.categories.join("") == "_") return; // カテゴリが "_" な記事はリストに載せないことにする
 			var dateStr = new Date(entry.publishedDate).toLocaleDateString();
 			$ul.append($("<li/>").append($("<span/>").text(dateStr+" ")).append($("<a/>").attr("href", entry.link).text(entry.title)));
 		});
