@@ -11,6 +11,7 @@ MathJax.Hub.Config({
   TeX: {
     Macros: {
       floor: ['{\\lfloor #1 \\rfloor}', 1],
+      pmod: ['{\\;\\rm{mod}\\;#1}', 1],
     }
   }
 });
@@ -33,7 +34,7 @@ $$x_{n+m} = a_{m-1} x_{n+m-1} + \ldots + a_1 x_{n+1} + a_0 x_n \; (n = 0, 1, 2, 
 <p>
 この数列の周期は$\#(K)^m-1$を超えない。この周期をもつとき周期は最長であるといい、数列$\{x_n\}$はM系列であるという。M系列は疑似乱数として使われる。 
 <p>
-$1$階化を行うことでこの数列の漸化式は行列で表せられる。その行列の固有多項式が「原始多項式」であることが周期が最長となる必要十分条件になる。このことを示す。
+一階化を行うことでこの数列の漸化式は行列で表せられる。その行列の固有多項式が「原始多項式」であることが周期が最長となる必要十分条件になる。このことを示す。
 <p>
 $2^{19937}-1$という長い周期を持ち質の高い乱数を生成することで名高いMersenne Twisterという疑似乱数生成器がある。Mersenne Twisterも漸化式を行列で表せるので、この記事の内容はMersenne Twisterに適用可能である。
 <p>
@@ -45,9 +46,47 @@ x_{n+1279} = x_{n+418} + x_n
 $$
 が周期$2^{1279} - 1$を達成することの確認を目標とする。
 <p>
+  
+<p>必要になる知識は
+<ul>
+<li>線形代数
+<li>群、環、体の初歩。特にイデアルと剰余環
+<li>群論のラグランジュの定理
+<li>体上の多項式環$K[x]$がPIDであること
+<li>環論の中国剰余定理
+</ul>
 
+<h2>漸化式の一階化</h2>
+<h2>回帰数列の例</h2>
+<h2>annihilator多項式</h2>
+<p>
+体$K$上の$d$次正方行列$B$と$d$次元縦ベクトル$\mathbf{x}$に対し
+$$\{g(t) \in K[t] | g(B)\mathbf{x}=0\}$$
+という集合を考えると、これは$K[t]$のイデアルである。$K[t]$はPIDであるためモニックによって生成される。この多項式を$\mathbf{x}$の$B$に関するannihilator多項式といい$\phi_{B,\mathbf{x}}(t)$で表す。
+</p>
 
-
+<div class="framed">
+$K$を有限体とする。$\mathbf{x} \in K^d$を初期値としたときの$B \in M_d(K)$による状態遷移が純周期的になる必要十分条件は、$t$と$\phi_{B,\mathbf{x}}(t)$が互いに素になることである。このとき周期は
+$$t \in (K[t]/\phi_{B,\mathbf{x}}(t))^\times$$
+の位数となる。
+</div>
+<p>
+証明。$\phi(t) = \phi_{B,\mathbf{x}}(t)$とおく。純周期的であることは$A^p \mathbf{x} = \mathbf{x}$となる$p \in \mathbb{N}$が存在することであり、
+\begin{eqnarray}
+\exists p \in \mathbb{N},\ A^p \mathbf{x} = \mathbf{x}
+&\iff& \exists p \in \mathbb{N},\ (A^p - E) \mathbf{x} = 0 \\
+&\iff& \exists p \in \mathbb{N},\ \phi(t) | (t^p - 1) \\
+&\iff& \exists p \in \mathbb{N},\ t^p \equiv 1 \pmod{\phi(t)} 
+\end{eqnarray}
+である。
+<p>
+$t^p \equiv 1 \pmod{\phi(t)}$となる$p$が存在したら$t\ t^{p-1} \equiv 1$より$t$は$\rm{mod}\ \phi(t)$で可逆元である。 
+逆に$t$が$\rm{mod}\ \phi(t)$で可逆元ならラグランジュの定理より$t^p \equiv 1 \pmod{\phi(t)}$となる$p$が存在する。
+<p>
+$t$が$\rm{mod}\ \phi(t)$で可逆元であることは$t P(t) + \phi(t) Q(t) = 1$となる$P(t), Q(t) \in K[t]$が存在することと同値で、これは$t$と$\phi(t)$が互いに素であることと同値である。
+よって定理の前半が示された。
+<p>
+周期は$A^p \mathbf{x} = \mathbf{x}$、すなわち$t^p \equiv 1 \pmod{\phi(t)}$となる最小の$p$なのでこれは$t \in (K[t]/\phi_{B,\mathbf{x}}(t))^\times$の位数のことである。 □
 <h2>原始多項式であることの確認</h2>
 <p>
 PARI/GPを用いる。
