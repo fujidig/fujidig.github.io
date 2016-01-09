@@ -19,22 +19,26 @@ MathJax.Hub.Config({
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script>
-var MAP = {"ルイス": "lewis", "マスター": "master"};
+var MAP = {"ルイス": "lewis2", "マスター": "master2"};
 function text(s) { return document.createTextNode(s); }
 $(function () {
 	var str = $("script[type='text/x-serif']").text();
+	var buf = "";
 	str.split("\n").forEach(function (line) {
 		if (line == "") return;
 		line = line.replace("」", "」<br>");
 		if (!/「/.test(line)) {
-			$("#out").append(line);
+			buf += line;
 		} else {
+			$("#out").append(buf);
+			buf = "";
 			var m = line.match(/^([^「]+)(.*)/);
 			var name = m[1];
 			var serif = m[2];
 			$("#out").append("<img src='"+MAP[name]+".png'>").append(serif);
 		}
 	});
+	$("#out").append(buf);
 });
 </script>
 </head>
@@ -105,12 +109,19 @@ $$
 
 マスター「実は周期が最長になることにはこんな必要十分条件がある。$\#(\cdot)$は集合の要素数を表す記号な」
 
-<div class="framed">$K$	を有限体とする。$\mathbf{x} \in K^d - \{0\}$を初期値として$K$上の$d$次正方行列$A$による状態遷移を考える。<br>これの周期が最長、つまり周期が$\#(K)^d - 1$となる必要十分条件は$A$の特性多項式が原始多項式となること。</div>
+<div class="framed">
+$K$	を有限体とする。
+$\mathbf{x} \in K^d - \{0\}$を初期値として$K$上の$d$次正方行列$A$による状態遷移を考える。<br>
+これの周期が最長、つまり周期が$\#(K)^d - 1$となる必要十分条件は$A$の特性多項式が原始多項式となること。
+</div>
 
 ルイス「ふ～む。原始多項式って何だ？」
 マスター「定義はこうだ」
 
-<div class="framed">$K$を有限体とする。$f(t) \in K[t]$は$t$が$K[t]/f(t)$における$t$の乗法位数が$$\#(K)^{\deg f(t)}-1$$となるとき、原始多項式という</div>
+<div class="framed">
+$K$を有限体とする。
+$f(t) \in K[t]$は$t$が$K[t]/f(t)$における$t$の乗法位数が$$\#(K)^{\deg f(t)}-1$$となるとき、原始多項式という
+</div>
 
 ルイス「さっぱり分からんのだが…」
 マスター「$K[t]$は分かるか？」
