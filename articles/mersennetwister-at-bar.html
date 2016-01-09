@@ -50,7 +50,7 @@ $(function () {
 ルイス「よぁ、おやっさん。相変わらず客のいない店だな」
 マスター「何か俺に用があってきたのか」
 ルイス「あぁ実は聞きたいことがあって。おやっさんメルセンヌツイスタって知っているか？」
-マスター「あぁ知っているさ。有名な疑似乱数だろ？それがどうした」
+マスター「あぁ知っているさ。有名な疑似乱数生成アルゴリズムだろ？品質がとてもいいんだ。それがどうした」
 ルイス「メルセンヌツイスタがどんな仕組みなのか知りたいんだ。メルセンヌツイスタの周期って$2^{19937}-1$で、これってメルセンヌ素数だろ？メルセンヌ素数がどう関係しているのか知りたいんだ」
 マスター「ああ、なるほど。教えてやってもいいんだが…ルイス、お前、代数学は分かるのか？」
 ルイス「ん～代数学か。ちゃんと勉強したことはないな」
@@ -61,10 +61,9 @@ $(function () {
 マスター「う～ん、そうか。でもお前大学で線形代数はちゃんと勉強したんだろ？線形代数がわかって群・環・体の定義を知っているならまあなんとか分かるように教えられるかもしれん」
 ルイス「ほんとか！？」
 マスター「まあ、期待はするなよ。それで注文は？」
-ルイス「キリマンジャロで」
 <hr>
-マスターはお湯を沸かしている間に店の奥からキャスターつきのホワイトボードを運び出してきた。<br>
-マスター「で、メルセンヌツイスタなんだが…。実はこれを理解するためにメルセンヌツイスタだけに焦点を当てても本質は見えてこない。もっと一般的に遷移関数が有限体上の線形空間の線形写像である有限オートマトンを考えた方がいい」
+ルイスはキリマンジャロを注文した。マスターはお湯を沸かしている間に店の奥からキャスターつきのホワイトボードを運び出してきた。<br>
+マスター「で、メルセンヌツイスタなんだが…。実はこれを理解するためにメルセンヌツイスタだけに焦点を当てても本質は見えてこない。もっと一般的に状態空間が有限体上の線形空間で遷移関数が線形写像である有限オートマトンを考えた方がいい」
 ルイス「どういうことだ？」
 マスター「つまり、$d$次正方行列$A$を用いて現在の状態$\mathbf{x}_n$から次の状態$\mathbf{x}_{n+1}$が
 $$\mathbf{x}_{n+1} = A \mathbf{x}_{n}$$
@@ -107,7 +106,7 @@ $$
 ルイス「ん～。地道に確かめようとしたら$2^{19937}-1$回遷移関数を適用するってことを繰り返さなければいけないのか」
 マスター「そうだ。もちろんそれは時間がかかりすぎて現実的でない。うまい方法がとられている」
 
-マスター「実は周期が最長になることにはこんな必要十分条件がある。$\#(\cdot)$は集合の要素数を表す記号な」
+マスター「実は周期が最長になることにはこんな必要十分条件がある。ただし$\#(\,\cdot\,)$は集合の要素数を表す記号だ」
 
 <div class="framed">
 $K$	を有限体とする。
@@ -133,12 +132,19 @@ $f(t) \in K[t]$は$t$が$K[t]/f(t)$における$t$の乗法位数が$$\#(K)^{\de
 マスター「そうか、イデアルは知らないんだっけか。でも$\mathbb{Z}/n\mathbb{Z}$は知っているんだったな。それの類似で考えればいい」
 マスター「$\mathbb{Z}/n\mathbb{Z}$は${\rm mod}\ n$の世界だ。正確な定義は書かないがこういうものだった」
 
-任意の整数$a \in Z$に対して$\overline{a} \in \mathbb{Z}/n\mathbb{Z}$が定まる。
-<br>$\overline{a}, \overline{b} \in \mathbb{Z}/n\mathbb{Z}$ に対し $\overline{a} = \overline{b} \iff a \equiv b \pmod{n}$
-<br>$\overline{a} + \overline{b} := \overline{a + b}$
-<br>$\overline{a}\cdot\overline{b} := \overline{ab}$
+<ul>
+<li>任意の整数$a \in \mathbb{Z}$に対して$\overline{a} \in \mathbb{Z}/n\mathbb{Z}$が定まる。
+<li>$\overline{a}, \overline{b} \in \mathbb{Z}/n\mathbb{Z}$ に対し $\overline{a} = \overline{b} \iff a \equiv b \pmod{n}$
+<li>$\overline{a} + \overline{b} := \overline{a + b}$
+<li>$\overline{a}\cdot\overline{b} := \overline{ab}$
+</ul>
 
-<br>たとえば$\mathbb{Z}/5\mathbb{Z} = \{\overline{0}, \overline{1}, \overline{2}, \overline{3}, \overline{4}\}$で$\overline{2} + \overline{4} = \overline{6} = \overline{1}, \overline{3}\cdot\overline{4} = \overline{12} = \overline{2}$などなど。<br>
+たとえば
+$$\mathbb{Z}/5\mathbb{Z} = \{\overline{0}, \overline{1}, \overline{2}, \overline{3}, \overline{4}\}, \\
+\overline{2} + \overline{4} = \overline{6} = \overline{1}, \\
+\overline{3}\cdot\overline{4} = \overline{12} = \overline{2}
+$$
+などなど。<br>
 
 ルイス「ふむふむ。上に線を引く書き方は馴染みがないけれど、分かるよ」
 マスター「同じように$K[t]/f(t)$は${\rm mod}\ f(t)$の世界だ。$f(t)$で割った余りを考える。多項式で割った余りって何か分かるか」
@@ -147,10 +153,12 @@ $f(t) \in K[t]$は$t$が$K[t]/f(t)$における$t$の乗法位数が$$\#(K)^{\de
 ルイス「なるほど整数の合同と同じようなものだな」
 マスター「そして$K[t]/f(t)$の定義は次の通りだ。もちろん正確性は多少犠牲にしてある」
 
-任意の整数$g(t) \in K[t]$に対して$\overline{g(t)} \in K[t]/f(t)$が定まる。
-<br>$\overline{g(t)}, \overline{h(t)} \in K[t]/f(t)$ に対し $\overline{g(t)} = \overline{h(t)} \iff g(t) \equiv h(t) \pmod{f(t)}$
-<br>$\overline{g(t)} + \overline{h(t)} := \overline{g(t) + h(t)}$
-<br>$\overline{g(t)}\cdot\overline{h(t)} := \overline{g(t)h(t)}$<br>
+<ul>
+<li>任意の整数$g(t) \in K[t]$に対して$\overline{g(t)} \in K[t]/f(t)$が定まる。
+<li>$\overline{g(t)}, \overline{h(t)} \in K[t]/f(t)$ に対し $\overline{g(t)} = \overline{h(t)} \iff g(t) \equiv h(t) \pmod{f(t)}$
+<li>$\overline{g(t)} + \overline{h(t)} := \overline{g(t) + h(t)}$
+<li>$\overline{g(t)}\cdot\overline{h(t)} := \overline{g(t)h(t)}$<br>
+</ul>
 
 マスター「上で定義した和と積に関して$K[t]/f(t)$は環になる」
 
@@ -168,10 +176,10 @@ $f(t) \in K[t]$は$t$が$K[t]/f(t)$における$t$の乗法位数が$$\#(K)^{\de
 マスター「よくわかっているじゃないか」
 マスター「ということは$\mathbb{F}_2[t]/(t^3+1)$で$\overline{t^2+1}^2 = \overline{t+1}$となる」
 
-マスター「この例のように$K[t]/f(t)$の元は次数が$f(t)$より小さい多項式$g(t)$によって$\overline{g(t)}$と表せる。$\mathbb{Z}/n\mathbb{Z}$の元は$n$以下の非負整数で表すのと同じだ」
+マスター「この例のように$K[t]/f(t)$の元は次数が$f(t)$より小さい多項式$g(t)$によって$\overline{g(t)}$と表せる。$\mathbb{Z}/n\mathbb{Z}$の元は$n$以下の非負整数で表せるのと同じだ」
 ルイス「ふむ」
 マスター「ではクイズだ。$K[t]/f(t)$の元の数はいくつだ」
-ルイス「ええと…。$f(t)$より次数が低い多項式の数を数えればいいのか。…$\#(K)^{\deg f(t)}$かな。」
+ルイス「ええと…。$f(t)$より次数が低い多項式の数を数えればいいのか。$\#(K)^{\deg f(t)}$かな。」
 マスター「正解」
 
 マスター「これで$K[t]/f(t)$はおおむね分かったな。ほかに原始多項式の定義に出てくるtermで分からないのはあるか？」
@@ -199,9 +207,11 @@ f_4(t) &=& t^4+t^3+t^2+t+1
 </script>
 <div id="out"></div>
 <h2>参考文献</h2>
-<p>[1] 松本眞 (2004) “<a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/TEACH/0407-2.pdf">有限体の擬似乱数への応用</a>”
+<p>[1] 松本眞 (2004), 「<a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/TEACH/0407-2.pdf">有限体の擬似乱数への応用</a>」
+<p>[2] 雪江明彦 (2010), 『代数学1 群論入門』, 日本評論社
+<p>[3] 雪江明彦 (2010), 『代数学2 環と体とガロア理論』, 日本評論社
 <h2>あとがき</h2>
-<p>何か間違いがあればご報告ください。
+<p>何か間違いか不正確なところがあればご報告ください。
 <p>キャラクターの画像は「WOLF RPGエディター」の「グラフィック合成器」によって生成しました。
 
 </body>
