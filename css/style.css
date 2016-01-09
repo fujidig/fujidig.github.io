@@ -178,3 +178,7 @@ ins {
 footer {
 	text-align: right;
 }
+
+hr {
+	margin: 20px 0;
+}
