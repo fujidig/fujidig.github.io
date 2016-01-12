@@ -6,6 +6,9 @@
 <title>対話で学ぶメルセンヌツイスタ</title>
 <meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="../css/style.css">
+<style>
+li { margin: 0.8em 10px; }
+</style>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
@@ -92,12 +95,37 @@ $$\mathbf{x}_{n+1} = A \mathbf{x}_{n}$$
 <hr>
 マスター「じゃ、ここらで具体的な線形漸化式で周期を計算してみるか。次の問題を解いてみろ。」
 $$
-\mathbf{x} \mapsto A \mathbf{x},\;A = \begin{bmatrix}1 &0 &1 \\ 1 &1 &1 \\ 1 &0 &0\end{bmatrix}
+\mathbf{x} \mapsto A \mathbf{x},\;A = \begin{bmatrix}1 &1 &0 \\ 1 &0 &1 \\ 0 &0 &1\end{bmatrix}
 $$
 で決まる$\mathbb{F}_2^3$の変換による軌道を決定せよ。<br>
 
 ルイス「分かった」
-<!--$[1,0,0] \to [1,1,1] \to [0,1,1] \to [1,0,0]$-->
+マスター「あと細かいことなんだが$\begin{bmatrix}a \\ b \\ c\end{bmatrix}$のように書くとスペースを取るから同じものを$[a,b,c]$と書き表してくれ」
+ルイス「了解」
+
+$[1,0,0] \to [1,1,0] \to [0,1,0] \to [1,0,0]$<br>
+$[0,0,1] \to [0,1,1] \to [1,1,1] \to [0,0,1]$<br>
+$[1,0,1] \to [1,0,1]$<br>
+
+ルイス「周期$3$の軌道が$2$個、周期$1$の軌道が$1$個あった。ただし$[0,0,0]$は省いている」
+マスター「つまりこれは最長周期でなかったということだ」
+
+マスター「次はこれだ」
+$$
+\mathbf{x} \mapsto A \mathbf{x},\;A = \begin{bmatrix}1 &0 &1 \\ 0 &0 &1 \\ 1 &1 &1\end{bmatrix}
+$$
+
+ルイス「ふむ」
+
+$[1,0,0] \to [1,0,1] \to [0,1,0] \to [0,0,1] \to [1,1,1] \to [0,1,1] \to [1,1,0] \to [1,0,0]$<br>
+
+ルイス「おお、これは周期が最長か」
+マスター「そうだな」
+
+ルイス「ところで今やった例はループするとき必ず最初の値に戻ってきた。A→B→C→D→C→D→…というふうに途中からループすることはないのか？」
+マスター「さっきやった二つの例は両方行列が正則だった。正則なら途中からループすることはない」
+マスター「正則というのは単射ということだからだ」
+ルイス「そうか」
 
 <hr>
 マスター「さて、具体例も計算してみたところで考えて欲しいんだが、メルセンヌツイスタの周期は$2^{19937}-1$だろう」
@@ -134,10 +162,10 @@ $f(t) \in K[t]$は$t$が$K[t]/f(t)$における$t$の乗法位数が$$\#(K)^{\de
 マスター「$\mathbb{Z}/n\mathbb{Z}$は${\rm mod}\ n$の世界だ。正確な定義は書かないがこういうものだった」
 
 <ul>
-<li>任意の整数$a \in \mathbb{Z}$に対して$\overline{a} \in \mathbb{Z}/n\mathbb{Z}$が定まる。
-<li>$\overline{a}, \overline{b} \in \mathbb{Z}/n\mathbb{Z}$ に対し $\overline{a} = \overline{b} \iff a \equiv b \pmod{n}$
-<li>$\overline{a} + \overline{b} := \overline{a + b}$
-<li>$\overline{a}\cdot\overline{b} := \overline{ab}$
+<li>任意の整数$a \in \mathbb{Z}$に対して$\overline{a} \in \mathbb{Z}/n\mathbb{Z}$が定まる。そして$\mathbb{Z}/n\mathbb{Z}$の元はすべて$\overline{a}$の形で表せる。
+<li>(相等) $\overline{a}, \overline{b} \in \mathbb{Z}/n\mathbb{Z}$ に対し $\overline{a} = \overline{b} \iff a \equiv b \pmod{n}$
+<li>(和) $\overline{a} + \overline{b} := \overline{a + b}$
+<li>(積) $\overline{a}\cdot\overline{b} := \overline{ab}$
 </ul>
 
 たとえば
@@ -155,10 +183,10 @@ $$
 マスター「そして$K[t]/f(t)$の定義は次の通りだ。もちろん正確性は多少犠牲にしてある」
 
 <ul>
-<li>任意の整数$g(t) \in K[t]$に対して$\overline{g(t)} \in K[t]/f(t)$が定まる。
-<li>$\overline{g(t)}, \overline{h(t)} \in K[t]/f(t)$ に対し $\overline{g(t)} = \overline{h(t)} \iff g(t) \equiv h(t) \pmod{f(t)}$
-<li>$\overline{g(t)} + \overline{h(t)} := \overline{g(t) + h(t)}$
-<li>$\overline{g(t)}\cdot\overline{h(t)} := \overline{g(t)h(t)}$<br>
+<li>任意の整数$g(t) \in K[t]$に対して$\overline{g(t)} \in K[t]/f(t)$が定まる。そして$K[t]/f(t)$の元はすべて$\overline{g(t)}$の形で表せる。
+<li>(相等) $\overline{g(t)}, \overline{h(t)} \in K[t]/f(t)$ に対し $\overline{g(t)} = \overline{h(t)} \iff g(t) \equiv h(t) \pmod{f(t)}$
+<li>(和) $\overline{g(t)} + \overline{h(t)} := \overline{g(t) + h(t)}$
+<li>(積) $\overline{g(t)}\cdot\overline{h(t)} := \overline{g(t)h(t)}$<br>
 </ul>
 
 マスター「上で定義した和と積に関して$K[t]/f(t)$は環になる」
@@ -177,7 +205,7 @@ $$
 マスター「よくわかっているじゃないか」
 マスター「ということは$\mathbb{F}_2[t]/(t^3+1)$で$\overline{t^2+1}^2 = \overline{t+1}$となる」
 
-マスター「この例のように$K[t]/f(t)$の元は次数が$f(t)$より小さい多項式$g(t)$によって$\overline{g(t)}$と表せる。$\mathbb{Z}/n\mathbb{Z}$の元は$n$以下の非負整数で表せるのと同じだ」
+マスター「この例のように$K[t]/f(t)$の元は次数が$f(t)$より小さい多項式$g(t)$によって$\overline{g(t)}$と表せる。$\mathbb{Z}/n\mathbb{Z}$の元は$n$未満の非負整数で表せるのと同じだ」
 ルイス「ふむ」
 マスター「ではクイズだ。$K[t]/f(t)$の元の数はいくつだ」
 ルイス「ええと…。$f(t)$より次数が低い多項式の数を数えればいいのか。$\#(K)^{\deg f(t)}$かな。」
@@ -216,6 +244,37 @@ f_4(t) &=& t^4+t^3+t^2+t+1
 
 ルイス「よし分かった。原始多項式なのは$f_3(t) = t^3+t+1$ただ一つだ。これは$t$の乗法位数が$\#(\mathbb{F}_2)^{\deg f_3(t)}-1 = 2^3-1 = 7$になっている」
 マスター「それでいい」
+
+マスター「ここで${\rm mod}\ f_3(t)$での$t^n$に注目してほしい。$0$以外の$3$次未満の多項式がすべて現れているだろう」
+ルイス「ああ、確かに」
+マスター「これは原始多項式の定義、$t$の乗法位数は$\#(K)^{\deg f(t)}-1$であるということから任意の原始多項式で成り立つ」
+ルイス「ふむ」
+マスター「また、原始多項式なら$K[x]/f(x)$において$t$は逆元をもつ」
+ルイス「んん～。あ、$t^n \equiv 1$となる$n$が存在するから$t\cdot t^{n-1} \equiv 1$となって、$t$は逆元$t^{n-1}$を持つ。確かに」
+マスター「そう。一方で$K[t]/f(t)$で$0$以外の元は$t$のべきになることが分かったんだから、結局$K[x]/f(x)$の元は$0$を除いて逆元をもつ」
+ルイス「なるほど」
+マスター「今いった事実を一言で表せるか？」
+ルイス「ええ？」
+マスター「$K[t]/f(t)$は体になるということだ」
+ルイス「ああ、そうか」
+マスター「そしてここから$f(t)$は既約であることが言える」
+ルイス「既約？」
+マスター「そう、多項式はそれ以上因数分解できないなら既約であるという」
+マスター「$f(t)$がそれ以上因数分解できるとしたら$f(t)$を割り切るような$p(t)$が存在する。ただし$1 \le \deg p(t) < \deg f(t)$」
+マスター「さっきの議論より$p(t)$は逆元を持つ。すなわち$p(t) q(t) \equiv 1 \pmod{f(t)}$となる$q(t)$がある。すると$p(t)$と$f(t)$は互いに素だ。でも$p(t)$と$f(t)$はともに$p(t)$で割り切れるのだからこれは矛盾。よって$f(t)$は既約だ」
+ルイス「ふむ」
+マスター「ということで原始多項式は必ず既約多項式になる」
+ルイス「そうか。ところで逆は成立しないのか？」
+マスター「しない。上の$f_4(t) = t^4+t^3+t^2+t+1$は既約だけど原始多項式でない」
+マスター「実は$f_1(t), f_2(t), f_3(t), f_4(t)$にはそれぞれ意図がある。
+$f_1(t)$は$t$と互いに素でないから$t^n \equiv 1 \pmod{f(t)}$となる$n$は存在しない。
+$f_2(t)$は既約でない。
+$f_3(t)$は原始多項式。
+$f_4(t)$は既約だが原始でない」
+ルイス「なるほど…周到だ」
+
+
+<!-- ここに原始=>既約の証明を入れる-->
 
 <hr>
 ルイス「ところで周期が最長になるためには原始多項式であることが必要十分という定理だが…」
@@ -298,6 +357,29 @@ $K$	を有限体とする。
 $\mathbf{x} \in K^d - \{0\}$を初期値として$K$上の$d$次正方行列$A$による状態遷移を考える。<br>
 この周期が最長となる必要十分条件は$\varphi_{A,\mathbf{x}}(t)$が$d$次の原始多項式となること。
 </div>
+
+マスター「まず、次のように同値変形ができる」
+
+\begin{eqnarray}
+A^n \mathbf{x} = \mathbf{x}
+&\iff& (A^n - E) \mathbf{x} = 0 \\
+&\iff& \varphi_{A,\mathbf{x}}(t) | (t^n - 1) \\
+&\iff& t^n \equiv 1 \pmod{\varphi_{A,\mathbf{x}}(t)} \\
+\end{eqnarray}
+
+ルイス「$\varphi_{A,\mathbf{x}}(t) | (t^n - 1)$というのは？」
+マスター「$t^n - 1$が$\varphi_{A,\mathbf{x}}(t)$で割り切れるという意味だ」
+ルイス「ははあ。さっき俺が解いた問題を使ったのか」
+
+マスター「これより、周期が$\#(K)^d - 1$になることは$t^n \equiv 1 \pmod{\varphi_{A,\mathbf{x}}(t)}$となる最小の正整数$n$が$\#(K)^d - 1$になることだといえる」
+
+マスター「
+$d' = \deg \varphi_{A,\mathbf{x}}(t)$とおく。
+さらに$G = (K[t]/\varphi_{A,\mathbf{x}}(t))^\times$とおく。
+$${\rm ord}_G(t) \le \#(G) \le \#(K)^{d'} - 1 \le \#(K)^d - 1$$
+により${\rm ord}_G(t) = \#(K)^d - 1$なら上の不等式ですべて等号が成り立たなければならない。よって周期が最長なら$\varphi_{A,\mathbf{x}}(t)$は$d$次の原始多項式だといえる。逆も確かめられる」
+
+<!-- ord_G(t)の意味および、それが\#(G)以下になることの説明が必要-->
 
 </script>
 <div id="out"></div>
