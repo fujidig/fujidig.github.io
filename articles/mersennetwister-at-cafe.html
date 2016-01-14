@@ -47,6 +47,8 @@ $(function () {
 </head>
 <body>
 <script type="text/x-serif">
+(※執筆途中)<br><br> 
+
 ルイスは顔なじみのマスターがいるコーヒーショップにやってきた。<br>
 
 マスター「いらっしゃい」
@@ -100,14 +102,12 @@ $$
 で決まる$\mathbb{F}_2^3$の変換による軌道を決定せよ。<br>
 
 ルイス「分かった」
-マスター「あと細かいことなんだが$\begin{bmatrix}a \\ b \\ c\end{bmatrix}$のように書くとスペースを取るから同じものを$[a,b,c]$と書き表してくれ」
-ルイス「了解」
 
-$[1,0,0] \to [1,1,0] \to [0,1,0] \to [1,0,0]$<br>
-$[0,0,1] \to [0,1,1] \to [1,1,1] \to [0,0,1]$<br>
-$[1,0,1] \to [1,0,1]$<br>
+$$\begin{bmatrix}1\\0\\0\end{bmatrix} \to \begin{bmatrix}1\\1\\0\end{bmatrix} \to \begin{bmatrix}0\\1\\0\end{bmatrix} \to \begin{bmatrix}1\\0\\0\end{bmatrix}$$
+$$\begin{bmatrix}0\\0\\1\end{bmatrix} \to \begin{bmatrix}0\\1\\1\end{bmatrix} \to \begin{bmatrix}1\\1\\1\end{bmatrix} \to \begin{bmatrix}0\\0\\1\end{bmatrix}$$
+$$\begin{bmatrix}1\\0\\1\end{bmatrix} \to \begin{bmatrix}1\\0\\1\end{bmatrix}$$
 
-ルイス「周期$3$の軌道が$2$個、周期$1$の軌道が$1$個あった。ただし$[0,0,0]$は省いている」
+ルイス「周期$3$の軌道が$2$個、周期$1$の軌道が$1$個あった。ただし零ベクトルは省いている」
 マスター「つまりこれは最長周期でなかったということだ」
 
 マスター「次はこれだ」
@@ -117,14 +117,14 @@ $$
 
 ルイス「ふむ」
 
-$[1,0,0] \to [1,0,1] \to [0,1,0] \to [0,0,1] \to [1,1,1] \to [0,1,1] \to [1,1,0] \to [1,0,0]$<br>
+$$\begin{bmatrix}1\\0\\0\end{bmatrix} \to \begin{bmatrix}1\\0\\1\end{bmatrix} \to \begin{bmatrix}0\\1\\0\end{bmatrix} \to \begin{bmatrix}0\\0\\1\end{bmatrix} \to \begin{bmatrix}1\\1\\1\end{bmatrix} \to \begin{bmatrix}0\\1\\1\end{bmatrix} \to \begin{bmatrix}1\\1\\0\end{bmatrix} \to \begin{bmatrix}1\\0\\0\end{bmatrix}$$
 
 ルイス「おお、これは周期が最長か」
 マスター「そうだな」
 
 ルイス「ところで今やった例はループするとき必ず最初の値に戻ってきた。A→B→C→D→C→D→…というふうに途中からループすることはないのか？」
 マスター「さっきやった二つの例は両方行列が正則だった。正則なら途中からループすることはない」
-マスター「正則というのは単射ということだからだ」
+マスター「正則というのは単射ということだからだ。単射なら異なる値BとDの像が同じ値Cになることはない。よってA→B→C→D→C→D→…のようなことは起こらない」
 ルイス「そうか」
 
 <hr>
@@ -428,13 +428,13 @@ $${\rm ord}_G(t) \le \#(G) \le \#(K)^{d'} - 1 \le \#(K)^d - 1$$
 
 </script>
 <div id="out"></div>
+<h2>筆者より</h2>
+<p>何か間違いか不正確なところがあればご報告ください。
+<p>キャラクターの画像は「WOLF RPGエディター」の「グラフィック合成器」によって生成しました。
 <h2>参考文献</h2>
 <p>[1] 松本眞 (2004), 「<a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/TEACH/0407-2.pdf">有限体の擬似乱数への応用</a>」
 <p>[2] 雪江明彦 (2010), 『代数学1 群論入門』, 日本評論社
 <p>[3] 雪江明彦 (2010), 『代数学2 環と体とガロア理論』, 日本評論社
-<h2>あとがき</h2>
-<p>何か間違いか不正確なところがあればご報告ください。
-<p>キャラクターの画像は「WOLF RPGエディター」の「グラフィック合成器」によって生成しました。
 
 </body>
 </html>
