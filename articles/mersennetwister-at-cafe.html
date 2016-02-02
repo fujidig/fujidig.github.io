@@ -324,20 +324,43 @@ $$
 マスター「まあな」
 ルイス「やはり周到だ…。…とにかく$t^3+1$は原始多項式でないから$A_1$は周期最長でない、$t^3+t+1$は原始多項式だから$A_2$は周期最長だと。確かに結果が一致する」
 
+<hr>
+
+ルイス「ところで、メルセンヌツイスタは行列$A$はコンピュータで簡単に計算できるものを選んでいるという話だが…」
+マスター「ああ」
+ルイス「実際、どう選んでいるんだ？」
+
+
 </script>
 <div id="out"></div>
 <h2>演習問題</h2>
 <p>1. $2^{19937}-1$が素数であることをコンピュータを用いて確かめよ。
-<p>2. 命題1を証明せよ。(筆者の知っている証明は若干手間を要するものである。簡明な証明があれば教えてほしい)
+<p>2. 命題1を証明せよ。
+<p>3. 以下で定義されるのはXorShiftと呼ばれる疑似乱数の一例である。
+$\{\mathbf{x}_n\}$は$\mathbb{F}_2^{64}$の元の列で以下の漸化式を満たす。ただし初項$\mathbf{x}_0$は$\mathbf{0}$以外の値が任意に与えられる。
+$$
+\mathbf{x}_{n+1} := f_3(f_2(f_1(\mathbf{x}_n))).
+$$
+ここに
+\begin{eqnarray}
+f_1(\mathbf{x}) &:=& \mathbf{x} + (\mathbf{x} &lt;&lt; 13), \\
+f_2(\mathbf{x}) &:=& \mathbf{x} + (\mathbf{x} &gt;&gt; 7), \\
+f_3(\mathbf{x}) &:=& \mathbf{x} + (\mathbf{x} &lt;&lt; 17).
+\end{eqnarray}
+この数列の周期が$2^{64}-1$であることをコンピュータを使って確かめよ。
+<p>4. メルセンヌツイスタの周期は最長$2^{19937}-1$になることをコンピュータを使って確かめよ。
+<p>5. メルセンヌツイスタにおける定数$a = ({\rm 9908b0df})_{16}$をほかのものにかえて周期が最長になるものを探せ。
 
 <h2>筆者より</h2>
 <p>何か間違いか不正確なところがあればご報告ください。
 <p>キャラクターの画像は「WOLF RPGエディター」の「グラフィック合成器」によって生成しました。
 <h2>参考文献</h2>
-<p>[1] 松本眞 (2004), 「<a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/TEACH/0407-2.pdf">有限体の擬似乱数への応用</a>」
+<p>[1] 松本眞 (2004), 「有限体の擬似乱数への応用」 (<a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/TEACH/0407-2.pdf">http://www.math.sci.hiroshima-u.ac.jp/~m-mat/TEACH/0407-2.pdf</a>)
 <p>[2] M. Matsumoto and T. Nishimura (1998), "<a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/ARTICLES/mt.pdf">Mersenne Twister: A 623-dimensionally equidistributed uniform pseudorandom number generator</a>", ACM Trans. on Modeling and Computer Simulation Vol. 8, No. 1, January pp.3-30
-<p>[3] 雪江明彦 (2010), 『代数学1 群論入門』, 日本評論社
-<p>[4] 雪江明彦 (2010), 『代数学2 環と体とガロア理論』, 日本評論社
+<p>[3] Marsaglia, George (2003). "<a href="http://www.jstatsoft.org/v08/i14/paper">Xorshift RNGs</a>". Journal of Statistical Software 8 (14).
+<p>[4] Marsaglia, George and Tsay, L. H. (1985), "<a href="http://www.sciencedirect.com/science/article/pii/0024379585901922">Matrices and the structure of random number sequences</a>". Linear Algebra and its Applications, 67, pp.147–156
+<p>[5] 雪江明彦 (2010), 『代数学1 群論入門』, 日本評論社
+<p>[6] 雪江明彦 (2010), 『代数学2 環と体とガロア理論』, 日本評論社
 
 </body>
 </html>
