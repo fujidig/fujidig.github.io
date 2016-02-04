@@ -22,6 +22,20 @@ MathJax.Hub.Config({
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
 <body>
+<h2>問題1</h2>
+Lucas-Lehmer testを実行する。
+例として以下にRubyで書かれたプログラムを挙げる。
+<pre>P = 19937
+M = (2**P) - 1
+
+x = 4
+for i in 1..(P-2) do
+  y = x*x - 2
+  x = ((y & M) + (y >> P)) % M
+end
+puts(x == 0)</pre>
+
+<h2>問題2</h2>
 <div class="framed">
 <b>命題1</b><br>
 $K$	を有限体とする．
