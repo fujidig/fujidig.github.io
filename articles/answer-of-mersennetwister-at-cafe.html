@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>対話で学ぶメルセンヌツイスタ (演習問題解答)</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+li { margin: 0.8em 10px; }
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+  TeX: {
+    Macros: {
+      floor: ['{\\lfloor #1 \\rfloor}', 1],
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+<div class="framed">
+<b>命題1</b><br>
+$K$	を有限体とする．
+$\mathbf{x} \in K^n - \{0\}$ を初期値として $K$ 上の $n$ 次正方行列 $A$ による状態遷移を考える．<br>
+これの周期が最長，つまり周期が $\#(K)^n - 1$ となる必要十分条件は行列 $A$ の位数が $\#(K)^n - 1$ となることである．
+</div>
+<p>
+証明([2]). 必要性は容易に分かる．十分性を示す．行列 $A$ の位数が $k := \#(K)^n - 1$ であると仮定する．
+$${\cal T} = \{E, A, A^2, \ldots, A^{k-1}\}$$
+とおく．行列 $A$ の最小多項式を $\varphi_A(t)$ としその次数を $d (\le n)$ とする．また，
+$${\cal P} = \{f(A)\ |\ f(t) \in K[t], \deg f(t) \lt d \}$$
+とおく．このとき $\#({\cal T}) = k = \#(K)^n - 1, \#({\cal P}) = \#(K)^d$ である．
+<p>
+任意の多項式 $f(t) \in K[t]$ に対して $f(A)$ は最小多項式を使って次数を下げることにより ${\cal P}$ に属する．
+よって
+$${\cal T} \subset {\cal P}-\{O\}.$$
+すると $\#(K)^n - 1 \le \#(K)^d - 1$ だが， $d \le n$ だったので $d = n$ である．したがって
+$${\cal T} = {\cal P}-\{O\}.$$
+${\cal T}$ の元はみな正則なので ${\cal P}-\{O\}$ の元もそうである．
+すると $i \lt k$ なる $i$ に対して $(A^i - E) \mathbf{x} = 0$ なら $A^i - E$ は非正則であり ${\cal P}$ に属すので $= O$ となる．
+これは $A$ の位数が $k$ なことに反する． □
+
+<p>
+この命題に対し別証明を与える．十分性を示すので $A$ の位数 ${\rm ord} A$ が $\#(K)^n - 1$ に等しいと仮定する．
+まず， $\mathbf{x} \in K^n - \{0\}$ に対し $K[t]$ のイデアル
+$$\{f(t) \in K[t]\ |\ f(A)\mathbf{x} = \mathbf{o}\}$$
+を生成するモニックを $\varphi_{A,\mathbf{x}}(t)$ とおくと周期は $K[t]/\varphi_{A,\mathbf{x}}(t)$ における $t$ の位数になる ([1])． 
+
+ここで
+${\rm ord}_{\varphi_{A}} t = {\rm ord} A = \#(K)^n - 1$ であるので $\varphi_{A,\mathbf{x}}(t) = \varphi_{A}(t)$ となる $\mathbf{x} \in K^n - \{0\}$ の存在が言えれば証明は終わる．
+つまり次の(☆)が証明されればいい．
+
+<div class="framed">
+<b>(☆)</b><br>
+$K$	を体とし，$A$を$K$上の$n$次行列とする．このとき
+$$\varphi_{A,\mathbf{x}}(t) = \varphi_A(t)$$
+となる$\mathbf{x} \in K^n-\{0\}$が存在する．
+</div>
+
+<p>
+またこの証明方法から分かる面白い事実として次がある．
+<p style="text-align:center;margin: 1em 80px">
+$A$ を左から掛けることによって決まる $K^n$ の変換による軌道を考えると，どの軌道の長さも一番大きい軌道の長さの約数になっている．
+<p>
+これは ${\rm ord}_{\varphi_{A,\mathbf{x}}} t | {\rm ord}_{\varphi_{A}} t$ が成立することから分かる．
+
+<p>(☆)の証明. $K^n$ に $K[t]$ 加群としての構造を入れる． $K[t]$ の元と $K^n$ の元の積は
+$$f(t) \cdot \mathbf{v} = f(A) \mathbf{v}$$
+で定める．ジョルダン標準形の単因子論を使った証明を思い出すと
+$$K^n \cong \bigoplus_{i=1}^n K[t]/d_i(t),\;d_i(t)|d_{i+1}(t)\;(i=1,\ldots,n-1)$$
+となる．最後の単因子 $d_n(t)$ は $A$ の最小多項式 $\varphi_A(t)$ に一致する．
+<p>
+$K[t]/d_i(t)$ の $K$ ベクトル空間としての基底 $\{1, t, t^2, \ldots, t^{\deg d_i(t)-1}\}$ をとり， $t^k \in K[t]/d_i(t)$ に対応する $K^n$ の元を $\mathbf{e}_i^{(k)}$ とおく．
+すると $\{\mathbf{e}_i^{(k)}\}_{i,k}$ は $K^n$ の基底になる．
+<p>
+ここで $\mathbf{x} = \mathbf{e}_n^{(0)}$ とおく．
+$K^n$ の元に行列 $A$ を左から掛けることは $K[t]$ 加群として $t$ を掛けることに相当するので， $f(t) \in K[t]$ に対し
+\begin{eqnarray}
+f(A) \mathbf{e}_n^{(0)} = 0 &\iff& f(t) \cdot 1 \equiv 0 \pmod{d_n(t)} \\
+&\iff& d_n(t) | f(t)
+\end{eqnarray}
+となる。よって、
+$$\varphi_{A,\mathbf{x}}(t) = d_n(t) = \varphi_A(t)$$
+である． □
+
+<p>(☆)の証明はある先生に尋ねご教示いただきました。感謝します。
+
+<h2>参考文献</h2>
+<p>[1] 松本眞 (2004), 「有限体の擬似乱数への応用」 (<a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/TEACH/0407-2.pdf">http://www.math.sci.hiroshima-u.ac.jp/~m-mat/TEACH/0407-2.pdf</a>)
+<p>[2] Marsaglia, George and Tsay, L. H. (1985), "<a href="http://www.sciencedirect.com/science/article/pii/0024379585901922">Matrices and the structure of random number sequences</a>". Linear Algebra and its Applications, 67, pp.147–156
+
+
+</body>
+</html>
