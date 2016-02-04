@@ -22,6 +22,7 @@ MathJax.Hub.Config({
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
 <body>
+<p>→ <a href="mersennetwister-at-cafe.html">本文</a>
 <h2>問題1</h2>
 Lucas-Lehmer testを実行する。
 例として以下にRubyで書かれたプログラムを挙げる。
@@ -44,13 +45,13 @@ $\mathbf{x} \in K^n - \{0\}$ を初期値として $K$ 上の $n$ 次正方行�
 </div>
 <p>
 証明([2]). 必要性は容易に分かる．十分性を示す．行列 $A$ の位数が $\#K^n - 1$ であると仮定する．
-$$G := \langle A \rangle = \{E, A, A^2, \ldots\} \subset GL(n,M)$$
+$$G := \langle A \rangle = \{E, A, A^2, \ldots\} \subset GL(n,K)$$
 とおく．また，
-$$R := K[A] = \{f(A)\ |\ f(t) \in K[t] \} \subset M(n, M)$$
+$$R := K[A] = \{f(A)\ |\ f(t) \in K[t] \} \subset M(n,K)$$
 とおく．
 <p>
-$A$ の位数より，$\#G = \#K^n - 1$ である。
-行列 $A$ の最小多項式を $\varphi_A(t)$ としその次数を $d (\le n)$ とする．このとき任意の $R$ の元は最小多項式を使うことにより、次数が $d$ 以下の多項式 $f(t)$ によって $f(A)$ と一意的に表せる。つまり、$\#R = \#K^d-1$。
+$A$ の位数より，$\#G = \#K^n - 1$ である．
+行列 $A$ の最小多項式を $\varphi_A(t)$ としその次数を $d (\le n)$ とする．このとき任意の $R$ の元は $A$ の最小多項式を使うことにより，次数が $d$ 以下の多項式 $f(t)$ によって $f(A)$ と一意的に表せる．つまり，$\#R = \#K^d-1$．
 <p>
 ここで
 $$G \subset R-\{O\}$$
@@ -58,7 +59,7 @@ $$G \subset R-\{O\}$$
 $$G = R-\{O\}.$$
 $G$ の元はみな正則なので $R-\{O\}$ の元もそうである．
 すると $A^i \mathbf{x} = \mathbf{x}$ となる $i$ を考えると， $(A^i - E) \mathbf{x} = 0$ より $A^i - E$ は非正則であり $R$ に属すので $= O$ となる．
-つまり $A^i = E$ なので仮定より $\#K^n - 1\ |\ i$．よって周期は $\#K^n - 1$ である。 □
+つまり $A^i = E$ なので仮定より $\#K^n - 1\ |\ i$．よって周期は $\#K^n - 1$ である． □
 
 <p>
 この命題に対し別証明を与える．十分性を示すので $A$ の位数 ${\rm ord} A$ が $\#(K)^n - 1$ に等しいと仮定する．
@@ -78,7 +79,7 @@ $$\varphi_{A,\mathbf{x}}(t) = \varphi_A(t)$$
 </div>
 
 <p>
-またこの証明方法から分かる面白い事実として次がある．
+なお以上の証明方法から分かる面白い事実として次がある:
 <p style="text-align:center;margin: 1em 80px">
 $A$ を左から掛けることによって決まる $K^n$ の変換による軌道を考えると，どの軌道の長さも一番大きい軌道の長さの約数になっている．
 <p>
@@ -99,11 +100,11 @@ $K^n$ の元に行列 $A$ を左から掛けることは $K[t]$ 加群として 
 f(A) \mathbf{e}_n^{(0)} = 0 &\iff& f(t) \cdot 1 \equiv 0 \pmod{d_n(t)} \\
 &\iff& d_n(t) | f(t)
 \end{eqnarray}
-となる。よって、
+となる．よって，
 $$\varphi_{A,\mathbf{x}}(t) = d_n(t) = \varphi_A(t)$$
 である． □
 
-<p>(☆)の証明はある先生に尋ねご教示いただきました。感謝します。
+<p>(☆)の証明はある先生に尋ねご教示いただきました．感謝します．
 
 <h2>参考文献</h2>
 <p>[1] 松本眞 (2004), 「有限体の擬似乱数への応用」 (<a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/TEACH/0407-2.pdf">http://www.math.sci.hiroshima-u.ac.jp/~m-mat/TEACH/0407-2.pdf</a>)
