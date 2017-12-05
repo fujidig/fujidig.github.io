@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>メルセンヌツイスタの周期の最長性</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+li { margin: 0.8em 10px; }
+.framed p { margin-left: 0; margin-right: 0; margin-top: 0; }
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+  TeX: {
+    Macros: {
+      bm: ['{\\boldsymbol{#1}}', 1],
+      F: '\\mathbb{F}',
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+<h1>メルセンヌツイスタの周期の最長性</h1>
+<p align="right">author: fujidig, created at: 2017/11/23</p>
+<p>
+メルセンヌツイスタは疑似乱数の一つです。
+特定の形をした$f: \F_2^p \to \F_2^p$が一つ固定され、与えられた初期状態$\bm{x}_0 \in \F_2^p$に対し次の漸化式によって内部状態が更新されます。
+\[ \bm{x}_{n+1} = f(\bm{x}_n) \]
+</p>
+<p>
+内部状態からある線形関数$g: \F_2^p \to \F_2^w$により
+\[ \bm{y}_n = g(\bm{x}_n)\]
+により疑似乱数列が生成されます。
+</p>
+<p>
+mt19937というメルセンヌツイスタの一例では$p = 19937, w = 32$が使われています。
+</p>
+<p>
+線形写像$f, g$はビットシフトなどの方法でコンピュータ上で高速に実装が可能なものが採用されており、その計算は$O(1)$時間でできます。
+</p>
+<p>
+$p$として$2^p-1$が素数あるもの、すなわち$p$がメルセンヌ指数であるものを採用していることがポイントです。
+これにより最長の周期 (すなわち周期が$2^p-1$)を達することが比較的簡単にチェックすることができます。
+今回はその方法について見ていきます。
+</p>
+<h2>方法1: 最もナイーブな方法</h2>
+<p>
+周期の最長性を確認する最もナイーブな方法は$\bm{0}$以外のある$\bm{x}_0$をとり, $\bm{x}_1, \bm{x}_2, \dots$を順番に計算していき$\bm{x}_{2^p-1}$で初めて$\bm{x}_0$に戻ってくることを確認する方法です。
+</p>
+<p>
+これは$O(2^p)$時間かかりとても現実的な時間ではできません。
+</p>
+<h2>方法2: $f$の行列の位数を調べる方法</h2>
+<p>
+次の定理があります。
+</p>
+<div class="framed">
+<b>定理1</b><br>
+$K$を有限体とする。
+$\bm{x} \in K^d - \{0\}$を初期値として$K$上の$d$次正方行列$A$による状態遷移を考える。<br>
+これの周期が最長、つまり周期が$\#(K)^d - 1$となる必要十分条件は行列$A$の乗法位数が$\#(K)^d - 1$となること
+</div>
+<p>
+これを使えば$f$の行列の乗法位数が$2^p-1$になることをチェックすればいいわけです。
+今、$2^p-1$は素数なので、$2^p-1$乗が$E$になることさえチェックできれば十分です。
+$p$次行列の掛け算が$O(p^3)$時間でできることを考えれば、このチェックは$O(p^4)$時間でできます。
+</p>
+<p>
+方法1より改善しましたが、まだ時間がかかります。
+</p>
+<h2>方法3: $f$の特性多項式を使う方法</h2>
+<div class="framed">
+<b>定理2</b><br>
+$K$を有限体とする。
+$\bm{x} \in K^d - \{0\}$を初期値として$K$上の$d$次正方行列$A$による状態遷移を考える。<br>
+これの周期が最長、つまり周期が$\#(K)^d - 1$となる必要十分条件は$A$の特性多項式が原始多項式となること。
+</div>
+<p>
+ここに原始多項式とは次で定義されるものです。
+</p>
+<div class="framed">
+<b>定義</b><br>
+$K$を有限体とする。
+$\varphi(t) \in K[t]$は$K[t]/(\varphi(t))$における$t$の乗法位数が$$\#(K)^{\deg \varphi(t)}-1$$となるとき、原始多項式という
+</div>
+<p>
+よって$f$の特性多項式$\varphi(t)$を計算し、$K[t]/(\varphi(t))$において$t^{2^p - 1} = 1$であることをチェックすればよいです。 
+次数が$p$以下の多項式同士の掛け算は$O(p^2)$時間でできることからその計算量は$O(p^3)$時間です。
+</p>
+<p>
+また、計算量は変わりませんが次も使えます。
+</p>
+<div class="framed">
+<b>定理3</b><br>
+$m$をメルセンヌ指数とし、$\varphi(t)$を$\F_2$上の$m$次多項式とする。
+$\varphi(t)$が原始多項式であるための必要十分条件は$F_2[t]/(\varphi(t))$において
+\[t^2 \not \equiv t \text{かつ} t^{2^p} \equiv t \]
+であること
+</div>
+<h2>方法4: Inverse-decimation method</h2>
+<p>
+実は$O(p^2)$のアルゴリズムが存在します。
+アルゴリズムを述べる前に準備をします。
+<p>
+$S^{\infty}$を$0, 1$からなる無限列全体のなす$\F_2$線形空間とします。すなわち
+\[S^{\infty} = \{ \chi = (\dots, x_5, x_4, x_3, x_2, x_1, x_0) \mid x_i \in \F_2 \}. \]
+<p>
+$D$ (delay operator)と$H$ (decimation operator)を次で定める$S^\infty$から$S^\infty$への線形作用素とします:
+\begin{align*}
+D(\dots, x_4, x_3, x_2, x_1, x_0) &= (\dots, x_5, x_4, x_3, x_2, x_1) \\
+H(\dots, x_4, x_3, x_2, x_1, x_0) &= (\dots, x_8, x_6, x_4, x_2, x_0)
+\end{align*}
+<div class="framed">
+<p>
+<b>定理4</b><br>
+$\varphi(t)$が$\F_2$上の多項式で次数$p$がメルセンヌ指数だとする。
+$\chi \in S^\infty$であって、$\varphi(D)\chi = 0, H\chi \ne \chi$であるものをとる。
+<p>
+このとき、$\varphi(t)$が原始的であるためには$H^p \chi = \chi$であることが必要十分。
+</div>
+<p>
+この定理を用いると、$O(p^2)$時間のアルゴリズムの存在が示せます。ただし、ここまでには述べていなかった仮定が必要です。
+<div class="framed">
+<p>
+<b>定理5</b><br>
+疑似乱数生成器の状態空間$V$を$\F_2$上の$p$次元ベクトル空間とする。ただし$p$はメルセンヌ指数。
+$f: V \to V$を線形な状態遷移写像とする。
+$b: V \to \F_2$を線形写像とする ($b$はたとえば状態から$1$ビットlook upするもの)。
+$f$と$b$は$O(1)$時間で計算できるものとする。
+<p>
+写像$\Phi: V \to \F_2^p$:
+\[\Phi: S \mapsto (bf^{p-1}(S), bf^{p-2}(S), \dots, bf(S), b(S))\]
+を全単射だと仮定する。
+そしてこの逆写像は$O(p)$時間で計算可能とする。
+<p>
+このとき、$f$の特性多項式の原始性は$O(p^2)$時間でテストできる。
+</div>
+<p>
+証明。 $\chi$を無限列$(\dots, bf^2(S), bf(S), b(S))$とする。
+$H(\chi) \ne \chi$となる$S$を選ぶ。
+<p>
+$H^m(\chi)$の最初の$p$ビットから$H^{m+1}(\chi)$の最初の$p$ビットを$O(p)$時間で求められることを示す。
+<p>
+$H^m(\chi)$の最初の$p$ビットから、$H^m(\chi)$を生成する状態$S_m$を得ることができる ($\Phi$の逆関数を使って$O(p)$時間で)。
+この状態から$H^m(\chi)$の最初の$2p$ビットを$O(2p)$時間で計算できる ($f$と$b$が$O(1)$なので)。
+ここでこの$2p$ビットの列から奇数項を間引き、$p$ビットの列を作る。
+すると$H^{m+1}(\chi)$の最初の$p$ビットを$O(p)$時間で得る。
+<p>
+以上の方法を繰り返せば$O(p^2)$時間で$H^p(\chi)$の最初の$p$ビットを得られる。
+あとは、定理4より、$H^p(\chi) = \chi$が成立することをチェックすればよい。 □
+<p>
+この定理のポイントは$\Phi$の逆関数の計算を$O(p)$時間でできるような$b: V \to \F_2$があると仮定した点です。
+メルセンヌツイスタの状態遷移写像$f$の詳細な形を見てその仮定が満たされることはチェック可能ですが、この記事では省くことにします。
+<h2>参考文献</h2>
+<p>[1] 松本眞 (2004), 「有限体の擬似乱数への応用」 (<a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/TEACH/0407-2.pdf">http://www.math.sci.hiroshima-u.ac.jp/~m-mat/TEACH/0407-2.pdf</a>)
+<p>[2] M. Matsumoto and T. Nishimura (1998), "<a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/ARTICLES/mt.pdf">Mersenne Twister: A 623-dimensionally equidistributed uniform pseudorandom number generator</a>", ACM Trans. on Modeling and Computer Simulation Vol. 8, No. 1, January pp.3-30
+
+</body>
+</html>
