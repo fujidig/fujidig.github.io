@@ -24,14 +24,15 @@ MathJax.Hub.Config({
 </head>
 <body>
 <h1>メルセンヌツイスタの周期の最長性</h1>
-<p align="right">author: fujidig, created at: 2017/11/23</p>
+<p align="right">author: fujidig, created at: 2017/12/9</p>
+<p><a href="https://qiita.com/advent-calendar/2017/math-and-computer2">数学とコンピュータⅡ Advent Calendar 2017</a> 9日目の記事です。</p>
 <p>
 メルセンヌツイスタは疑似乱数の一つです。
-特定の形をした$f: \F_2^p \to \F_2^p$が一つ固定され、与えられた初期状態$\bm{x}_0 \in \F_2^p$に対し次の漸化式によって内部状態が更新されます。
+特定の形をした線形写像$f: \F_2^p \to \F_2^p$が一つ固定され、与えられた初期状態$\bm{x}_0 \in \F_2^p$に対し次の漸化式によって内部状態が更新されます。
 \[ \bm{x}_{n+1} = f(\bm{x}_n) \]
 </p>
 <p>
-内部状態からある線形関数$g: \F_2^p \to \F_2^w$により
+内部状態からある線形写像$g: \F_2^p \to \F_2^w$により
 \[ \bm{y}_n = g(\bm{x}_n)\]
 により疑似乱数列が生成されます。
 </p>
