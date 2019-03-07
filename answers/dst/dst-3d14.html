@@ -21,13 +21,13 @@ MathJax.Hub.Config({
 <h1>DST Exercise 3D.14 解答</h1>
 <p align="right">作成者: @fujidig, 作成日: 2019/3/6</p>
 <p>
-Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.pdf">Descriptive Set Theory</a>" (2009)のExercise 3D.14の解答です。
+Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.pdf">Descriptive Set Theory</a>" (2009)のExercise 3D.14の解答です．
 </p>
 <h2>問題</h2>
 <p>
 任意のproduct space $\mathcal{X}$ に対してrecursiveな全射
 \[ \pi: \mathcal{N} \to \mathcal{X} \]
-が存在することを示せ。
+が存在することを示せ．
 </p>
 <h2>解答</h2>
 <p>
@@ -38,11 +38,11 @@ Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.p
 x^\alpha_0 &= r_{\alpha(0)}, \\
 x^\alpha_{n+1} &= \begin{cases} r_{\alpha(n+1)} & \text{$d(r_{\alpha(n+1)}, x^\alpha_n) \gt 2^{-n}$ のとき} \\ x^\alpha_n & \text{otherwise} \end{cases} \\
 \end{align*}
-である。
+である．
 </p>
 <div class="framed">
 <b>補題1 (原始再帰)</b><br>
-$f: \mathcal{X} \to \omega, g: \mathcal{X} \times \omega \times \omega \to \omega$ がrecursive functionだとする。
+$f: \mathcal{X} \to \omega, g: \mathcal{X} \times \omega \times \omega \to \omega$ がrecursive functionだとする．
 このとき次で定義される$h: \mathcal{X} \times \omega \to \omega$もrecursiveである:
 \begin{align*}
 h(x, 0) &= f(x), \\
@@ -50,41 +50,41 @@ h(x, n+1) &= g(x, n, h(x, n)).
 \end{align*}
 </div>
 <p>
-証明。
+証明．
 $h(x, n) = m$という関係を考えると
 \begin{align*}
 h(x, n) = m &\iff (\exists l \in \omega)[(l)_0 = f(x) \& (\forall k&lt;n)((l)_{k+1} = g(x, n, (l)_k)) \& (l)_n = m]
 \end{align*}
-よりこれはsemirecursiveである。ゆえに $h$ は recursive functionである。 //
+よりこれはsemirecursiveである．ゆえに $h$ は recursive functionである． //
 </p>
 <div class="framed">
 <b>補題2 (場合分け)</b><br>
-$f, g: \mathcal{X} \to \mathcal{Y}$ がrecursive functionでかつ$A \subseteq \mathcal{X}$がrecursiveなとき、
+$f, g: \mathcal{X} \to \mathcal{Y}$ がrecursive functionでかつ$A \subseteq \mathcal{X}$がrecursiveなとき，
 \[
 h(x) = \begin{cases} f(x) & x \in A \\ g(x) & x \not \in A \end{cases}
 \]
-もrecursive functionである。
+もrecursive functionである．
 </div>
 <p>
-証明は明らか。 //
+証明は明らか． //
 </p>
 <div class="framed">
 <b>補題3</b><br>
-$f: \omega \to \mathcal{X}; f(n) = r_n$はrecursive function。
+$f: \omega \to \mathcal{X}; f(n) = r_n$はrecursive function．
 </div>
 <p>
-証明。recursive presentationの定義より $d(r_n, r_m) \lt \frac{m}{k+1}$ はrecursiveなのでOK。 //
+証明．recursive presentationの定義より $d(r_n, r_m) \lt \frac{m}{k+1}$ はrecursiveなのでOK． //
 </p>
 
 <p>
-$\varphi: \mathcal{N} \times \omega \to \omega$ を次で定義する。
+$\varphi: \mathcal{N} \times \omega \to \omega$ を次で定義する．
 \begin{align*}
 \varphi(\alpha, 0) &= \alpha(0) \\
 \varphi(\alpha, n + 1) &= \begin{cases} \alpha(n+1) & \text{$d(r_{\alpha(n+1)}, r_{\varphi(x, n)}) \gt 2^{-n}$ のとき} \\ \varphi(x, n) & \text{otherwise} \end{cases}
 \end{align*}
 </p>
 <p>
-<b>主張: </b>このとき $\varphi$ はrecursive functionである。
+<b>主張: </b>このとき $\varphi$ はrecursive functionである．
 </p>
 <p>
 ∵) まず以下の関数はrecursiveである:
@@ -95,11 +95,11 @@ f: \mathcal{N} \times \omega \to \omega;\ &(\alpha, n) \mapsto \alpha(n) &
 \[
 P(\alpha, \beta, n) \iff d(r_{\alpha(n+1)}, \beta) \gt 2^{-n}.
 \]
-よって、補題2より場合分けで定義される関数
+よって，補題2より場合分けで定義される関数
 \begin{align*}
 g(\alpha, n, m) = \begin{cases} \alpha(n+1) & \text{$d(r_{\alpha(n+1)}, r_m) \gt 2^{-n}$ のとき} \\ m & \text{otherwise} \end{cases}
 \end{align*}
-もrecursiveである。したがって補題1より $\varphi$ はrecursiveである。 //
+もrecursiveである．したがって補題1より $\varphi$ はrecursiveである． //
 </p>
 <p>
 $\varphi$と$\omega \to \mathcal{X}; n \to r_n$ (補題3よりrecursive)の合成により次の関数もrecursiveであることがわかる:
@@ -114,13 +114,13 @@ $\varphi$と$\omega \to \mathcal{X}; n \to r_n$ (補題3よりrecursive)の合�
 $\pi(\alpha) \in N(\mathcal{X}, s) \iff (\exists n\in \omega)(d(x^\alpha_n, \operatorname{center}(N(\mathcal{X}, s)) + 2^{-n+2} \le \operatorname{radius}(N(\mathcal{X}, s)))$
 </p>
 <p>
-証明。
+証明．
 <!--
-$\pi(\alpha) \in N(\mathcal{X}, s)$とすると$N(\mathcal{X}, s)$が開集合なことからある$\epsilon > 0$があって、
+$\pi(\alpha) \in N(\mathcal{X}, s)$とすると$N(\mathcal{X}, s)$が開集合なことからある$\epsilon > 0$があって，
 \[B(\pi(\alpha), \epsilon) \subseteq N(\mathcal{X}, s)\]
-また、$x^\alpha_n \to \pi(\alpha)$より十分大きな$n$に対して
+また，$x^\alpha_n \to \pi(\alpha)$より十分大きな$n$に対して
 \[ x^\alpha_n \in \overline{B(\pi(\alpha), \epsilon)} \]
-となる。そこで$\epsilon$より小さな$n$をとれば、$\x^\alpha_n$
+となる．そこで$\epsilon$より小さな$n$をとれば，$\x^\alpha_n$
 -->
 </p>
 <p>
@@ -128,10 +128,10 @@ $\pi(\alpha) \in N(\mathcal{X}, s)$とすると$N(\mathcal{X}, s)$が開集合�
 \[ (\forall n\in \omega)(d(x^\alpha_n, \operatorname{center}(N(\mathcal{X}, s)) + 2^{-n+2} \gt \operatorname{radius}(N(\mathcal{X}, s))). \]
 $n \to \infty$の極限をとれば
 \[ d(\pi(\alpha), \operatorname{center}(N(\mathcal{X}, s))) \ge \operatorname{radius}(N(\mathcal{X}, s)). \]
-よって左辺の否定が導かれた。
+よって左辺の否定が導かれた．
 </p>
 <p>
-($\Leftarrow$) 右辺を仮定すると$n\in\omega$があって、
+($\Leftarrow$) 右辺を仮定すると$n\in\omega$があって，
 \[ d(x^\alpha_n, \operatorname{center}(N(\mathcal{X}, s)) \le \operatorname{radius}(N(\mathcal{X}, s))) - 2^{-n+2}. \]
 $x^\alpha_n$の定め方より$d(x^\alpha_n, \pi(\alpha)) \le 2^{-n+1}$であることを使うと
 \begin{align*}
@@ -140,10 +140,10 @@ d(\pi(\alpha), \operatorname{center}(N(\mathcal{X}, s)) &\le d(\pi(\alpha), x^\a
 &= \operatorname{radius}(N(\mathcal{X}, s))) - 2^{-n+1} \\
 &\lt \operatorname{radius}(N(\mathcal{X}, s)))
 \end{align*}
-よって、$\pi(\alpha) \in N(\mathcal{X}, s)$である。 //
+よって，$\pi(\alpha) \in N(\mathcal{X}, s)$である． //
 </p>
 <p>
-主張より$\pi$はrecursiveなことが分かる。 □
+主張より$\pi$はrecursiveなことが分かる． □
 </p>
 <p><a href="../../">トップページ</a></p>
 </body>
