@@ -21,7 +21,7 @@ MathJax.Hub.Config({
 <h1>DST Exercise 3D.14 解答</h1>
 <p align="right">作成者: @fujidig, 作成日: 2019/3/6</p>
 <p>
-Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.pdf">Descriptive Set Theory</a>" (2009)のExercise 3D.14の解答です　(未完成)。
+Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.pdf">Descriptive Set Theory</a>" (2009)のExercise 3D.14の解答です。
 </p>
 <h2>問題</h2>
 <p>
@@ -111,10 +111,10 @@ $\varphi$と$\omega \to \mathcal{X}; n \to r_n$ (補題3よりrecursive)の合�
 
 <p>
 <b>主張: </b>
-$\pi(\alpha) \in N(\mathcal{X}, s) \iff (\exists n\in \omega)((d(x^\alpha_n, \operatorname{center}(N(\mathcal{X}, s))) + 2^{-n+1}) \le \operatorname{radius}(N(\mathcal{X}, s)))$
+$\pi(\alpha) \in N(\mathcal{X}, s) \iff (\exists n\in \omega)(d(x^\alpha_n, \operatorname{center}(N(\mathcal{X}, s)) + 2^{-n+2} \le \operatorname{radius}(N(\mathcal{X}, s)))$
 </p>
 <p>
-証明。 ($\Rightarrow$) <b style="color:red">考え中。なんか言えるのか怪しくなってきた</b>
+証明。
 <!--
 $\pi(\alpha) \in N(\mathcal{X}, s)$とすると$N(\mathcal{X}, s)$が開集合なことからある$\epsilon > 0$があって、
 \[B(\pi(\alpha), \epsilon) \subseteq N(\mathcal{X}, s)\]
@@ -124,11 +124,23 @@ $\pi(\alpha) \in N(\mathcal{X}, s)$とすると$N(\mathcal{X}, s)$が開集合�
 -->
 </p>
 <p>
-($\Leftarrow$) 右辺の否定を仮定する:
-\[ (\forall n\in \omega)((d(x^\alpha_n, \operatorname{center}(N(\mathcal{X}, s))) + 2^{-n+1}) \gt \operatorname{radius}(N(\mathcal{X}, s))). \]
+($\Rightarrow$) 右辺の否定を仮定する:
+\[ (\forall n\in \omega)(d(x^\alpha_n, \operatorname{center}(N(\mathcal{X}, s)) + 2^{-n+2} \gt \operatorname{radius}(N(\mathcal{X}, s))). \]
 $n \to \infty$の極限をとれば
 \[ d(\pi(\alpha), \operatorname{center}(N(\mathcal{X}, s))) \ge \operatorname{radius}(N(\mathcal{X}, s)). \]
-よって左辺の否定が導かれた。 //
+よって左辺の否定が導かれた。
+</p>
+<p>
+($\Leftarrow$) 右辺を仮定すると$n\in\omega$があって、
+\[ d(x^\alpha_n, \operatorname{center}(N(\mathcal{X}, s)) \le \operatorname{radius}(N(\mathcal{X}, s))) - 2^{-n+2}. \]
+$x^\alpha_n$の定め方より$d(x^\alpha_n, \pi(\alpha)) \le 2^{-n+1}$であることを使うと
+\begin{align*}
+d(\pi(\alpha), \operatorname{center}(N(\mathcal{X}, s)) &\le d(\pi(\alpha), x^\alpha_n) + d(x^\alpha_n, \operatorname{center}(N(\mathcal{X}, s)) \\
+&\le 2^{-n+1} + \operatorname{radius}(N(\mathcal{X}, s))) - 2^{-n+2} \\
+&= \operatorname{radius}(N(\mathcal{X}, s))) - 2^{-n+1} \\
+&\lt \operatorname{radius}(N(\mathcal{X}, s)))
+\end{align*}
+よって、$\pi(\alpha) \in N(\mathcal{X}, s)$である。 //
 </p>
 <p>
 主張より$\pi$はrecursiveなことが分かる。 □
