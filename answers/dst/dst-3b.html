@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DST Exercises 3B 解答</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../css/style.css">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+  TeX: {
+    Macros: {
+      floor: ['{\\lfloor #1 \\rfloor}', 1],
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+</head>
+<body>
+<h1>DST Exercise 3B 解答</h1>
+<p align="right">作成者: @fujidig, 作成日: 2019/3/9</p>
+<p>
+Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.pdf">Descriptive Set Theory</a>" (2009)の3B節のExercisesの解答です．
+</p>
+<h2>Exercise 3B.3</h2>
+<h3>問題</h3>
+<p>
+$j = 1, \dots, k$に対して空間$\{r^j_0, r^j_1, \dots\}$が$X_j$のrecursive presentationだとする。
+このとき、列
+\[ r_i = (r^1_{(i)_1}, r^2_{(i)_2}, \dots, r^k_{(i)_k}) \]
+は$\mathcal{X} = X_1 \times \dots \times X_k$のrecursive presentationであることを示せ。
+</p>
+<h3>解答</h3>
+<p>
+稠密集合の直積は稠密なので $\{ r_i \mid i \in \omega \} \subseteq \mathcal{X}$の稠密性はよい。
+\begin{align*}
+d(r_i, r_j) \le \frac{m}{l+1} \iff d(r^1_{(i)_1}, r^1_{(j)_1}) \le \frac{m}{l+1}\ \&\ \dots\ \&\ d(r^k_{(i)_k}, r^k_{(j)_k}) \le \frac{m}{l+1}
+\end{align*}
+で右辺は明らかにrecursiveである。$d(r_i, r_j) \lt \frac{m}{l+1}$も同様。
+よって、$\{ r_i \mid i \in \omega \}$は$\mathcal{X}$のrecursive presentationである。 □
+</p>
+<h2>Exercise 3B.4</h2>
+<h3>問題</h3>
+<p>
+$\mathcal{X} = X_1 \times \dots \times X_k$をproduct spaceとし、$N_s = N(\mathcal{X}, s)$をコード$s \in \omega$のbasic nbhdとする。
+次の関係がともにrecursiveなことを示せ:
+\begin{align*}
+P(s, m, l) &\iff \operatorname{radius}(N_s) \le \frac{m}{l+1}, \\
+Q(s, m, l) &\iff \operatorname{radius}(N_s) \lt \frac{m}{l+1}. 
+\end{align*}
+また、あるrecursive function $f$があって
+\[ \operatorname{center}(N_s) = r_{f(s)} \]
+であることを示せ。
+</p>
+<h3>解答</h3>
+<p>
+前半は、
+\[ \operatorname{radius}(N_s) = \max_{1 \le n \le k} \frac{((s)_n)_1}{((s)_n)_2 + 1} \]
+であることより直ちにわかる。
+</p>
+<p>
+後半は
+\[ f(s) = \langle 0, ((s)_1)_0, \dots, ((s)_k)_0 \rangle \]
+とおけばよい。 □
+</p>
+<h2>Exercise 3B.5</h2>
+<h3>問題</h3>
+<p>
+recursive functions $g: \omega \to \omega, h: \omega^2 \to \omega$があって、
+\[ \alpha \in N(\mathcal{N}, s) \iff ((s)_1)_1 \ne 0 \& (\forall i \lt g(s))[\alpha(i) = h(s, i)] \]
+なことを示せ。
+</p>
+<h3>解答</h3>
+<p>
+まず
+\begin{align*}
+\alpha \in N(\mathcal{N}, s) &\iff \alpha \in B(\mathcal{N}, (s)_1) \\
+&\iff \alpha \in B \left (r_{((s)_1)_0}, \frac{((s)_1)_1}{((s)_1)_2+1} \right ) \\
+&\iff d(\alpha, r_{((s)_1)_0}) \lt \frac{((s)_1)_1}{((s)_1)_2+1} \\
+\end{align*}
+に注意する。次に$\alpha \ne \beta, R \gt 0$に対して
+\begin{align*}
+d(\alpha, \beta) \lt R &\iff \frac{1}{\mu n [\alpha(n)\ne \beta(n)]+1} \lt R \\
+&\iff \frac{1}{R} - 1 \lt \mu n [ \alpha(n) \ne \beta(n) ] \\
+&\iff \left \lfloor \frac{1}{R} - 1 \right \rfloor + 1 \le \mu n [ \alpha(n) \ne \beta(n) ] \\
+&\iff \left \lfloor \frac{1}{R} \right \rfloor \le \mu n [ \alpha(n) \ne \beta(n) ] \\
+&\iff (\forall n \lt \lfloor 1/R \rfloor)[\alpha(n) = \beta(n)]
+\end{align*}
+である。
+よって、
+\begin{align*}
+g(s) &= \left \lfloor \frac{((s)_1)_2+1}{((s)_1)_1} \right \rfloor, \\
+h(s, i) &= r_{((s)_1)_0}(i) = (((s)_1)_0)_i
+\end{align*}
+とおけばよい。 □
+</p>
+<h2>Exercise 3B.6</h2>
+<h3>問題</h3>
+<p>
+あなたの好きなperfect Polish spaceに対してrecursive presentationを見つけよ。たとえば1Aのexercisesで定義した$C[0, 1]$や$H[0, 1]$など。
+</p>
+<h3>解答</h3>
+<p>
+$C[0, 1]$のrecursive presentationの一つを定義する。
+</p>
+<p>
+$C[0, 1]$の可算稠密集合として有理数係数の多項式全体があったことを思い出そう。そこで$r_i \in C[0, 1]$を
+\[
+r_i(t) = \sum_{n=0}^{(i)_0} (-1)^{(i)_{3n+1}} \frac{(i)_{3n+2}}{(i)_{3n+3}+1} t^n
+\]
+と定義する。ただし、この定義のもとで
+\begin{align*}
+P(i, j, m, k) &\iff d(r_i, r_j) \le \frac{m}{k+1} \\
+Q(i, j, m, k) &\iff d(r_i, r_j) \lt \frac{m}{k+1} \\
+\end{align*}
+がrecursiveになることの証明は難しいので省略する。
+概要を述べると、有理係数多項式$f(t)$の$[0, 1]$上のsupノルムを任意精度で計算できればよい。
+それには、$f'(t) = 0$となる点$t \in [0, 1]$たちに対する$f(t)$の値たちと$f(0), f(1)$の中で最も大きい値を計算すればよい。
+$f'(t) = 0$となる$t$を求めるには代数方程式を解くことになる。 □
+</p>
+
+<p><a href="../../">トップページ</a></p>
+</body>
+</html>
