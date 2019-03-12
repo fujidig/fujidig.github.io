@@ -100,7 +100,7 @@ h(s, i) &= r_{((s)_1)_0}(i) = (((s)_1)_0)_i
 <p>
 あなたの好きなperfect Polish spaceに対してrecursive presentationを見つけよ。たとえば1Aのexercisesで定義した$C[0, 1]$や$H[0, 1]$など。
 </p>
-<h3>解答</h3>
+<h3>解答1</h3>
 <p>
 $C[0, 1]$のrecursive presentationの一つを定義する。
 </p>
@@ -120,6 +120,29 @@ Q(i, j, m, k) &\iff d(r_i, r_j) \lt \frac{m}{k+1} \\
 $f'(t) = 0$となる$t$を求めるには代数方程式を解くことになる。 □
 </p>
 
+<h3>解答2</h3>
+<p>
+product space $\mathcal{X}$に対して$H[\mathcal{X}]$のrecursive presentationの一つを定義する。
+</p>
+<p>
+$D = \{r_i \mid i \in \omega \}$を$\mathcal{X}$のrecursive presentationとする。
+$H[\mathcal{X}]$の可算稠密集合として$D$の有限部分集合全体をとれたことに注意する。
+そこで$R_i \in H[\mathcal{X}]\ (i \in \omega)$を次で定義する:
+\[ R_i = \{ r_n \mid n \lt (i)_0, (i)_{n+1} \ne 0 \}. \]
+</p>
+<p>
+すると
+\begin{align*}
+d(R_i, R_j) \le q &\iff (\forall x \in R_i)(d(x, R_j) \le q)\ \&\ (\forall x \in R_j)(d(x, R_i) \le q) \\
+&\iff  (\forall x \in R_i)(\exists y \in R_j)(d(x, y) \le q)\ \&\ (\forall x \in R_j)(\exists y \in R_i)(d(x, y) \le q) \\
+&\iff  (\forall n \lt (i)_0)(\exists m \lt (j)_0)((i)_{n+1} \ne 0 \rightarrow ((j)_{m+1} \ne 0\ \&\ d(r_n, r_m) \le q)) \\
+&\hspace{2em} \&\ (\forall n \lt (j)_0)(\exists m \lt (i)_0)((j)_{n+1} \ne 0 \rightarrow ((i)_{m+1} \ne 0\ \&\ d(r_n, r_m) \le q))
+\end{align*}
+となるので関係$d(R_i, R_j) \le \frac{m}{l+1}$はrecursiveである。$d(R_i, R_j) \lt \frac{m}{l+1}$も同様。
+</p>
+<p>
+したがって、$\{ R_i \mid i \in \omega \}$は$H[\mathcal{X}]$のrecursive presentationである。 □
+</p>
 <p><a href="../../">トップページ</a></p>
 </body>
 </html>
