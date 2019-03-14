@@ -142,7 +142,14 @@ Q(x, y, m, k) &\iff d(x, y) \gt \frac{m}{k+1}
 </p>
 <h3>解答</h3>
 <p>
-<b>準備中</b>
+\[ x \lt y \iff (\exists q\in\mathbb{Q})(x \lt q \lt y) \]
+だから
+$x \lt q$と$x \gt q$ (ただし$q \in \mathbb{Q}$)の二つの関係がsemirecursiveなことを言えばよい．
+\[ x \lt q \iff (\exists n\in\omega)(d(x, q+n) \lt n) \]
+なのでExercise 3C.9より$x \lt q$はsemirecursiveとなる．$x \gt q$も同様．
+</p>
+<p>
+詳細な証明は有理数の自然数による符号化$n \mapsto (-1)^{(n)_0} \frac{(n)_1}{(n)_2+1}$を使って行えばよい． □
 </p>
 <h2>Exercise 3C.12</h2>
 <h3>問題</h3>
