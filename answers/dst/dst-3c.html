@@ -133,7 +133,17 @@ Q(x, y, m, k) &\iff d(x, y) \gt \frac{m}{k+1}
 </p>
 <h3>解答</h3>
 <p>
-<b>準備中</b>
+\begin{align*}
+d(x, y) \lt q &\iff (\exists i)(\exists q'\in\mathbb{Q})(0\le q'\lt q \land d(r_i, x)\lt q' \land d(r_i, y)\lt q-q') \tag{1} \\
+d(x, y) \gt q &\iff (\exists i)(\exists q'\in\mathbb{Q})(0\le q'\lt q \land d(r_i, x)\lt q' \land d(r_i, y)\gt q+q') \tag{2}
+\end{align*}
+が成り立つ．
+</p>
+<p>
+実際，(1)の右辺を仮定すると三角不等式より左辺が導ける．逆に(1)の左辺を仮定すると正の有理数$q' \lt (q - d(x, y)) / 2$がとれる．稠密性より$d(r_i, x) \lt q'$なる$i$をとる．すると$d(r_i, y) \le d(r_i, x) + d(x, y) \lt q' + (q - 2q') = q - q'$となるので(1)の右辺が言えた．
+</p>
+<p>
+(2)も同様に言える． □
 </p>
 <h2>Exercise 3C.11</h2>
 <h3>問題</h3>
