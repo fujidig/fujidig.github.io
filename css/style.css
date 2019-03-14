@@ -18,12 +18,17 @@ em, strong, dfn, code, samp, kbd, var, cite, abbr, acronym {
 
 body {
 	padding-top: 1em;
-	max-width: 900px;
 	margin: 0 auto;
 	line-height: 1.5;
 	color: #000;
 	background-color: #f8f8f8;
 	font-size: 100%;
+}
+
+@media screen and (min-width: 980px) {
+	body {
+		max-width: 900px;
+	}
 }
 
 p, ul, ol, dl, pre, form, address {
