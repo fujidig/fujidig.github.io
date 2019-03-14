@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DST Exercises 3C 解答</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../css/style.css">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+  TeX: {
+    Macros: {
+      floor: ['{\\lfloor #1 \\rfloor}', 1],
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+</head>
+<body>
+<h1>DST Exercises 3C 解答</h1>
+<p align="right">作成者: @fujidig, 作成日: 2019/3/14</p>
+<p>
+Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.pdf">Descriptive Set Theory</a>" (2009)の3C節のExercisesの解答です．
+</p>
+<h2>Exercise 3C.6</h2>
+<h3>問題</h3>
+<p>
+各$\mathcal{X}$に対して、次の関係$Q \subseteq \mathcal{X} \times \mathcal{X}$がsemirecursiveなことを示せ:
+\[ Q(x, y) \iff x \ne y. \]
+</p>
+<h3>解答</h3>
+<p>
+まず、$\mathcal{X}$のHausdorff性より
+\[ x \ne y \iff (\exists s)(\exists t)[ x \in N_s \land y \in N_t \land N_s \cap N_t = \varnothing] \]
+が言える。
+</p>
+<p>
+次に、$N_s \cap N_t = \varnothing$という条件は次のように書ける:
+\[ \operatorname{radius}(N_s) + \operatorname{radius}(N_t) \lt d(\operatorname{center}(N_s), \operatorname{center}(N_t))). \]
+</p>
+<p>
+よって
+\begin{align*}
+&x \ne y \iff (\exists s)(\exists t)[ x \in N_s \land y \in N_t \land \\
+&\hspace{9.5em}\operatorname{radius}(N_s) + \operatorname{radius}(N_t) \lt d(\operatorname{center}(N_s), \operatorname{center}(N_t)))
+\end{align*}
+となり、$x \ne y$はsemirecursiveである。 □
+</p>
+<h2>Exercise 3C.7</h2>
+<h3>問題</h3>
+<p>
+$\mathcal{X}$がtype 0の空間で、$f: \mathcal{X} \to \omega$を関数とする。
+このとき$f$がrecursiveなことと$\operatorname{Graph}(f) = \{(x, n) \mid f(x) = n\}$がsemirecursiveなことを示せ。
+</p>
+<h3>解答</h3>
+<p>
+関数$f$がrecursiveなら、次の関数も明らかにrecursiveである。
+\[
+\chi(x, n) = \begin{cases} 1 & f(x) = n \\ 0 & f(x) \ne n \end{cases}
+\]
+よって、$\operatorname{Graph}(f)$はrecursiveである。
+</p>
+<p>
+逆に$\operatorname{Graph}(f)$がsemirecursiveだとする。このとき定理3C.2より
+\[ f(x) = m \iff (\exists n)R(x, m, n) \]
+となるrecursiveな関係$R$がある。
+\[ f(x) = (\mu n R(x, (n)_0, (n)_1))_0 \]
+より$f$はrecursiveである。 □
+</p>
+<h2>Exercise 3C.8</h2>
+<h3>問題</h3>
+<p>
+$A \subseteq \omega$がsemirecursiveであるためには、$A = \varnothing$またはrecursive function $f: \omega \to \omega$が存在して
+\[ A = \{ f(0), f(1), f(2), \dots \} \]
+となることが必要十分であることを示せ。
+</p>
+<h3>解答</h3>
+<p>
+定理3C.4より、$A \subseteq \omega$がsemirecursiveなことは
+\[n \in A \iff (\exists s)R(n, s)\]
+となるrecursive relation $R$が存在することと同値であった。
+</p>
+<p>
+このような$R$があると仮定して、$A \ne \varnothing$とする。すると$a \in A$がとれる。このとき$f$を
+\[
+f(i) = \begin{cases} (i)_0 & R((i)_0, (i)_1) \\ a & \text{otherwise} \end{cases}
+\]
+で定義する。すると$A = \operatorname{ran}(f)$になっている。
+</p>
+<p>
+逆にrecursive function $f$について$A = \operatorname{ran}(f)$であると仮定する。すると
+\[ n \in A \iff (\exists i)(n = f(i)) \]
+であるので$A$はsemirecursiveである。$A = \varnothing$のときも明らかにsemirecursiveである。 □
+</p>
+<h2>Exercise 3C.9</h2>
+<h3>問題</h3>
+<p>
+$\mathcal{X}$をproduct spaceとし、$\{r_0, r_1, \dots\}$をそのrecursive presentationとする。
+このとき次の関係:
+\begin{align*}
+P(x, i, m, k) &\iff d(x, r_i) \lt \frac{m}{k+1} \\
+Q(x, i, m, k) &\iff \frac{m}{k+1} \lt d(x, r_i)
+\end{align*}
+がともにsemirecursiveなことを示せ。
+</p>
+<h3>解答</h3>
+<p>
+関係$P$については、
+\[
+d(x, r_i) \lt \frac{m}{k+1} \iff (\exists s)[x \in N_s \land \operatorname{center}(N_s) = r_i \land \operatorname{radius}(N_s) \lt \frac{m}{k+1}]
+\]
+よりよい。関係$Q$については、
+\[
+d(x, r_i) \gt \frac{m}{k+1} \iff (\exists s)[x \in N_s \land N_s \cap B(r_i, \frac{m}{k+1}) = \varnothing]
+\]
+なことに注意する。ここでExercise 3C.6で使った、二つの近傍が交わらないことを表す式を使えば、
+\[
+d(x, r_i) \gt \frac{m}{k+1} \iff (\exists s)[x \in N_s \land \frac{m}{k+1} + \operatorname{radius}(N_s) \lt d(r_i, \operatorname{center}(N_s))]
+\]
+となり、この右辺はsemirecursiveである。 □
+</p>
+<h2>Exercise 3C.10</h2>
+<h3>問題</h3>
+<p>
+$\mathcal{X}$をproduct spaceとする。
+このとき次の関係:
+\begin{align*}
+P(x, y, m, k) &\iff d(x, y) \lt \frac{m}{k+1} \\
+Q(x, y, m, k) &\iff d(x, y) \gt \frac{m}{k+1}
+\end{align*}
+がともにsemirecursiveなことを示せ。
+</p>
+<h3>解答</h3>
+<p>
+<b>準備中</b>
+</p>
+<h2>Exercise 3C.11</h2>
+<h3>問題</h3>
+<p>
+実数上の関係$x \lt y$がsemirecursiveなことを示せ。
+</p>
+<h3>解答</h3>
+<p>
+<b>準備中</b>
+</p>
+<h2>Exercise 3C.12</h2>
+<h3>問題</h3>
+<p>
+semirecursive setの全体は以下を満たすpointclassのうち最小のものである:
+</p>
+<ul>
+<li>type 0のすべてのrecursive pointsetを含む</li>
+<li>各basic space $X$について次の関係$P^X \subseteq X \times \omega^3$を含む:
+\[ P^X(x, i, m, k) \iff d(r_i, x) \lt \frac{m}{k+1} \]
+</li>
+<li>
+trivial substitution, $\&$, $\lor$, $\exists^\le$, $\forall^\le$, $\exists^\omega$で閉じている 
+</li>
+</ul>
+<h3>解答</h3>
+<p>
+semirecursive setの全体は条件を満たしている。逆に$\Gamma$が条件を満たすpointclassであるとする。
+</p>
+<p>
+このとき、まず、各product space $\mathcal{X}$について$\{(x, s) \in \mathcal{X} \times \omega \mid x \in N(\mathcal{X}, s)\} \in \Gamma$である。
+実際、これは次に注意すればわかる:
+\begin{align*}
+x \in N(\mathcal{X}, s) &\iff x_1 \in B(X_1, (s)_1) \land \dots \land x_k \in B(X_k, (s)_k) \\
+&\iff P^{X_1}(x_1, ((s)_1)_0, ((s)_1)_1, ((s)_1)_2) \land \dots \land P^{X_k}(x_k, ((s)_k)_0, ((s)_k)_1, ((s)_k)_2) 
+\end{align*}
+</p>
+<p>
+このことを使うと任意のsemirecursive setが$\Gamma$に入ることがわかる。実際、
+\[ G = \bigcup_{n \in \omega} N(\mathcal{X}, \epsilon(n))\ (\epsilon \in \mathcal{N}, \text{$\epsilon$はrecursive}) \]
+をsemirecursive setとする。
+</p>
+<p>
+すると
+\begin{align*}
+x \in G &\iff (\exists n)[x \in N(\mathcal{X}, \epsilon(n))] \\
+&\iff (\exists n)(\exists s)[s = \epsilon(n) \land x \in N(\mathcal{X}, s)] \\
+\end{align*}
+より$G$は$\Gamma$に入る。
+</p>
+<p>
+以上よりsemirecursive set全体は条件を満たすpointclassのうち最小である。 □
+</p>
+<h2>Exercise 3C.13</h2>
+<h3>問題</h3>
+<p>
+pointset $P \subseteq \mathcal{X}$がopenであるためには、semirecursive set $Q \subseteq \mathcal{N} \times \mathcal{X}$と無理数$\epsilon$が存在して
+\[ P(x) \iff Q(\epsilon, x) \]
+となることが必要十分であることを示せ。
+</p>
+<h3>解答</h3>
+<p>
+十分性) semirecursive setは定義より明らかにopen setである。open setのsectionはopenであるので十分性がわかる。
+</p>
+<p>
+必要性) $P$をopen setとする。すると$P$はbasic nbhdの可算和で表せる。よってその番号を列挙して$\epsilon(0), \epsilon(1), \dots$とすることで
+\[ P = \bigcup_{s\in \omega} N(\mathcal{X}, \epsilon(s)) \]
+となる。$Q$を
+\[ Q(\epsilon, x) \iff (\exists s)(x \in N(\mathcal{X}, \epsilon(s))) \]
+と定義すればよい。
+</p>
+<h2>Exercise 3C.14</h2>
+<h3>問題</h3>
+<p>
+semirecursive setの全体のなすpointclassは、任意のproduct space $\mathcal{Y}$について$\exists^\mathcal{Y}$で閉じていることを示せ。
+</p>
+<h3>解答</h3>
+<p>
+<b>準備中</b>
+</p>
+<p><a href="../../">トップページ</a></p>
+</body>
+</html>
