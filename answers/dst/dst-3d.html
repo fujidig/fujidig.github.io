@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DST Exercises 3D 解答</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../css/style.css">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+  TeX: {
+    Macros: {
+      floor: ['{\\lfloor #1 \\rfloor}', 1],
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+</head>
+<body>
+<h1>DST Exercises 3D 解答</h1>
+<p align="right">作成者: @fujidig, 作成日: 2019/3/17</p>
+<p>
+Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.pdf">Descriptive Set Theory</a>" (2009)の3D節のExercisesの解答です．
+</p>
+<h2>Exercise 3D.8</h2>
+<h3>問題</h3>
+<p>
+次の関数がrecursiveなことを示せ
+</p>
+<ol start=19>
+<li>$f(\alpha, n) = \alpha(n)$</li>
+<li>$f(\alpha, n) = \bar{\alpha}(n) = \langle \alpha(0), \dots \alpha(n-1) \rangle$</li>
+<li>$f(\alpha, i) = (\alpha)_i$</li>
+<li>$f(\alpha) = \alpha^\star$</li>
+<li>$f(\alpha_0, \dots \alpha_{k-1}) = \langle \alpha_0, \dots, \alpha_{k-1} \rangle$</li>
+<li>$f(i) = r_i$</li>
+<li>$f(x, y) = x + y\ (x, y\in \mathbb{R})$</li>
+<li>$f(x, y) = x \cdot y\ (x, y\in \mathbb{R})$</li>
+</ol>
+<h3>解答</h3>
+<ol start=25><li>$f(x, y) = x + y\ (x, y\in \mathbb{R})$</li></ol>
+<p>
+$x, y \in \mathbb{R}, q, R \in \mathbb{Q}$に対する関係
+\[ |x+y-q| \lt R \]
+がsemirecursiveであればよい．
+\begin{align*}
+&|x+y-q| \lt R \iff
+(\exists r \in \mathbb{Q})(\exists q_1 \in \mathbb{Q})(\exists q_2 \in \mathbb{Q}) \\
+&\hspace{12em}[|x-q_1| \lt r \land |y-q_2| \lt r \land |q_1+q_2-q| \lt R-2r]
+\end{align*}
+が成り立つのでよい．
+</p>
+<p>
+実際 ($\Leftarrow$) は三角不等式より自明．
+($\Rightarrow$)を示す．
+有理数$r$で$0 \lt r \lt (R - |x+y-q|) / 4$をみたすものをとる．
+稠密性より$q_1, q_2 \in \mathbb{Q}$で$|x-q_1|\lt r, |y-q_2|\lt r$をみたすものをとる．
+すると
+\begin{align*}
+|q_1+q_2-q| &= |q_1-x+q_2-y+x+y-q| \\
+&\le |q_1-x| + |q_2-y| + |x+y-q| \\
+&\lt r + r + (R-4r) = R - 2r
+\end{align*}
+となる．よって右辺が導かれた． //
+</p>
+<ol start=26><li>$f(x, y) = x \cdot y\ (x, y\in \mathbb{R})$</li></ol>
+<p>
+$x, y \in \mathbb{R}, q, R \in \mathbb{Q}$に対する関係
+\[ |xy-q| \lt R \]
+がsemirecursiveであればよい．
+\begin{align*}
+&|x+y-q| \lt R \iff
+(\exists r \in \mathbb{Q})(\exists q_1 \in \mathbb{Q})(\exists q_2 \in \mathbb{Q}) \\
+&\hspace{12em}[r \lt 1 \land |x-q_1| \lt r \land |y-q_2| \lt r\ \land \\
+&\hspace{16em} |q_1q_2-q| \lt R-(|q_1|+|q_2|+1)r]
+\end{align*}
+が成り立つのでよい．
+</p>
+<p>
+($\Leftarrow$) について．
+\begin{align*}
+|xy-q| &\le |xy-q_1 q_2| + |q_1 q_2-q| \\
+&\le |x| |y-q_2| + |q_2| |x-q_1| + |q_1 q_2-q| \\
+&\lt (|q_1|+|q_2|+1)r + |q_1 q_2 - q| \\
+&\lt R
+\end{align*}
+よりよい．
+</p>
+<p>
+($\Rightarrow$) について．
+まず$M = \max\{|x|, |y|\}$とおく．
+次に有理数$r$を
+\[ 0 \lt r \lt \min\{\frac{R-|xy-q|}{4M+4}, 1\} \]
+なるようにとる．
+稠密性より$|x-q_1|\lt r, |y-q_2|\lt r$となる$q_1, q_2\in\mathbb{Q}$をとる．
+すると
+\begin{align*}
+|q_1 q_2 - q| &\le |q_1 q_2 - xy| + |xy - q| \\
+&\le |q_1| |q_2-y| + |y| |q_1-x| + |xy-q| \\
+&\le (2M+1)r + |xy - q|
+\end{align*}
+である．よって
+\begin{align*}
+(|q_1|+|q_2|+1)r + |q_1q_2-q| &\le (2M+3)r + (2M+1)r + |xy-q| \\
+&= (4M+4)r + |xy-q| \\
+&\lt R-|xy-q| + |xy-q| \\
+&= R
+\end{align*}
+すなわち
+\[ |q_1q_2-q| \lt R-(|q_1|+|q_2|+1)r \]
+が言えた． //
+</p>
+<p><a href="../../">トップページ</a></p>
+</body>
+</html>
