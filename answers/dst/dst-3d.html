@@ -166,7 +166,69 @@ $x, y \in \mathbb{R}, q, R \in \mathbb{Q}$に対する関係
 \end{align*}
 すなわち
 \[ |q_1q_2-q| \lt R-(|q_1|+|q_2|+1)r \]
-が言えた． //
+が言えた． // □
+</p>
+<h2>Exercise 3D.9</h2>
+<h3>問題</h3>
+<p>
+実数への関数$f: \mathcal{X} \to \mathbb{R}$がrecursiveであるためには関係
+\[ P(x, u, v) \iff (-1)^{(u)_0} \frac{(u)_1}{(u)_2 + 1} \lt f(x) \lt (-1)^{(v)_0} \frac{(v)_1}{(v)_2 + 1} \]
+がsemirecursiveであることが必要十分であることを示せ．
+</p>
+<h3>解答</h3>
+<p>
+$f$がrecursiveなことの定義は，次の関係
+\[ G^f(x, s) \iff f(x) \in N(\mathbb{R}, s) \]
+がsemirecursiveであることであった．$\mathbb{R}$のrecursive presentationの与え方を思い出すと，
+\begin{align*}
+G^f(x, s) &\iff \text{$f(x)$が中心$(-1)^{(((s)_1)_0)_0} \frac{(((s)_1)_0)_1}{(((s)_1)_0)_2 + 1}$で半径$\frac{((s)_1)_1}{((s)_1)_2 + 1}$の開球に含まれる} \\
+&\iff (-1)^{(((s)_1)_0)_0} \frac{(((s)_1)_0)_1}{(((s)_1)_0)_2 + 1} - \frac{((s)_1)_1}{((s)_1)_2 + 1} \lt f(x) \lt (-1)^{(((s)_1)_0)_0} \frac{(((s)_1)_0)_1}{(((s)_1)_0)_2 + 1} + \frac{((s)_1)_1}{((s)_1)_2 + 1}
+\end{align*}
+である．よって$P$がsemirecursiveであれば，$G^f$もsemirecursiveとなる．
+</p>
+<p>
+逆に
+\begin{align*}
+q_1 \lt f(x) \lt q_2 \iff \text{$f(x)$が中心$(q_1 + q_2) / 2$で半径$(q_2 - q_1) / 2$の開球に含まれる}
+\end{align*}
+という関係を使うと$P$は$G^f$にrecursiveな関数を代入した形で書けることが分かる．よって$G^f$がsemirecursiveならば$P$はsemirecursiveである． □
+</p>
+<h2>Exercise 3D.10</h2>
+<h3>問題</h3>
+<p>各$\mathcal{X}$について，距離関数$f: \mathcal{X} \times \mathcal{X} \to \mathbb{R}$, 
+\[ f(x, y) = d(x, y) \]
+がrecursiveなことを示せ．
+</p>
+<h3>解答</h3>
+<p>
+これはExercise 3C.10とExercise 3D.9からほぼ明らか． □
+</p>
+<h2>Exercise 3D.11</h2>
+<h3>問題</h3>
+<p>
+$\Gamma$を$\Sigma$-pointclassとし，$g: \omega \times \mathcal{X} \to \omega$を$\Gamma$-recursiveとする．
+また，各$x$について$n$があり$g(n, x) = 0$を満たすとする．
+最小化によって定義される関数$f$:
+\[ f(x) = \mu n [g(n, x) = 0] \]
+が$\Gamma$-recursiveなことを示せ．
+</p>
+<h3>解答</h3>
+<p>
+$f$のグラフが$\Gamma$に入ることを言えばよい．
+\begin{align*}
+f(x) = m &\iff (\forall n \lt m)[g(n, x) \ne 0] \land g(m, x) = 0 \\
+&\iff (\forall n \lt m)(\exists t)[g(n, x) = t \land t \ne 0] \land g(m, x) = 0
+\end{align*}
+であり，$\Gamma$が$\Sigma$-pointclassなので，これは$\Gamma$に属する関係である． □
+</p>
+<h2>Exercise 3D.12</h2>
+<h3>問題</h3>
+<p>
+$\mathcal{X}$をtype 0 or 1の空間，$\mathcal{Y}$をtype 0の空間とする．$P \subseteq \mathcal{X} \times \mathcal{Y}$をsemirecursive setとする．このときsemirecursiveな$P^\ast \subseteq P$であって$P$をuniformizeするものがあることを示せ．
+</p>
+<h3>解答</h3>
+<p>
+<b>準備中</b>
 </p>
 <p><a href="../../">トップページ</a></p>
 </body>
