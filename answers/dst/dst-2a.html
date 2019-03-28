@@ -26,24 +26,24 @@ Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.p
 <h2>Exercise 2A.3</h2>
 <h3>問題</h3>
 <p>
-点$x$がpointset $A$の孤立点であるとは$x \in A$であって、$A$の集積点でない点のことをいう。
-pointsetはたかだか可算の孤立点を持つことを示せ。
+点$x$がpointset $A$の孤立点であるとは$x \in A$であって，$A$の集積点でない点のことをいう．
+pointsetはたかだか可算の孤立点を持つことを示せ．
 </p>
 <h3>解答</h3>
 <p>
-第二可算空間$X$のpointset $A$を固定する。
-$X$の可算な開基$\mathcal{B}$をとる。
-$A$の孤立点全体の集合を$I$とすれば、単射
+第二可算空間$X$のpointset $A$を固定する．
+$X$の可算な開基$\mathcal{B}$をとる．
+$A$の孤立点全体の集合を$I$とすれば，単射
 \[ f: I \to \mathcal{B} \]
-が作れる。実際、各$I$の点$x$は$\mathcal{B}$のメンバーで$A$の点を$x$しか含まないものを持つからそれを各$x$に対して選び$f(x)$とすればよい。
-$f$が単射なので、$|I| \le |\mathcal{B}| \le \aleph_0$である。 □
+が作れる．実際，各$I$の点$x$は$\mathcal{B}$のメンバーで$A$の点を$x$しか含まないものを持つからそれを各$x$に対して選び$f(x)$とすればよい．
+$f$が単射なので，$|I| \le |\mathcal{B}| \le \aleph_0$である． □
 </p>
 <h2>Exercise 2A.4</h2>
 <h3>問題</h3>
 <p>
 pointset $A$の導集合$A'$を次で定義する:
 \[ A' = \{ x \in A \mid \text{$x$ is a limit point of $A$} \}. \]
-固定した閉集合$A$に対して、超限再帰によって集合$A_\xi$たちを次で定める:
+固定した閉集合$A$に対して，超限再帰によって集合$A_\xi$たちを次で定める:
 \begin{align*}
 A_0 &= A, \\
 A_{\xi+1} &= (A_{\xi})', \\
@@ -51,33 +51,33 @@ A_\lambda &= \bigcap_{\xi\lt\lambda} A_\xi & \text{if $\lambda$ is a limit ordin
 \end{align*}
 </p>
 <p>
-このとき、ある可算順序数$\lambda$について$\bigcap_\xi A_\xi = A_\lambda$なこと、$A_\lambda$がperfectなこと (空かもしれない)、そして$A \setminus A_\lambda$が可算なことを示せ。
+このとき，ある可算順序数$\lambda$について$\bigcap_\xi A_\xi = A_\lambda$なこと，$A_\lambda$がperfectなこと (空かもしれない)，そして$A \setminus A_\lambda$が可算なことを示せ．
 (これはCantor-Bendixsonの定理の別証明である)
 </p>
 <h3>解答</h3>
 <p>
-まず$\{A_\xi\}_\xi$は単調減少な閉集合の列なことに注意する。
+まず$\{A_\xi\}_\xi$は単調減少な閉集合の列なことに注意する．
 </p>
 <p>
-$X$は第二可算なので可算な開基$\{U_n \mid n \in \omega \}$がとれる。
+$X$は第二可算なので可算な開基$\{U_n \mid n \in \omega \}$がとれる．
 \[ I_\xi = \{ n \in \omega \mid U_n \cap A_\xi = \varnothing \} \]
-とおく。$I_\xi$は開集合$A_\xi^\mathrm{c}$に含まれるようなnbhdの番号の全体である。よって$I_\xi$は$A_\xi$の情報を完全に持っている。
+とおく．$I_\xi$は開集合$A_\xi^\mathrm{c}$に含まれるようなnbhdの番号の全体である．よって$I_\xi$は$A_\xi$の情報を完全に持っている．
 </p>
 <p>
-今、$\xi \le \eta$ならば$I_\xi \subseteq I_\eta$である。
-もしすべての$\xi \lt \omega_1$について$I_\xi \subsetneq I_{\xi+1}$であるとする。このとき$f(\xi) = \min (I_{\xi+1} \setminus I_\xi)$とおけば$f: \omega_1 \to \omega$は単射。これは$\omega_1$の定義に反する。
+今，$\xi \le \eta$ならば$I_\xi \subseteq I_\eta$である．
+もしすべての$\xi \lt \omega_1$について$I_\xi \subsetneq I_{\xi+1}$であるとする．このとき$f(\xi) = \min (I_{\xi+1} \setminus I_\xi)$とおけば$f: \omega_1 \to \omega$は単射．これは$\omega_1$の定義に反する．
 </p>
 <p>
-よって、$I_{\xi_0} = I_{\xi_0+1}$となる$\xi_0 \lt \omega_1$が存在し、したがって$A_{\xi_0} = A_{\xi_0+1}$である。
-このとき$\xi > \xi_0$に対して$A_\xi = A_{\xi_0}$となっていることが分かる。
-ゆえに、$\bigcap_\xi A_\xi = A_{\xi_0}$である。
+よって，$I_{\xi_0} = I_{\xi_0+1}$となる$\xi_0 \lt \omega_1$が存在し，したがって$A_{\xi_0} = A_{\xi_0+1}$である．
+このとき$\xi > \xi_0$に対して$A_\xi = A_{\xi_0}$となっていることが分かる．
+ゆえに，$\bigcap_\xi A_\xi = A_{\xi_0}$である．
 </p>
 <p>
-$A_{\xi_0} = A_{\xi_0+1} = (A_{\xi_0})'$ということは$A_{\xi_0}$に孤立点はない。
+$A_{\xi_0} = A_{\xi_0+1} = (A_{\xi_0})'$ということは$A_{\xi_0}$に孤立点はない．
 </p>
 <p>
 \[ A \setminus A_{\xi_0} = \bigcup_{\xi \lt \xi_0} A_{\xi+1} \setminus A_\xi \]
-であり、$A_{\xi+1} \setminus A_\xi$は$A_\xi$の孤立点全体なのだから、Exercise 2A.3より可算集合。可算集合の可算和は可算なので$A \setminus A_{\xi_0}$も可算集合である。 □
+であり，$A_{\xi+1} \setminus A_\xi$は$A_\xi$の孤立点全体なのだから，Exercise 2A.3より可算集合．可算集合の可算和は可算なので$A \setminus A_{\xi_0}$も可算集合である． □
 </p>
 <p><a href="../../">トップページ</a></p>
 </body>

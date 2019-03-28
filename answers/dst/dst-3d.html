@@ -43,38 +43,38 @@ Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.p
 <li>$f(\alpha, n) = \alpha(n)$</li>
 </ol>
 <p>
-終域が$\omega$であるため、定理3D.2よりグラフ
+終域が$\omega$であるため，定理3D.2よりグラフ
 \[ \{(\alpha, n, m) \mid \alpha(n) = m  \}\]
-がsemirecursiveなことを示せばよい。しかし定理3C.3でこれがrecursiveなことを示している。よってOK。 //
+がsemirecursiveなことを示せばよい．しかし定理3C.3でこれがrecursiveなことを示している．よってOK． //
 </p>
 <ol start=20>
 <li>$f(\alpha, n) = \bar{\alpha}(n) = \langle \alpha(0), \dots \alpha(n-1) \rangle$</li>
 </ol>
 <p>
-これもグラフがsemirecursiveを言えばよい。
+これもグラフがsemirecursiveを言えばよい．
 \begin{align*}
 \bar{\alpha}(n) = m &\iff \operatorname{Seq}(m) \land \operatorname{lh}(m) = n \land (\forall i \lt n)[(m)_i = \alpha(i)]
 \end{align*}
-なのでOK。 //
+なのでOK． //
 </p>
 <ol start=21>
 <li>$f(\alpha, i) = (\alpha)_i$</li>
 </ol>
 <p>
-定理3D.3より、$f^\ast(\alpha, i, n) = (\alpha)_i(n) = \alpha(\langle i, n \rangle)$がrecursiveなことを言えばよい。ところがこれは$(i, n) \mapsto \langle i, n \rangle$と19番の関数 (ともにrecursive)の合成なためrecursiveである。 //
+定理3D.3より，$f^\ast(\alpha, i, n) = (\alpha)_i(n) = \alpha(\langle i, n \rangle)$がrecursiveなことを言えばよい．ところがこれは$(i, n) \mapsto \langle i, n \rangle$と19番の関数 (ともにrecursive)の合成なためrecursiveである． //
 </p>
 <ol start=22>
 <li>$f(\alpha) = \alpha^\star$</li>
 </ol>
 <p>
 \[ (\alpha, n) \mapsto \alpha(n+1) \]
-は19番よりrecursiveなので、やはり定理3D.3よりrecursiveである。 //
+は19番よりrecursiveなので，やはり定理3D.3よりrecursiveである． //
 </p>
 <ol start=23>
 <li>$f(\alpha_0, \dots \alpha_{k-1}) = \langle \alpha_0, \dots, \alpha_{k-1} \rangle$</li>
 </ol>
 <p>
-簡単のため、$k=2$で示す:
+簡単のため，$k=2$で示す:
 \[ f(\alpha_0, \alpha_1) = \langle \alpha_0, \alpha_1 \rangle.\]
 </p>
 <p>
@@ -86,7 +86,7 @@ Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.p
 0 & \text{otherwise} \\
 \end{cases}
 \]
-はrecursiveである。これは、recursiveな関数たちから場合分けによって作られる関数もrecursiveなことに注意すればよい。よって、定理3D.2より$f$はrecursiveである。 //
+はrecursiveである．これは，recursiveな関数たちから場合分けによって作られる関数もrecursiveなことに注意すればよい．よって，定理3D.2より$f$はrecursiveである． //
 </p>
 <ol start=24>
 <li>$f(i) = r_i$</li>
@@ -94,7 +94,7 @@ Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.p
 <p>
 recursive presentationの定義より
 \[ d(r_i, r_j) \lt \frac{m}{k+1} \]
-はrecursiveである。よって関数がrecursiveであることの定義に戻れば$f$がrecursiveなことが分かる。 //
+はrecursiveである．よって関数がrecursiveであることの定義に戻れば$f$がrecursiveなことが分かる． //
 </p>
 <ol start=25><li>$f(x, y) = x + y\ (x, y\in \mathbb{R})$</li></ol>
 <p>
