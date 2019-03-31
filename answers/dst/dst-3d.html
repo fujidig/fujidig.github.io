@@ -256,6 +256,129 @@ $\mathcal{N}\times\omega$と$\mathcal{N}$の間には次のrecursive homeomorphi
 <p>
 これらの写像を繰り返し合成すればtype 1の任意の空間と$\mathcal{N}$の間にrecursive homeomorphismが作れる。 □
 </p>
+<h2>Exercise 3D.14</h2>
+<h3>問題</h3>
+<p>
+任意のproduct space $\mathcal{X}$ に対してrecursiveな全射
+\[ \pi: \mathcal{N} \to \mathcal{X} \]
+が存在することを示せ．
+</p>
+<h3>解答</h3>
+<p>
+定理1A.1の写像 $\pi: \mathcal{N} \to \mathcal{X}$ で次で定義されるものがrecursiveなことを示す:
+\[\pi(\alpha) = \lim_{n\to\infty} x^\alpha_n. \]
+ここに
+\begin{align*}
+x^\alpha_0 &= r_{\alpha(0)}, \\
+x^\alpha_{n+1} &= \begin{cases} r_{\alpha(n+1)} & \text{$d(r_{\alpha(n+1)}, x^\alpha_n) \gt 2^{-n}$ のとき} \\ x^\alpha_n & \text{otherwise} \end{cases} \\
+\end{align*}
+である．
+</p>
+
+<div class="framed">
+<b>補題1 (原始再帰)</b><br>
+$f: \mathcal{X} \to \omega, g: \mathcal{X} \times \omega \times \omega \to \omega$ がrecursive functionだとする．
+このとき次で定義される$h: \mathcal{X} \times \omega \to \omega$もrecursiveである:
+\begin{align*}
+h(x, 0) &= f(x), \\
+h(x, n+1) &= g(x, n, h(x, n)).
+\end{align*}
+</div>
+<p>
+証明．
+$h(x, n) = m$という関係を考えると
+\begin{align*}
+h(x, n) = m &\iff (\exists l \in \omega)[(l)_0 = f(x) \& (\forall k&lt;n)((l)_{k+1} = g(x, n, (l)_k)) \& (l)_n = m]
+\end{align*}
+よりこれはsemirecursiveである．ゆえに $h$ は recursive functionである． //
+</p>
+<div class="framed">
+<b>補題2 (場合分け)</b><br>
+$f, g: \mathcal{X} \to \mathcal{Y}$ がrecursive functionでかつ$A \subseteq \mathcal{X}$がrecursiveなとき，
+\[
+h(x) = \begin{cases} f(x) & x \in A \\ g(x) & x \not \in A \end{cases}
+\]
+もrecursive functionである．
+</div>
+<p>
+証明。$f, g$がrecrusiveなので
+\begin{align*}
+G^f(x, s) &\iff f(x) \in N(s) \\
+G^g(x, s) &\iff g(x) \in N(s) \\
+\end{align*}
+はsemirecursiveである。よって
+\begin{align*}
+G^h(x, s) &\iff h(x) \in N(s) \\
+&\iff (x \in A \land f(x) \in N(s)) \lor (x \not \in A \land g(x) \in N(s)) \\
+&\iff (x \in A \land G^f(x, s)) \lor (x \not \in A \land G^g(x, s))
+\end{align*}
+はsemirecursiveである。 □
+</p>
+
+
+<p>
+$\varphi: \mathcal{N} \times \omega \to \omega$ を次で定義する．
+\begin{align*}
+\varphi(\alpha, 0) &= \alpha(0) \\
+\varphi(\alpha, n + 1) &= \begin{cases} \alpha(n+1) & \text{$d(r_{\alpha(n+1)}, r_{\varphi(x, n)}) \gt 2^{-n}$ のとき} \\ \varphi(x, n) & \text{otherwise} \end{cases}
+\end{align*}
+</p>
+<p>
+<b>主張: </b>このとき $\varphi$ はrecursive functionである．
+</p>
+<p>
+∵) まず以下の関数はrecursiveである:
+\begin{align*}
+f: \mathcal{N} \times \omega \to \omega;\ &(\alpha, n) \mapsto \alpha(n) &
+\end{align*}
+さらに以下の関係もrecursiveである (Exercise.3C.9より):
+\[
+P(\alpha, \beta, n) \iff d(r_{\alpha(n+1)}, \beta) \gt 2^{-n}.
+\]
+よって，補題2より場合分けで定義される関数
+\begin{align*}
+g(\alpha, n, m) = \begin{cases} \alpha(n+1) & \text{$d(r_{\alpha(n+1)}, r_m) \gt 2^{-n}$ のとき} \\ m & \text{otherwise} \end{cases}
+\end{align*}
+もrecursiveである．したがって補題1より $\varphi$ はrecursiveである． //
+</p>
+<p>
+$\varphi$と$\omega \to \mathcal{X}; n \to r_n$ (Exercise 3D.8 (24)よりrecursive)の合成により次の関数もrecursiveであることがわかる:
+\begin{align*}
+\mathcal{N} \times \omega &\to \mathcal{X} \\
+(\alpha, n) &\mapsto x^\alpha_n
+\end{align*}
+</p>
+
+<p>
+<b>主張: </b>
+$\pi(\alpha) \in N(\mathcal{X}, s) \iff (\exists n\in \omega)(d(x^\alpha_n, \operatorname{center}(N(\mathcal{X}, s)) + 2^{-n+2} \le \operatorname{radius}(N(\mathcal{X}, s)))$
+</p>
+<p>
+証明．
+</p>
+<p>
+($\Rightarrow$) 右辺の否定を仮定する:
+\[ (\forall n\in \omega)(d(x^\alpha_n, \operatorname{center}(N(\mathcal{X}, s)) + 2^{-n+2} \gt \operatorname{radius}(N(\mathcal{X}, s))). \]
+$n \to \infty$の極限をとれば
+\[ d(\pi(\alpha), \operatorname{center}(N(\mathcal{X}, s))) \ge \operatorname{radius}(N(\mathcal{X}, s)). \]
+よって左辺の否定が導かれた．
+</p>
+<p>
+($\Leftarrow$) 右辺を仮定すると$n\in\omega$があって，
+\[ d(x^\alpha_n, \operatorname{center}(N(\mathcal{X}, s)) \le \operatorname{radius}(N(\mathcal{X}, s))) - 2^{-n+2}. \]
+$x^\alpha_n$の定め方より$d(x^\alpha_n, \pi(\alpha)) \le 2^{-n+1}$であることを使うと
+\begin{align*}
+d(\pi(\alpha), \operatorname{center}(N(\mathcal{X}, s)) &\le d(\pi(\alpha), x^\alpha_n) + d(x^\alpha_n, \operatorname{center}(N(\mathcal{X}, s)) \\
+&\le 2^{-n+1} + \operatorname{radius}(N(\mathcal{X}, s))) - 2^{-n+2} \\
+&= \operatorname{radius}(N(\mathcal{X}, s))) - 2^{-n+1} \\
+&\lt \operatorname{radius}(N(\mathcal{X}, s)))
+\end{align*}
+よって，$\pi(\alpha) \in N(\mathcal{X}, s)$である． //
+</p>
+<p>
+主張より$\pi$はrecursiveなことが分かる． □
+</p>
+
 <p><a href="../../">トップページ</a></p>
 </body>
 </html>
