@@ -225,10 +225,36 @@ f(x) = m &\iff (\forall n \lt m)[g(n, x) \ne 0] \land g(m, x) = 0 \\
 <h3>問題</h3>
 <p>
 $\mathcal{X}$をtype 0 or 1の空間，$\mathcal{Y}$をtype 0の空間とする．$P \subseteq \mathcal{X} \times \mathcal{Y}$をsemirecursive setとする．このときsemirecursiveな$P^\ast \subseteq P$であって$P$をuniformizeするものがあることを示せ．
+$\mathcal{X}, \mathcal{Y}, P$について同じ仮定のもとで、もし$(\forall x)(\exists y)P(x, y)$が成り立つなら、recursiveな関数$f: \mathcal{X} \to \mathcal{Y}$が存在して$(\forall x)P(x, f(x))$となることを示せ。
 </p>
 <h3>解答</h3>
 <p>
-<b>準備中</b>
+(前半) 定理3C.4よりrecursiveな$Q$があって
+\[ P(x, y) \iff (\exists i)Q(x, y, i) \]
+と表せる。あとはExercise 1C.6と同じことをすればよい。
+</p>
+<p>
+(後半) uniformizeの定義より前半の$P^\ast$はある関数$f: \mathcal{X} \to \mathcal{Y}$のグラフになっている。定義域が$\mathcal{X}$全体になるのは仮定$(\forall x)(\exists y)P(x, y)$による。終域がtype 0なので関数$f$のグラフがsemirecursiveなことより$f$はrecursiveである。 □
+</p>
+<h2>Exercise 3D.13</h2>
+<h3>問題</h3>
+<p>
+$\mathcal{X}$と$\mathcal{Y}$をtype 0 or 1の空間で同じtypeとする。このときこの二つの空間はrecursive homeomorphicである。
+</p>
+<h3>解答</h3>
+<p>
+$\omega^2$と$\omega$の間には次のrecursive homeomorphismが存在する:
+\[ \pi(n, m) = \frac{1}{2}(n+m)(n+m+1)+m. \]
+この関数を繰り返し合成すれば$\omega^k$と$\omega^l\ (k, l \ge 1)$の間にrecursive homeomorphismが作れる。
+</p>
+<p>
+$\mathcal{N}\times\omega$と$\mathcal{N}$の間には次のrecursive homeomorphismが存在する:
+\[ (\alpha, n) \mapsto (n) {}^\frown \alpha. \]
+また$\mathcal{N}^2$と$\mathcal{N}$の間には次のrecursive homeomorphismが存在する:
+\[ (\alpha, \beta) \mapsto (\alpha(0), \beta(0), \alpha(1), \beta(1), \dots). \]
+</p>
+<p>
+これらの写像を繰り返し合成すればtype 1の任意の空間と$\mathcal{N}$の間にrecursive homeomorphismが作れる。 □
 </p>
 <p><a href="../../">トップページ</a></p>
 </body>
