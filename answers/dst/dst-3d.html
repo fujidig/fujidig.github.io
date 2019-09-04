@@ -15,7 +15,7 @@ MathJax.Hub.Config({
   }
 });
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
 </head>
 <body>
 <h1>DST Exercises 3D 解答</h1>
@@ -26,7 +26,7 @@ Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.p
 <h2>Exercise 3D.8</h2>
 <h3>問題</h3>
 <p>
-次の関数がrecursiveなことを示せ
+次の関数がrecursiveなことを示せ:
 </p>
 <ol start=19>
 <li>$f(\alpha, n) = \alpha(n)$</li>
@@ -39,6 +39,63 @@ Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.p
 <li>$f(x, y) = x \cdot y\ (x, y\in \mathbb{R})$</li>
 </ol>
 <h3>解答</h3>
+<ol start=19>
+<li>$f(\alpha, n) = \alpha(n)$</li>
+</ol>
+<p>
+終域が$\omega$であるため，定理3D.2よりグラフ
+\[ \{(\alpha, n, m) \mid \alpha(n) = m  \}\]
+がsemirecursiveなことを示せばよい．しかし定理3C.3でこれがrecursiveなことを示している．よってOK． //
+</p>
+<ol start=20>
+<li>$f(\alpha, n) = \bar{\alpha}(n) = \langle \alpha(0), \dots \alpha(n-1) \rangle$</li>
+</ol>
+<p>
+これもグラフがsemirecursiveを言えばよい．
+\begin{align*}
+\bar{\alpha}(n) = m &\iff \operatorname{Seq}(m) \land \operatorname{lh}(m) = n \land (\forall i \lt n)[(m)_i = \alpha(i)]
+\end{align*}
+なのでOK． //
+</p>
+<ol start=21>
+<li>$f(\alpha, i) = (\alpha)_i$</li>
+</ol>
+<p>
+定理3D.3より，$f^\ast(\alpha, i, n) = (\alpha)_i(n) = \alpha(\langle i, n \rangle)$がrecursiveなことを言えばよい．ところがこれは$(i, n) \mapsto \langle i, n \rangle$と19番の関数 (ともにrecursive)の合成なためrecursiveである． //
+</p>
+<ol start=22>
+<li>$f(\alpha) = \alpha^\star$</li>
+</ol>
+<p>
+\[ (\alpha, n) \mapsto \alpha(n+1) \]
+は19番よりrecursiveなので，やはり定理3D.3よりrecursiveである． //
+</p>
+<ol start=23>
+<li>$f(\alpha_0, \dots \alpha_{k-1}) = \langle \alpha_0, \dots, \alpha_{k-1} \rangle$</li>
+</ol>
+<p>
+簡単のため，$k=2$で示す:
+\[ f(\alpha_0, \alpha_1) = \langle \alpha_0, \alpha_1 \rangle.\]
+</p>
+<p>
+次の関数
+\[
+(\alpha_0, \alpha_1, n) = \begin{cases}
+\alpha_0((n)_1) & \text{if $\operatorname{lh}(n) = 2 \land (n)_0 = 0$} \\
+\alpha_1((n)_1) & \text{if $\operatorname{lh}(n) = 2 \land (n)_0 = 1$} \\
+0 & \text{otherwise} \\
+\end{cases}
+\]
+はrecursiveである．これは，recursiveな関数たちから場合分けによって作られる関数もrecursiveなことに注意すればよい．よって，定理3D.2より$f$はrecursiveである． //
+</p>
+<ol start=24>
+<li>$f(i) = r_i$</li>
+</ol>
+<p>
+recursive presentationの定義より
+\[ d(r_i, r_j) \lt \frac{m}{k+1} \]
+はrecursiveである．よって関数がrecursiveであることの定義に戻れば$f$がrecursiveなことが分かる． //
+</p>
 <ol start=25><li>$f(x, y) = x + y\ (x, y\in \mathbb{R})$</li></ol>
 <p>
 $x, y \in \mathbb{R}, q, R \in \mathbb{Q}$に対する関係
@@ -109,8 +166,219 @@ $x, y \in \mathbb{R}, q, R \in \mathbb{Q}$に対する関係
 \end{align*}
 すなわち
 \[ |q_1q_2-q| \lt R-(|q_1|+|q_2|+1)r \]
-が言えた． //
+が言えた． // □
 </p>
+<h2>Exercise 3D.9</h2>
+<h3>問題</h3>
+<p>
+実数への関数$f: \mathcal{X} \to \mathbb{R}$がrecursiveであるためには関係
+\[ P(x, u, v) \iff (-1)^{(u)_0} \frac{(u)_1}{(u)_2 + 1} \lt f(x) \lt (-1)^{(v)_0} \frac{(v)_1}{(v)_2 + 1} \]
+がsemirecursiveであることが必要十分であることを示せ．
+</p>
+<h3>解答</h3>
+<p>
+$f$がrecursiveなことの定義は，次の関係
+\[ G^f(x, s) \iff f(x) \in N(\mathbb{R}, s) \]
+がsemirecursiveであることであった．$\mathbb{R}$のrecursive presentationの与え方を思い出すと，
+\begin{align*}
+G^f(x, s) &\iff \text{$f(x)$が中心$(-1)^{(((s)_1)_0)_0} \frac{(((s)_1)_0)_1}{(((s)_1)_0)_2 + 1}$で半径$\frac{((s)_1)_1}{((s)_1)_2 + 1}$の開球に含まれる} \\
+&\iff (-1)^{(((s)_1)_0)_0} \frac{(((s)_1)_0)_1}{(((s)_1)_0)_2 + 1} - \frac{((s)_1)_1}{((s)_1)_2 + 1} \lt f(x) \lt (-1)^{(((s)_1)_0)_0} \frac{(((s)_1)_0)_1}{(((s)_1)_0)_2 + 1} + \frac{((s)_1)_1}{((s)_1)_2 + 1}
+\end{align*}
+である．よって$P$がsemirecursiveであれば，$G^f$もsemirecursiveとなる．
+</p>
+<p>
+逆に
+\begin{align*}
+q_1 \lt f(x) \lt q_2 \iff \text{$f(x)$が中心$(q_1 + q_2) / 2$で半径$(q_2 - q_1) / 2$の開球に含まれる}
+\end{align*}
+という関係を使うと$P$は$G^f$にrecursiveな関数を代入した形で書けることが分かる．よって$G^f$がsemirecursiveならば$P$はsemirecursiveである． □
+</p>
+<h2>Exercise 3D.10</h2>
+<h3>問題</h3>
+<p>各$\mathcal{X}$について，距離関数$f: \mathcal{X} \times \mathcal{X} \to \mathbb{R}$, 
+\[ f(x, y) = d(x, y) \]
+がrecursiveなことを示せ．
+</p>
+<h3>解答</h3>
+<p>
+これはExercise 3C.10とExercise 3D.9からほぼ明らか． □
+</p>
+<h2>Exercise 3D.11</h2>
+<h3>問題</h3>
+<p>
+$\Gamma$を$\Sigma$-pointclassとし，$g: \omega \times \mathcal{X} \to \omega$を$\Gamma$-recursiveとする．
+また，各$x$について$n$があり$g(n, x) = 0$を満たすとする．
+最小化によって定義される関数$f$:
+\[ f(x) = \mu n [g(n, x) = 0] \]
+が$\Gamma$-recursiveなことを示せ．
+</p>
+<h3>解答</h3>
+<p>
+$f$のグラフが$\Gamma$に入ることを言えばよい．
+\begin{align*}
+f(x) = m &\iff (\forall n \lt m)[g(n, x) \ne 0] \land g(m, x) = 0 \\
+&\iff (\forall n \lt m)(\exists t)[g(n, x) = t \land t \ne 0] \land g(m, x) = 0
+\end{align*}
+であり，$\Gamma$が$\Sigma$-pointclassなので，これは$\Gamma$に属する関係である． □
+</p>
+<h2>Exercise 3D.12</h2>
+<h3>問題</h3>
+<p>
+$\mathcal{X}$をtype 0 or 1の空間，$\mathcal{Y}$をtype 0の空間とする．$P \subseteq \mathcal{X} \times \mathcal{Y}$をsemirecursive setとする．このときsemirecursiveな$P^\ast \subseteq P$であって$P$をuniformizeするものがあることを示せ．
+$\mathcal{X}, \mathcal{Y}, P$について同じ仮定のもとで、もし$(\forall x)(\exists y)P(x, y)$が成り立つなら、recursiveな関数$f: \mathcal{X} \to \mathcal{Y}$が存在して$(\forall x)P(x, f(x))$となることを示せ。
+</p>
+<h3>解答</h3>
+<p>
+(前半) 定理3C.4よりrecursiveな$Q$があって
+\[ P(x, y) \iff (\exists i)Q(x, y, i) \]
+と表せる。あとはExercise 1C.6と同じことをすればよい。
+</p>
+<p>
+(後半) uniformizeの定義より前半の$P^\ast$はある関数$f: \mathcal{X} \to \mathcal{Y}$のグラフになっている。定義域が$\mathcal{X}$全体になるのは仮定$(\forall x)(\exists y)P(x, y)$による。終域がtype 0なので関数$f$のグラフがsemirecursiveなことより$f$はrecursiveである。 □
+</p>
+<h2>Exercise 3D.13</h2>
+<h3>問題</h3>
+<p>
+$\mathcal{X}$と$\mathcal{Y}$をtype 0 or 1の空間で同じtypeとする。このときこの二つの空間はrecursive homeomorphicである。
+</p>
+<h3>解答</h3>
+<p>
+$\omega^2$と$\omega$の間には次のrecursive homeomorphismが存在する:
+\[ \pi(n, m) = \frac{1}{2}(n+m)(n+m+1)+m. \]
+この関数を繰り返し合成すれば$\omega^k$と$\omega^l\ (k, l \ge 1)$の間にrecursive homeomorphismが作れる。
+</p>
+<p>
+$\mathcal{N}\times\omega$と$\mathcal{N}$の間には次のrecursive homeomorphismが存在する:
+\[ (\alpha, n) \mapsto (n) {}^\frown \alpha. \]
+また$\mathcal{N}^2$と$\mathcal{N}$の間には次のrecursive homeomorphismが存在する:
+\[ (\alpha, \beta) \mapsto (\alpha(0), \beta(0), \alpha(1), \beta(1), \dots). \]
+</p>
+<p>
+これらの写像を繰り返し合成すればtype 1の任意の空間と$\mathcal{N}$の間にrecursive homeomorphismが作れる。 □
+</p>
+<h2>Exercise 3D.14</h2>
+<h3>問題</h3>
+<p>
+任意のproduct space $\mathcal{X}$ に対してrecursiveな全射
+\[ \pi: \mathcal{N} \to \mathcal{X} \]
+が存在することを示せ．
+</p>
+<h3>解答</h3>
+<p>
+定理1A.1の写像 $\pi: \mathcal{N} \to \mathcal{X}$ で次で定義されるものがrecursiveなことを示す:
+\[\pi(\alpha) = \lim_{n\to\infty} x^\alpha_n. \]
+ここに
+\begin{align*}
+x^\alpha_0 &= r_{\alpha(0)}, \\
+x^\alpha_{n+1} &= \begin{cases} r_{\alpha(n+1)} & \text{$d(r_{\alpha(n+1)}, x^\alpha_n) \gt 2^{-n}$ のとき} \\ x^\alpha_n & \text{otherwise} \end{cases} \\
+\end{align*}
+である．
+</p>
+
+<div class="framed">
+<b>補題1 (原始再帰)</b><br>
+$f: \mathcal{X} \to \omega, g: \mathcal{X} \times \omega \times \omega \to \omega$ がrecursive functionだとする．
+このとき次で定義される$h: \mathcal{X} \times \omega \to \omega$もrecursiveである:
+\begin{align*}
+h(x, 0) &= f(x), \\
+h(x, n+1) &= g(x, n, h(x, n)).
+\end{align*}
+</div>
+<p>
+証明．
+$h(x, n) = m$という関係を考えると
+\begin{align*}
+h(x, n) = m &\iff (\exists l \in \omega)[(l)_0 = f(x) \& (\forall k&lt;n)((l)_{k+1} = g(x, n, (l)_k)) \& (l)_n = m]
+\end{align*}
+よりこれはsemirecursiveである．ゆえに $h$ は recursive functionである． //
+</p>
+<div class="framed">
+<b>補題2 (場合分け)</b><br>
+$f, g: \mathcal{X} \to \mathcal{Y}$ がrecursive functionでかつ$A \subseteq \mathcal{X}$がrecursiveなとき，
+\[
+h(x) = \begin{cases} f(x) & x \in A \\ g(x) & x \not \in A \end{cases}
+\]
+もrecursive functionである．
+</div>
+<p>
+証明。$f, g$がrecrusiveなので
+\begin{align*}
+G^f(x, s) &\iff f(x) \in N(s) \\
+G^g(x, s) &\iff g(x) \in N(s) \\
+\end{align*}
+はsemirecursiveである。よって
+\begin{align*}
+G^h(x, s) &\iff h(x) \in N(s) \\
+&\iff (x \in A \land f(x) \in N(s)) \lor (x \not \in A \land g(x) \in N(s)) \\
+&\iff (x \in A \land G^f(x, s)) \lor (x \not \in A \land G^g(x, s))
+\end{align*}
+はsemirecursiveである。 □
+</p>
+
+
+<p>
+$\varphi: \mathcal{N} \times \omega \to \omega$ を次で定義する．
+\begin{align*}
+\varphi(\alpha, 0) &= \alpha(0) \\
+\varphi(\alpha, n + 1) &= \begin{cases} \alpha(n+1) & \text{$d(r_{\alpha(n+1)}, r_{\varphi(x, n)}) \gt 2^{-n}$ のとき} \\ \varphi(x, n) & \text{otherwise} \end{cases}
+\end{align*}
+</p>
+<p>
+<b>主張: </b>このとき $\varphi$ はrecursive functionである．
+</p>
+<p>
+∵) まず以下の関数はrecursiveである:
+\begin{align*}
+f: \mathcal{N} \times \omega \to \omega;\ &(\alpha, n) \mapsto \alpha(n) &
+\end{align*}
+さらに以下の関係もrecursiveである (Exercise.3C.9より):
+\[
+P(\alpha, \beta, n) \iff d(r_{\alpha(n+1)}, \beta) \gt 2^{-n}.
+\]
+よって，補題2より場合分けで定義される関数
+\begin{align*}
+g(\alpha, n, m) = \begin{cases} \alpha(n+1) & \text{$d(r_{\alpha(n+1)}, r_m) \gt 2^{-n}$ のとき} \\ m & \text{otherwise} \end{cases}
+\end{align*}
+もrecursiveである．したがって補題1より $\varphi$ はrecursiveである． //
+</p>
+<p>
+$\varphi$と$\omega \to \mathcal{X}; n \to r_n$ (Exercise 3D.8 (24)よりrecursive)の合成により次の関数もrecursiveであることがわかる:
+\begin{align*}
+\mathcal{N} \times \omega &\to \mathcal{X} \\
+(\alpha, n) &\mapsto x^\alpha_n
+\end{align*}
+</p>
+
+<p>
+<b>主張: </b>
+$\pi(\alpha) \in N(\mathcal{X}, s) \iff (\exists n\in \omega)(d(x^\alpha_n, \operatorname{center}(N(\mathcal{X}, s)) + 2^{-n+2} \le \operatorname{radius}(N(\mathcal{X}, s)))$
+</p>
+<p>
+証明．
+</p>
+<p>
+($\Rightarrow$) 右辺の否定を仮定する:
+\[ (\forall n\in \omega)(d(x^\alpha_n, \operatorname{center}(N(\mathcal{X}, s)) + 2^{-n+2} \gt \operatorname{radius}(N(\mathcal{X}, s))). \]
+$n \to \infty$の極限をとれば
+\[ d(\pi(\alpha), \operatorname{center}(N(\mathcal{X}, s))) \ge \operatorname{radius}(N(\mathcal{X}, s)). \]
+よって左辺の否定が導かれた．
+</p>
+<p>
+($\Leftarrow$) 右辺を仮定すると$n\in\omega$があって，
+\[ d(x^\alpha_n, \operatorname{center}(N(\mathcal{X}, s)) \le \operatorname{radius}(N(\mathcal{X}, s))) - 2^{-n+2}. \]
+$x^\alpha_n$の定め方より$d(x^\alpha_n, \pi(\alpha)) \le 2^{-n+1}$であることを使うと
+\begin{align*}
+d(\pi(\alpha), \operatorname{center}(N(\mathcal{X}, s)) &\le d(\pi(\alpha), x^\alpha_n) + d(x^\alpha_n, \operatorname{center}(N(\mathcal{X}, s)) \\
+&\le 2^{-n+1} + \operatorname{radius}(N(\mathcal{X}, s))) - 2^{-n+2} \\
+&= \operatorname{radius}(N(\mathcal{X}, s))) - 2^{-n+1} \\
+&\lt \operatorname{radius}(N(\mathcal{X}, s)))
+\end{align*}
+よって，$\pi(\alpha) \in N(\mathcal{X}, s)$である． //
+</p>
+<p>
+主張より$\pi$はrecursiveなことが分かる． □
+</p>
+
 <p><a href="../../">トップページ</a></p>
 </body>
 </html>
