@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DST Exercises 1A 解答</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../css/style.css">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+  TeX: {
+    Macros: {
+      floor: ['{\\lfloor #1 \\rfloor}', 1],
+      R: ['{\\mathbb{R}}', 0],
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+</head>
+<body>
+<h1>DST Exercises 1A 解答</h1>
+<p align="right">作成者: @fujidig, 作成日: 2019/11/2</p>
+<p>
+Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.pdf">Descriptive Set Theory</a>" (2009)の1A節のExercisesの解答です．
+</p>
+<h2>Exercise 1A.4</h2>
+<h3>問題</h3>
+<p>
+各コンパクトなポーランド空間$X$について，$C[X]$を$X$から$\R$への連続関数全体の集合とし，次のsup距離を入れる:
+\[
+d(f, g) = \sup \{|f(x) - g(x)| : x \in X\}.
+\]
+$C[X]$が完全ポーランド空間なことを示せ．
+</p>
+<h3>解答</h3>
+<p>
+$X$がコンパクトなので$d(f, g)$は非負実数を定める．また，距離の公理は明らか．
+</p>
+<p>
+<u>完全性を示す</u>．$f \in C[X], \varepsilon > 0$とすると$f - \varepsilon$と$f$との距離は$\varepsilon$である．よって$f$は孤立点でない．
+</p>
+<p>
+<u>完備性を示す</u>．$\{f_n\}_{n\in \omega} \subseteq C[X]$をCauchy列とする．すなわち
+\[
+\forall \varepsilon > 0, \exists N \in \omega, \forall n, m \ge N, \forall x \in X, |f_n(x) - f_m(x)| \le \varepsilon. \tag{1}\label{cauchy}
+\]
+このとき各$x \in X$について$\{f_n(x)\}_{n\in\omega}$は$\R$のCauchy列．そこで$\R$の完備性よりその極限を$f(x)$とおく．
+$f_n$が$f$に収束することを示そう．$\varepsilon > 0$とする．
+\eqref{cauchy}より$N$がとれて，
+\[
+n, m \ge N, x \in X \Rightarrow |f_n(x) - f_m(x)| \le \varepsilon.
+\]
+ここで$m \to \infty$として
+\[
+n \ge N, x \in X \Rightarrow |f_n(x) - f(x)| \le \varepsilon.
+\]
+よって$f_n \to f (n \to \infty)$となる．これより，$f$は連続関数列の一様収束極限だから連続である．したがって完備性が示せた．
+</p>
+<p>
+<u>可分性を示す</u>．$X$の可分性より$\{x_n : n \in \omega \}$を$X$の可算稠密集合とする．$d_n: X \to \R$を次で定める．
+\[ d_n(x) = d(x, x_n). \]
+明らかに$d_n \in C[X]$である．
+$A$を定数関数$1$と$d_n$たちが生成する$C[X]$の部分代数とする．すなわち，
+\[
+A = \{ \sum_{i=0}^N c_i d_{n_{i,1}} \dots  d_{n_{i,m_i}} : N\in\omega, c_i \in \R, n_{i,1}, \dots, n_{i,m_i} \in \omega \text{ (for all $i \le N$)} \}.
+\]
+$A$は点を分離する，$x, y \in X$が異なる点なら$p \in A$があって，$p(x) \ne p(y)$となる．
+よってStone-Weierstrassの定理より$A$は$C[X]$で稠密である．
+また$A$の元の各項の係数を$\mathbb{Q}$に制限した
+\[
+A_0 = \{ \sum_{i=0}^N c_i d_{n_{i,1}} \dots  d_{n_{i,m_i}} : N\in\omega, c_i \in \mathbb{Q}, n_{i,1}, \dots, n_{i,m_i} \in \omega \text{ (for all $i \le N$)} \}.
+\]
+を考えると，$A_0$は$A$の中で稠密．
+よって，$A_0$は$C[X]$の可算稠密集合なので，$C[X]$は可分である． □
+</p>
+<p>
+参考文献:
+</p>
+<ol>
+<li><a href="https://math.stackexchange.com/questions/1331321/cx-is-separable-when-x-is-compact">functional analysis - $C(X)$ is separable when $X$ is compact? - Mathematics Stack Exchange</a> </li>
+</ol>
+<p><a href="../../">トップページ</a></p>
+</body>
+</html>
