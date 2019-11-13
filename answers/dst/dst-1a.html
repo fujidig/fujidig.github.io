@@ -138,7 +138,23 @@ $x \in A$を固定する．
 \[
 d(x, C) \le d(A, B) + d(B, C)
 \]
-を言えばよい． (執筆中)
+を言えばよい．
+</p>
+<p>
+任意の$y \in B$について
+\begin{align*}
+d(x, C) &= \min_{z \in C} d(x, z) \\
+&\le \min_{z \in C} (d(x, y) + d(y, z)) \\
+&= d(x, y) + \min_{z \in C} d(y, z) \\
+&= d(x, y) + d(y, C) \\
+&\le d(x, y) + d(B, C).
+\end{align*}
+$\min_{y \in B}$をとると
+\begin{align*}
+d(x, C) &\le d(x, B) + d(B, C) \\
+&\le d(A, B) + d(B, C).
+\end{align*}
+よって言えた。
 </p>
 <p>
 <u>可分性を言う</u>．
