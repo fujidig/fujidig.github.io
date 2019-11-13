@@ -85,21 +85,21 @@ A_0 = \{ \sum_{i=0}^N c_i d_{n_{i,1}} \dots  d_{n_{i,m_i}} : N\in\omega, c_i \in
 <h2>Exercise 1A.5</h2>
 <h3>問題</h3>
 <p>
-各完全なポーランド空間$X$について，$H[X]$を$X$のコンパクトな空でない部分集合全体とする。$x \in X$と$A \in H[X]$に対して
+各完全なポーランド空間$X$について，$H[X]$を$X$のコンパクトな空でない部分集合全体とする．$x \in X$と$A \in H[X]$に対して
 \[ d(x, A) = \inf_{y \in A} d(x, y) \]
-とおく。
+とおく．
 二つのコンパクト集合同士のハウスドルフ距離は次で定義される:
 \[ d(A, B) = \max \{ \sup_{x \in A} d(x, B), \sup_{y \in B} d(y, A) \}. \]
-これが$H[X]$上の距離であること、そして$H[X]$が完全ポーランド空間なことを示せ。
+これが$H[X]$上の距離であること，そして$H[X]$が完全ポーランド空間なことを示せ．
 </p>
 <h3>解答</h3>
 <p>
-まず$d(x, A)$の定義であるが、$A$がコンパクトで距離関数は連続なので、$\inf$は実際は$\min$である。
+まず$d(x, A)$の定義であるが，$A$がコンパクトで距離関数は連続なので，$\inf$は実際は$\min$である．
 </p>
 <p>
-次に$A \in H[X]$を固定したとき、$x \in X$の関数$d(x, A)$は連続なことを言おう。
+次に$A \in H[X]$を固定したとき，$x \in X$の関数$d(x, A)$は連続なことを言おう．
 
-$x, y \in X$とする。$a \in A$に対して、
+$x, y \in X$とする．$a \in A$に対して，
 \[
 d(x, a) \le d(y, a) + d(x, y)
 \]
@@ -114,61 +114,61 @@ $x, y$を入れ替えても同じことが言えるので
 \[
 |d(x, A) - d(y, A)| \le d(x, y).
 \]
-よって$d(x, A)$は連続。これより$d(A, B)$の定義の中の$\sup$は実際は$\max$となり、さらに$d(A, B)$は$0$以上の実数を定めていることが分かる。
+よって$d(x, A)$は連続．これより$d(A, B)$の定義の中の$\sup$は実際は$\max$となり，さらに$d(A, B)$は$0$以上の実数を定めていることが分かる．
 </p>
 <p>
-<u>距離の公理を確かめる</u>。
+<u>距離の公理を確かめる</u>．
 </p>
 <p>
-$d(A, A) = 0$について: 明らか。 //
+$d(A, A) = 0$について: 明らか． //
 </p>
 <p>
 $d(A, B) = 0 \Rightarrow A = B$について:
-$d(A, B) = 0$とすると$x \in A$について$d(x, B) = 0$、すなわち$x \in \bar{B} = B$。よって$A \subset B$。$B \subset A$も同様。 //
+$d(A, B) = 0$とすると$x \in A$について$d(x, B) = 0$，すなわち$x \in \bar{B} = B$．よって$A \subset B$．$B \subset A$も同様． //
 </p>
 <p>
 $d(A, C) \le d(A, B) + d(B, C)$について:
-$d(A, C)$の定義より、
+$d(A, C)$の定義より，
 \begin{align*}
 \max_{x\in A} d(x, C) \le d(A, B) + d(B, C) \\
 \max_{z\in C} d(z, A) \le d(A, B) + d(B, C) \\
 \end{align*}
-を言えばよい。上の式を示す (下の式も同様)。
-$x \in A$を固定する。
+を言えばよい．上の式を示す (下の式も同様)．
+$x \in A$を固定する．
 \[
 d(x, C) \le d(A, B) + d(B, C)
 \]
-を言えばよい。 (執筆中)
+を言えばよい． (執筆中)
 </p>
 <p>
-<u>可分性を言う</u>。
-$X$の可分性より可算な稠密集合$D \subset X$をとる。
+<u>可分性を言う</u>．
+$X$の可分性より可算な稠密集合$D \subset X$をとる．
 \[
 \mathscr{D} = \{ A \subset D \mid \text{$A$は有限集合} \}
 \]
-とおく。$\mathscr{D}$は$H[X]$の可算部分集合である。
-$\mathscr{D}$が$H[X]$内で稠密なことを言う。
+とおく．$\mathscr{D}$は$H[X]$の可算部分集合である．
+$\mathscr{D}$が$H[X]$内で稠密なことを言う．
 </p>
 <p>
-$A \in H[X], \varepsilon > 0$としたとき$C \in \mathscr{D}$があって$d(A, C) \lt \varepsilon$を言えばよい。
-$A$のコンパクト性より$A \subset \bigcup_{k=1}^n B(x_k, \varepsilon / 2)$となる有限個の点$x_1, \dots, x_n \in A$をとれる。
-$D$の稠密性より各$k = 1, \dots, n$に対して$d(y_k, x_k) \lt \varepsilon / 2$となる$y_k \in D$をとれる。
-$B = \{ x_1, \dots, x_n \}, C = \{ y_1, \dots, y_n \}$とおく。
+$A \in H[X], \varepsilon > 0$としたとき$C \in \mathscr{D}$があって$d(A, C) \lt \varepsilon$を言えばよい．
+$A$のコンパクト性より$A \subset \bigcup_{k=1}^n B(x_k, \varepsilon / 2)$となる有限個の点$x_1, \dots, x_n \in A$をとれる．
+$D$の稠密性より各$k = 1, \dots, n$に対して$d(y_k, x_k) \lt \varepsilon / 2$となる$y_k \in D$をとれる．
+$B = \{ x_1, \dots, x_n \}, C = \{ y_1, \dots, y_n \}$とおく．
 </p>
 <p>
-$B \subset A$より$\max_{x\in B} d(x, A) = 0$。また、$\max_{x \in A} d(x, B) \lt \varepsilon / 2$。よって、$d(A, B) \lt \varepsilon / 2$。
-また、$d(B, C) \lt \varepsilon / 2$も言える。よって三角不等式より$d(A, C) \lt \varepsilon$。OK。 //
+$B \subset A$より$\max_{x\in B} d(x, A) = 0$．また，$\max_{x \in A} d(x, B) \lt \varepsilon / 2$．よって，$d(A, B) \lt \varepsilon / 2$．
+また，$d(B, C) \lt \varepsilon / 2$も言える．よって三角不等式より$d(A, C) \lt \varepsilon$．OK． //
 </p>
 <p>
-<u>完全性を言う</u>。
-可分性の証明より、$X$の有限部分集合全体が$H[X]$で稠密である (これには$X$の可分性は使わない)。
-よって孤立点$A \in H[X]$があったとしたら、それは有限集合である。
-孤立点であることより$\varepsilon > 0$がとれて、$B \in H[X], d(A, B) \le \varepsilon \Rightarrow A = B$。
-$A$が空でない有限集合であることと、$X$の完全性より点$a \in X \setminus A$がとれて、$d(a, A) \lt \varepsilon$。
-すると$B = A \cup \{a\}$を考えると、これは$A$と異なるが、$A$との距離が$\varepsilon$未満である。矛盾した。よって$H[X]$に孤立点は存在しない。 //
+<u>完全性を言う</u>．
+可分性の証明より，$X$の有限部分集合全体が$H[X]$で稠密である (これには$X$の可分性は使わない)．
+よって孤立点$A \in H[X]$があったとしたら，それは有限集合である．
+孤立点であることより$\varepsilon > 0$がとれて，$B \in H[X], d(A, B) \le \varepsilon \Rightarrow A = B$．
+$A$が空でない有限集合であることと，$X$の完全性より点$a \in X \setminus A$がとれて，$d(a, A) \lt \varepsilon$．
+すると$B = A \cup \{a\}$を考えると，これは$A$と異なるが，$A$との距離が$\varepsilon$未満である．矛盾した．よって$H[X]$に孤立点は存在しない． //
 </p>
 <p>
-<u>完備性を言う</u>。(執筆中)
+<u>完備性を言う</u>．(執筆中)
 </p>
 <p><a href="../../">トップページ</a></p>
 </body>
