@@ -184,8 +184,266 @@ $A$が空でない有限集合であることと，$X$の完全性より点$a \i
 すると$B = A \cup \{a\}$を考えると，これは$A$と異なるが，$A$との距離が$\varepsilon$未満である．矛盾した．よって$H[X]$に孤立点は存在しない． //
 </p>
 <p>
-<u>完備性を言う</u>．(執筆中)
+<u>完備性を言う</u>．
+まず、$A \in H[X]$と$\varepsilon > 0$について
+\[ A + \varepsilon = \{ x \in X : d(x, A) \le \varepsilon \} \]
+とおく。
+次の補題は明らかである。
 </p>
+<div class="framed">
+補題1: $A, B \in H[X], \varepsilon > 0$とする。
+このとき
+\[d(A, B) \le \varepsilon \iff A \subset B + \varepsilon \land B \subset A + \varepsilon\]
+</div>
+<p>
+また、次の補題を用意する。
+</p>
+<div class="framed">
+補題2 (Extension Lemma):
+$\{A_n\}$を$H[X]$のコーシー列とし$\{n_k\}$を自然数の単調増加数列とする。
+$\{x_{n_k}\}$が$X$のコーシー列で
+\[ \forall k \in \omega(x_{n_k} \in A_{n_k}) \]
+ならばXのコーシー列$\{y_n\}$が存在して
+\[ \forall n (y_n \in A_n) \land \forall k (y_{n_k} = x_{n_k}). \]
+</div>
+<p>
+証明。
+各$n_{k-1} \lt n \le n_k$について$y_n \in A_n$で$d(x_{n_k}, A_n) = d(x_{n_k}, y_n)$となるものをとる。すると
+\[
+d(x_{n_k}, y_n) = d(x_{n_k}, A_n) \le d(A_{n_k}, A_n).
+\]
+特に$y_{n_k} = x_{n_k}$である。
+</p>
+<p>
+$\{y_n\}$がコーシー列なことを示す。
+$\varepsilon > 0$とする。$\{ x_{n_k} \}$がコーシー列なので$K \in \omega$があり、
+\[ k, j \ge K \Rightarrow d(x_{n_k}, x_{n_j}) \lt \varepsilon / 3. \]
+また、$\{A_n\}$が$H[X]$のコーシー列なので、$N \ge n_K$があり、
+\[ n, m \ge N \Rightarrow d(A_n, A_m) \lt \varepsilon / 3. \]
+$n, m \ge N$とする。
+すると$j, k \ge K$があり、
+\begin{align*}
+n_{k-1} &\lt n \le n_k, \\
+n_{j-1} &\lt m \le n_j.
+\end{align*}
+すると
+\begin{align*}
+(y_n, y_m) &\le d(y_n, x_{n_k}) + d(x_{n_k}, x_{n_j}) + d(x_{n_j}, y_m) \\
+&\le d(A_n, A_{n_k}) + d(x_{n_k}, x_{n_j}) + d(A_{n_j}, A_m) \\
+&< \varepsilon / 3 + \varepsilon / 3 + \varepsilon / 3 = \varepsilon.
+\end{align*}
+よって$\{y_n\}$はコーシー列。 □
+</p>
+<div class="framed">
+補題3:
+$\{A_n\}$を$H[X]$のコーシー列とする。
+\[
+A = \{ x \in X : \text{$X$の点列$\{x_n\}$が存在して$\lim_{n\to\infty} x_n = x$かつ$\forall n(x_n \in A_n)$} \}
+\]
+とおく。
+このとき$A$は非空な閉集合。
+</div>
+<p>
+証明。
+</p>
+<p>
+<u>主張</u>。$A$は非空。
+</p>
+<p>
+$\{A_n\}$がコーシー列なので
+</p>
+<p>
+$n_1$が存在して$\forall n, m \ge n_1 (d(A_m, A_n) \lt 1/2)$.
+</p>
+<p>
+$n_2 > n_1$が存在して$\forall n, m \ge n_2 (d(A_m, A_n) \lt 1/4)$.
+</p>
+<p>
+…
+</p>
+<p>
+同様のことを繰り返すことで$\{ n_k \}$という自然数の単調増加列がとれて
+\[ m, n \ge n_k \Rightarrow h(A_m, A_n) \lt 1/2^k. \]
+$x_{n_1} \in A_{n_1}$を固定。
+$x_{n_2} \in A_{n_2}$で$d(x_{n_1}, x_{n_2}) = d(x_{n_1}, A_{n_2})$なものを固定。
+すると
+\[
+d(x_{n_1}, x_{n_2}) = d(x_{n_1}, A_{n_2}) \le d(A_{n_1}, A_{n_2}) \lt 1/2.
+\]
+同様に$x_{n_3} \in A_{n_3}$で
+\[
+d(x_{n_2}, x_{n_3}) = d(x_{n_2}, A_{n_3}) \lt 1/4.
+\]
+なものをとれる。
+同じことを続けると列$\{x_{n_k}\}$で$x_{n_k} \in A_{n_k} (\forall k)$で
+\[ d(x_{n_k}, x_{n_{k+1}}) \lt 1/2^k \]
+なものをとれる。すると$\{x_{n_k}\}$はコーシー列。よってExtension Lemmaより$X$のコーシー列$\{y_n\}$がとれて$\forall n (y_n \in A_n)$かつ$\forall k (y_{n_k} = x_{n_k})$。
+$X$の完備性より$y = \lim_{n\to\infty} y_n$とする。すると$y \in A$。よって$A \ne \emptyset$。 //
+</p>
+<p>
+<u>主張</u>。$A$は閉集合。
+</p>
+<p>
+$a$を$A$の集積点とする。
+すると$A$の点列$\{a_k\}$で$a$に収束するものがとれる。
+各$k$について$a_k \in A$より列$\{y_n\}$で$\{y_n\}$は$a_k$に収束し、$\forall n (y_n \in A_n)$なものがある。
+よって
+</p>
+<p>
+$n_1$と$x_{n_1} \in A_{n_1}$があり、$d(x_{n_1}, a_1) \lt 1$.
+</p>
+<p>
+$n_2 > n_1$と$x_{n_2} \in A_{n_2}$があり、$d(x_{n_2}, a_1) \lt 1/2$.
+</p>
+<p>
+…
+</p>
+<p>
+同様のことを繰り返して、自然数の単調増加列$\{ n_k \}$と$X$の点列$\{x_{n_k}\}$があって、
+$\forall k ((x_{n_k}, a_k) \lt 1/k \land x_{n_k} \in A_{n_k})$を満たす。
+すると
+\begin{align*}
+d(x_{n_k}, a) &\le d(x_{n_k}, a_k) + d(a_k, a) \\
+&\le 1/k + d(a_k, a) \\
+&\to 0\,(k \to \infty).
+\end{align*}
+Extension Lemmaより$X$のコーシー列$\{y_n\}$がとれて$\forall n (y_n \in A_n)$かつ$\forall k (y_{n_k} = x_{n_k})$。
+$X$の完備性より$\{y_n\}$の極限が存在するが、部分列が$a$に収束しているので$\{y_n\}$も$a$に収束する。よって$a \in A$。
+これで$A$が閉集合なことが示された。 // □
+</p>
+<div class="framed">
+補題4:
+$\{A_n\}$を$K[X]$の元の列とする。
+$A \subset X$とし、$\forall \varepsilon > 0 \exists N (A \subset A_N + \varepsilon)$を仮定する。
+このとき$A$も全有界。
+</div>
+<p>
+証明。
+$\varepsilon > 0$とする。$N$を$A \subset A_N + \varepsilon / 4$となるようにとる。
+$A_N$は全有界なので$x_1, \dots, x_q \in A_N$があって、
+\[
+A_N \subset \bigcup_{i=1}^q B(x_i, \varepsilon / 4).
+\]
+ここで$x_1, \dots, x_q$を並び替えることで
+\begin{align*}
+B(x_i, \varepsilon / 2) \cap A \ne \emptyset & \quad\text{for } 1 \le i \le p \\
+B(x_i, \varepsilon / 2) \cap A = \emptyset & \quad\text{for } i \gt p
+\end{align*}
+としてよい。
+$1 \le i \le p$に対して$y_i \in B(x_i, \varepsilon / 2) \cap A$をとる。
+</p>
+<p>
+今、$A \subset \bigcup_{i=1}^p B(y_i, \varepsilon)$を示す。
+</p>
+<p>
+$a \in A$とする。すると$a \in A_N + \varepsilon / 4$より$d(a, A_N) \le \varepsilon / 4$。
+よって$x \in A_N$がとれて
+\[
+d(a, x) = d(a, A_N).
+\]
+すると
+\[
+\exists i \in \{1, \dots, q\}, x \in B(x_i, \varepsilon / 4).
+\]
+この$i$について$B(x_i, \varepsilon / 2) \cap A \ni a$なので$i \in \{1, \dots, p \}$である。
+このとき
+\begin{align*}
+d(a, x_i) &\le d(a, x) + d(x, x_i) \\
+&\le \varepsilon / 4 + \varepsilon / 4 = \varepsilon / 2. \\
+d(a, y_i) &\le d(a, x_i) + d(x_i, y_i) \\
+&\le \varepsilon / 2 + \varepsilon / 2 = \varepsilon.
+\end{align*}
+となる。よって$A \subset \bigcup_{i=1}^p B(y_i, \varepsilon)$が示せた。 □
+</p>
+<div class="framed">
+定理:
+$X$が完備なら、$H[X]$も完備。
+</div>
+<p>
+証明。
+$\{A_n\}$を$H[X]$のコーシー列とする。
+\[
+A = \{ x \in X : \text{$X$の点列$\{x_n\}$が存在して$\lim_{n\to\infty} x_n = x$かつ$\forall n(x_n \in A_n)$} \}
+\]
+とおく。$A \in H[X]$と$\{A_n\}$が$A$に収束することを示す。
+</p>
+<p>
+補題3より$A$は閉かつ非空である。
+</p>
+<p>
+<u>主張A</u>。$\forall \varepsilon > 0 \exists N \forall n \ge N (A \subset A_n + \varepsilon)$ 
+</p>
+<p>
+$\varepsilon > 0$とすると$\{A_n\}$がコーシー列なので$N$がとれて
+\[
+n, m \ge N \Rightarrow d(A_n, A_m) < \varepsilon.
+\]
+補題1より$m \gt n \ge N$のとき$A_m \subset A_n + \varepsilon$となる。
+$a \in A$と$n \ge N$を固定する。
+$A$の定義より$\{x_i\}$がとれて$x_i \in A_i$かつ$x_i \to a$。
+すると$i \ge n$なら$x_i \in A_i \subset A_n + \varepsilon$。
+$A_n + \varepsilon$は閉集合なので$a \in A_n + \varepsilon$。 // (主張A)
+</p>
+<p>
+主張Aと補題4から、$A$は全有界。よって$A$は全有界かつ完備空間の閉集合なのでコンパクト。ゆえに$A \in H[X]$。
+</p>
+<p>
+<u>主張B</u>。$A_n \to A\,(n \to \infty)$
+</p>
+<p>
+$\varepsilon > 0$とする。
+示すべきことは
+\[
+\exists N \forall n \ge N (A \subset A_n + \varepsilon \land A_n \subset A + \varepsilon)
+\]
+であるが、前者の$A \subset A_n + \varepsilon$は主張Aで証明済みである。よって後者を示す。
+</p>
+<p>
+$\{A_n\}$がコーシー列なので$N$がとれて
+\[
+m, n \ge N \Rightarrow d(A_m, A_n) \lt \varepsilon / 2.
+\]
+$\{A_n\}$がコーシー列なことを繰り返し使うと$N \lt n_1 \lt n_2 \lt n_3 \lt \dots$がとれて
+\[
+m, n \ge n_i \Rightarrow d(A_m, A_n) \lt \varepsilon 2^{-i-1}
+\]
+となる。
+</p>
+<p>
+$n \ge N, y \in A_n$とする。
+</p>
+<p>
+$A_n \subset A_{n_1} + \varepsilon / 2$より$x_{n_1} \in A_{n_1}$があって$d(y, x_{n+1}) \le \varepsilon / 2$。
+</p>
+<p>
+$A_{n+1} \subset A_{n_2} + \varepsilon / 4$より$x_{n_2} \in A_{n_2}$があって$d(x_{n+1}, x_{n+2}) \le \varepsilon / 4$。
+</p>
+<p>
+$A_{n+2} \subset A_{n_3} + \varepsilon / 8$より$x_{n_3} \in A_{n_3}$があって$d(x_{n+2}, x_{n+3}) \le \varepsilon / 8$。
+</p>
+<p>
+…
+</p>
+<p>
+この操作を繰り返すと$\{x_{n_i}\}$であって$\forall i (x_{n_i} \in A_{n_i})$かつ$\forall i (d(x_{n_i}, x_{n_{i+1}}) \le \varepsilon 2^{-i-1})$なものを得る。
+すると$\{x_{n_i}\}$はコーシー列である。
+そこで$X$の完備性を使い、その極限を$a$とする。
+Extension Lemmaより$a \in A$が分かる。
+加えて、任意の$i$について
+\begin{align*}
+d(y, x_{n_i}) &\le d(y, x_{n_1}) + d(x_{n_1}, x_{n_2}) + \dots + d(x_{n_{i-1}}, x_{n_i}) \\
+&\le \varepsilon / 2 + \varepsilon / 4 + \dots + \varepsilon / {2^i} \le \varepsilon
+\end{align*}
+を得る。$i \to \infty$とすれば$d(x, a) \le \varepsilon$。よって$y \in A+\varepsilon$。
+これで$A_n \subset A + \varepsilon$が示された。 // (主張B) □ (定理)
+</p>
+<p>
+参考文献:
+</p>
+<ol>
+<li>Katie Barich, <a href="https://www.whitman.edu/Documents/Academics/Mathematics/SeniorProject_KatieBarich.pdf">Proving Completeness of the Hausdorff Induced Metric Space</a></li>
+</ol>
+
 <p><a href="../../">トップページ</a></p>
 </body>
 </html>
