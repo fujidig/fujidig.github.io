@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>記述集合論覚え書き</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../css/style.css">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+  TeX: {
+    Macros: {
+      bm: ['{\\boldsymbol{#1}}', 1],
+      R: '\\mathbb{R}',
+      scrC: '\\mathcal{C}',
+      scrN: '\\mathcal{N}',
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+</head>
+<body>
+<h1>記述集合論覚え書き</h1>
+<p align="right">author: fujidig, created at: 2019/12/13</p>
+<p>
+記述集合論を勉強していて気付いたことをメモしていこうと思います．
+</p>
+<h2>記号など</h2>
+\begin{align*}
+\scrN &= {}^\omega \omega \\
+\scrC &= {}^\omega 2 \\
+\end{align*}
+をそれぞれベール空間，カントール空間とする．$\R$は通常の実数直線とする．
+<h2>recursiveな全射$f: \scrC \to \scrN$はない</h2>
+<p>
+recursiveな写像は連続だった．よってそのような$f$は$\scrC$から$\scrN$への連続全射になる．
+$\scrC$はコンパクトなのでその$f$による像もコンパクト．$\scrN$はコンパクトでないので矛盾である．
+</p>
+<h2>recursiveな全射$f: \R \to \scrN$はない</h2>
+<p>
+これは$\R$が連結で，$\scrN$が不連結であるから．
+</p>
+<h2>$\scrN$のコンパクト集合はmeager</h2>
+<p>
+$\scrN$のコンパクト集合はmeagerである．
+実際，$K$を$\scrN$のコンパクト集合とする．
+各第$i$成分への射影$\operatorname{pr}_i(K)$は$\omega$のコンパクト集合なので$\operatorname{pr}_i(K) \subset n_i$となる自然数$n_i$がある．
+よって，$K \subset \prod_{i\in\omega} n_i$となる．
+$\prod_{i\in\omega} n_i$がmeagerを言えばよいが，これは明らかに閉集合でかつ内部が空である．よって言えた．
+</p>
+<p>
+$\R$はコンパクト集合の可算和で書けるという性質があるが，$\scrN$にはこの性質はないことが分かる．コンパクト集合の可算和は上の事実よりmeagerであり，全体空間$\scrN$はmeagerでないことはBaireの範疇定理からの帰結だからである．
+</p>
+<h2>recursive presentationのとれるPolish spaceは同型を除いて可算個</h2>
+<p>
+Polish space $(X,d)$について$D = \{ r_i : i \in \omega \} \subset X$が$(X,d)$のrecursive presentationであるとは$D$が$X$の可算稠密集合であり，
+\begin{align*}
+P(i, j, m, n) &\iff d(r_i, r_j) \le \frac{m}{n+1} \\
+Q(i, j, m, n) &\iff d(r_i, r_j) \lt \frac{m}{n+1}
+\end{align*}
+がともにrecursiveであること．
+
+recursive presentationのとれるPolish spaceは同型 (等長同型)を除いて可算個しかない．
+なぜなら，$P, Q$からもとのPolish spaceと同型なものが復元できるからである．
+実際，$P, Q$から各$r_i$と$r_j$の間の正確な距離が分かる．
+集合$\omega$の元$i$と$j$に$r_i$と$r_j$の距離を入れ，完備化するともとの$(X, d)$と同型な空間が得られるからだ．
+recursiveな述語は可算個しかないので、結局recursive presentationのとれるPolish spaceは同型 (等長同型)を除いて可算個しかない．
+</p>
+<h2>recursive presentationのとれないperfect Polish spaceの具体例</h2>
+<p>
+補集合がrecursively enumerableでない$\omega$の部分集合$K$をとり，$\R$の閉部分集合として
+\[
+A = \bigcup_{x∈(\omega\setminus K)\cup\{0\}} [x-0.1, x+0.1]
+\]
+を考える．
+$A$にrecursive presentationがとれたらそこから$K$をcomputeできてしまう．
+</p>
+<h2>$\{(\alpha, \beta) \in \scrN^2 : \alpha = \beta \}$は$\Pi^0_1$だが$\Sigma^0_1$ではない</h2>
+<p>
+$\Sigma^0_1$なら、特に開集合であることを思い出そう。
+\[
+A = \{(\alpha, \beta) \in \scrN^2 : \alpha = \beta \}
+\]
+について$(0, 0) \in A$ (ここで$0$は常に$0$の列)だが、$(0, 0)$の近傍を持ってくるとそれが常に$A$に含まれているかというともちろんそんなわけはない。
+よって$A$は開集合ではなく、特に$\Sigma^0_1$ではない。
+<h2>$f: \scrN \to \scrN$について$f$がrecursiveであっても$\operatorname{Graph}(f)$はrecursiveとは限らない</h2>
+<p>
+$f(\alpha) = \alpha$はrecursiveだが、そのグラフは一つ上の項目の$A$なのでrecursiveでない。
+</p>
+<footer>
+<a href="..">トップページへ</a>
+</footer>
+</body>
+</html>
