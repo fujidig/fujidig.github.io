@@ -52,6 +52,25 @@ $\prod_{i\in\omega} n_i$がmeagerを言えばよいが，これは明らかに�
 <p>
 $\R$はコンパクト集合の可算和で書けるという性質があるが，$\scrN$にはこの性質はないことが分かる．コンパクト集合の可算和は上の事実よりmeagerであり，全体空間$\scrN$はmeagerでないことはBaireの範疇定理からの帰結だからである．
 </p>
+<h2>$\scrN$のコンパクト集合はLebesgue測度$0$とは限らない</h2>
+<p>
+$\omega$の確率測度$\mu_\omega(\{n\}) = 2^{-(n+1)}$としてその無限直積として$\scrN$に確率空間の構造が入っている．$\scrN$のルベーグ測度を$\mu$としよう．
+</p>
+<p>
+$\scrN$のコンパクト集合$K = \prod_{i\in\omega} n_i$の測度を考えよう．
+計算により
+\[
+\mu(K) = \prod_{i\in\omega} (1 - (1/2)^{n_i}) \tag{1}
+\]
+が分かる．
+解析学の事実 (Rudin "Real and Complex Analysis (3rd edition)"のTheorem 15.5など)より，
+\[
+\sum_{i\in\omega} (1/2)^{n_i}
+\]
+が収束すれば(1)は$0$でない値に収束する．
+よって，たとえば$n_i = i + 1$とすれば$\mu(K)$は正の値をとる．
+実際Wolframalphaによるとこの値は$0.288788\dots$となるそうだ． (<a href="https://www.wolframalpha.com/input/?i=product+%281-%281%2F2%29%5E%28n%2B1%29%29+from+n%3D0+to+infty">product (1-(1/2)^(n+1)) from n=0 to infty - Wolfram|Alpha</a>)
+</p>
 <h2>recursive presentationのとれるPolish spaceは同型を除いて可算個</h2>
 <p>
 Polish space $(X,d)$について$D = \{ r_i : i \in \omega \} \subset X$が$(X,d)$のrecursive presentationであるとは$D$が$X$の可算稠密集合であり，
