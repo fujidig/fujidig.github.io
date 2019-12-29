@@ -168,8 +168,8 @@ a:link, a:visited, a:active, a:hover, a:focus {
 }
 
 a:link {
-	border-bottom-color: #00f;
-	color: #00f;
+	border-bottom-color: #2525cc;
+	color: #2525cc;
 }
 
 a:visited {
