@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DST Exercises 1B 解答</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../css/style.css">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+  TeX: {
+    Macros: {
+      floor: ['{\\lfloor #1 \\rfloor}', 1],
+      R: ['{\\mathbb{R}}', 0],
+      boldsig: ['{\\boldsymbol{\\Sigma}}', 0],
+      boldpi: ['{\\boldsymbol{\\Pi}}', 0],
+      bolddelta: ['{\\boldsymbol{\\Delta}}}', 0],
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+</head>
+<body>
+<h1>DST Exercises 1B 解答</h1>
+<p align="right">作成者: @fujidig, 作成日: 2019/11/2</p>
+<p>
+Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.pdf">Descriptive Set Theory</a>" (2009)の1B節のExercisesの解答です．
+</p>
+<h2>Exercise 1B.2</h2>
+<h3>問題</h3>
+<p>
+$\mathcal{X} = X_1 \times \dots \times X_k$がproduct spaceで，少なくとも一つの因子$X_i$が$\mathcal{N}$で，どの因子$X_j$も$\mathcal{N}$または$\omega$のとき，$\mathcal{X}$は$\mathcal{N}$と同相なことを示せ．
+</p>
+<h3>解答</h3>
+<p>
+<a href="dst-3d.html">Exercise 3D.13</a>の解答を見よ． □
+</p>
+
+<h2>Exercise 1B.3</h2>
+<h3>問題</h3>
+<p>
+$\mathcal{X} = X_1 \times \dots \times X_k$がproduct spaceで，少なくとも一つの因子$X_i$が$\omega$以外だとする．このとき$\mathcal{X}$はperfect Polish spaceである．
+</p>
+<h3>解答</h3>
+<p>
+perfect Polish space二つの直積がperfect Polish spaceなこと，perfect Polish spaceと$\omega$の直積がperfect Polish spaceなことからわかる． □
+</p>
+
+<h2>Exercise 1B.4</h2>
+<h3>問題</h3>
+<p>
+pointset $P$が$\boldsig^0_2$であるのは
+\[
+P = \bigcup_{i=0}^\infty F_i
+\]
+で各$F_i$が閉集合のときである．
+</p>
+<p>
+同様にpointset $P$が$\boldpi^0_2$であるのは
+\[
+P = \bigcap_{i=0}^\infty G_i
+\]
+で各$G_i$が開集合のときである．
+</p>
+<h3>解答</h3>
+<p>
+$\boldsig^0_2$に関する主張のみ示す．
+$P \subset X$が$\boldsig^0_2$なら閉集合$P' \subset X \times \omega$がとれて，
+\[
+P = \exists^\omega P'.
+\]
+このとき$P'$の$i \in \omega$に関するsectionを$P_i \subset X$とすれば，$P_i$は閉集合で，
+\[
+P = \bigcup_{i=0}^\infty P_i
+\]
+となる．逆に各$P_i$が閉集合として，$P$がこの形に書けているとき
+\[
+P' = \bigcup_{i=0}^\infty (P_i \times \{i\})
+\]
+とおけば，$P'$は閉集合であり，
+\[
+P = \exists^\omega P'
+\]
+となるので，Pは$\boldsig^0_2$である． □
+</p>
+
+
+
+
+
+<p><a href="../../">トップページ</a></p>
+</body>
+</html>
