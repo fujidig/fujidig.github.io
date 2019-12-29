@@ -1,5 +1,18 @@
 @charset "utf-8";
 
+@charset "utf-8";
+
+/*
+
+主に、
+mynotes.jp で使用されている各スタイル <http://mynotes.jp/>
+「言葉 言葉 言葉」ALLNET最終版スタイル・微調整版 <http://kaz.topaz.ne.jp/well/www/css/gallery/tnn/>
+3ping.org デフォルトスタイルの差異を無くすCSS <http://3ping.org/2006/04/09/0747>
+kuruman.org で使用されている各スタイル <http://kuruman.org/>
+のスタイルを参考にしました。
+
+*/
+
 html, body,
 h1, h2, h3, h4, h5, h6,
 p, blockquote, address, pre, div, form, hr,
@@ -17,20 +30,17 @@ em, strong, dfn, code, samp, kbd, var, cite, abbr, acronym {
 }
 
 html {
-	background-color: #99caff;
+	background-color: #FF99CC;
 	padding-bottom: 1.5em;
-	text-align: center;
 }
 
 body {
-	text-align: left;
-	max-width: 950px;
-	margin: 0 auto;
+	margin-left: 50px;
 	padding-top: 2em;
 	padding-bottom: 0.5em;
 	line-height: 1.5;
 	color: #000;
-	background-color: #e9f3f7;
+	background-color: #f5dfea;
 	font-size: 100%;
 	position: relative;
 }
@@ -49,12 +59,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
 	margin-left: -50px;
-	border-left: 50px solid #492a5c;
-	margin-right: -50px;
-	border-right: 50px solid #492a5c;
+	border-left: 50px solid #642b2f;
 	text-indent: -50px;
 	margin-top: 0;
-	background-color: #65437a;
+	background-color: #643333;
 	color: #fff;
 	font-size: 300%;
 	text-align: center;
@@ -62,24 +70,20 @@ h1 {
 
 h2 {
 	margin-left: -25px;
-	border-left: 25px solid #3d5e9c;
-	margin-right: -25px;
-	border-right: 25px solid #3d5e9c;
+	border-left: 25px solid #9c3246;
 	text-indent: -25px;
 	padding: 0 10px;
-	background-color: #5574ad;
+	background-color: #9c3d4c;
 	color: #fff;
 	font-size: 200%;
 }
 
 h3 {
 	margin-left: -20px;
-	border-left: 20px solid #369ccb;
-	margin-right: -20px;
-	border-right: 20px solid #369ccb;
+	border-left: 20px solid #c3334e;
 	text-indent: -20px;
 	padding: 0 10px;
-	background-color: #51acd6;
+	background-color: #cb365b;
 	color: #fff;
 	font-size: 150%;
 }
