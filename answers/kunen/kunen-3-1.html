@@ -40,7 +40,7 @@ $\operatorname{cov}(\mathrm{null}) \le \operatorname{non}(\mathrm{meager})$か�
 <p>
 $\Q = \{ q_i : i \in \omega \}$として，
 \[
-D_n = \bigcup_{i\in\omega} \left(q_i - \frac{1}{(n+1)2^{i+1}}, q_i + \frac{1}{(n+1)2^{i+1}}\right)
+D_n = \bigcup_{i\in\omega} \left(q_i - \frac{1}{(n+1)2^{i+2}}, q_i + \frac{1}{(n+1)2^{i+2}}\right)
 \]
 とおけば$D_n$は稠密開集合でかつ，$\mu(D_n) \le \frac{1}{n+1}$となる．
 $B = \bigcap_{n \in \omega} D_n, A = \R \setminus B$とおく．
@@ -84,6 +84,51 @@ X + A = \R
 \operatorname{cov}(\mathrm{meager}) \le \operatorname{non}(\mathrm{null}).
 \]
 $\operatorname{cov}(\mathrm{null}) \le \operatorname{non}(\mathrm{meager})$も同様に示せる． □
+</p>
+<h2 id="3.1.13">Exercise III.1.13</h2>
+<h3>問題</h3>
+<p>
+$\mathfrak{b}$は正則かつ$\operatorname{cf}(\mathfrak{d}) \ge \mathfrak{b}$．
+</p>
+<h3>解答</h3>
+<p>
+$\mathfrak{b}$が正則について．
+$\mathfrak{b}$が特異だとする．
+$\theta = \operatorname{cf}(\mathfrak{b}) \lt \mathfrak{b}$とする．
+$\mathfrak{b}$のcofinal sequence $(\kappa_\alpha : \alpha \lt \theta)$をとる．
+$\mathfrak{b}$の定義より，unbounded family $B$で$|B| = \mathfrak{b}$なものをとる．
+$B$を整列して，$B = \{ f_\mu : \mu \lt \mathfrak{b} \}$とする．
+$B_\alpha = \{ f_\mu : \mu \lt \kappa_\alpha \}$とおく．
+すると$B = \bigcup_{\alpha \lt \theta} B_\alpha$．
+</p>
+<p>
+$|B_\alpha| = \kappa_\alpha \lt \mathfrak{b}$より各$B_\alpha$はboundedである．
+そこで$g_\alpha: \omega \to \omega$がとれて$\forall f \in B_\alpha, f \le^\ast g_\alpha$．
+$G = \{ g_\alpha : \alpha \lt \theta \}$とおく．
+$|G| \le \theta \lt \mathfrak{b}$より$G$はboundedである．
+よって$g: \omega \to \omega$がとれて，$\forall \alpha \lt \theta, g_\alpha \le^\ast g$．
+</p>
+<p>
+すると任意の$f \in B$について，$\alpha \lt \theta$があって$f \in B_\alpha$かつ$f \le^\ast g_\alpha \le^\ast g$．
+よって，$B$は$g$によってboundされる．
+これは$B$がunbouded familyであったことに矛盾． //
+</p>
+<p>
+$\operatorname{cf}(\mathfrak{d}) \ge \mathfrak{b}$について．
+$A \subset \mathfrak{d}$かつ$A$が$\mathfrak{d}$でcofinalならば，濃度$|A|$のunbounded familyが存在することを言う．
+
+dominating family $D = \{ f_\alpha : \alpha \lt \mathfrak{d} \}$をとる．
+$A = \{ \alpha_\nu : \nu \lt |A| \} \subset \mathfrak{d}$を$\mathfrak{d}$でcofinalとする．
+$\nu \lt |A|$に対し$D_\nu = \{ f_\alpha : \alpha \lt \alpha_\mu \}$とおく．
+$|D_\nu| \lt |\alpha_\mu| \lt \mathfrak{d}$より$D_\nu$はdominatingでない．
+$g_\nu: \omega\to\omega$で$\forall f \in D_\nu, g_\nu \not \le^\ast f$ …①となるものをとる．
+$G = \{ g_\nu : \nu \lt |A| \}$とおく．
+</p>
+<p>
+$G$がunboundedなことを示す．$G$が$h: \omega \to \omega$によってboundされるとする．
+$D$がdominatingなので，$\alpha \lt \mathfrak{d}$で$h \le^\ast f_\alpha$となるものをとる．
+$A$がcofinalなので，$\nu \lt |A|$で$\alpha \lt \alpha_\nu$なるものをとる．
+すると$g_\nu \le^\ast h \le^\ast f_\alpha$．ここで$f_\alpha \in D_\nu$なので①に矛盾． // □
 </p>
 <p><a href="../../">トップページ</a></p>
 </body>
