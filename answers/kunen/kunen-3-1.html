@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Kunen "Set Theory" III.1 解答</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../css/style.css">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+  TeX: {
+    Macros: {
+      floor: ['{\\lfloor #1 \\rfloor}', 1],
+      Q: ['{\\mathbb{Q}}', 0],
+      R: ['{\\mathbb{R}}', 0],
+      boldsig: ['{\\boldsymbol{\\Sigma}}', 0],
+      boldpi: ['{\\boldsymbol{\\Pi}}', 0],
+      bolddelta: ['{\\boldsymbol{\\Delta}}}', 0],
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+</head>
+<body>
+<h1>Kunen "Set Theory" III.1 解答</h1>
+<p align="right">作成者: @fujidig, 作成日: 2020/1/21</p>
+<p>
+Kunenの"Set Theory" (2011)のIII.1節のExercisesの解答です．
+</p>
+<h2 id="3.1.8">Exercise III.1.8</h2>
+<h3>問題</h3>
+<p>
+$\operatorname{cov}(\mathrm{null}) \le \operatorname{non}(\mathrm{meager})$かつ$\operatorname{cov}(\mathrm{meager}) \le \operatorname{non}(\mathrm{null})$．
+</p>
+<h3>解答</h3>
+<div class="framed">
+主張: $A, B \subset \R$であって$\R = A \cup B, A \cap B = \varnothing, A \in \mathrm{meager}, B \in \mathrm{null}$なものが存在する．
+</div>
+<p>
+$\Q = \{ q_i : i \in \omega \}$として，
+\[
+D_n = \bigcup_{i\in\omega} \left(q_i - \frac{1}{(n+1)2^{i+1}}, q_i + \frac{1}{(n+1)2^{i+1}}\right)
+\]
+とおけば$D_n$は稠密開集合でかつ，$\mu(D_n) \le \frac{1}{n+1}$となる．
+$B = \bigcap_{n \in \omega} D_n, A = \R \setminus B$とおく．
+測度の連続性より$\mu(B) = 0$．
+また，各$D_n$が稠密開集合なので$A$はmeagerである． //
+</p>
+<p>
+さて、主張を使って、Exercise III.1.8を示そう。
+$X \not \in \mathrm{null}$とすると
+\[
+X + A = \R
+\]
+である。
+なぜならば、$X + A \ne \R$とすると、$c \in \R$がとれて$c \not \in X + A$。
+このとき
+\[
+\forall x \in X, \forall a \in A, c \ne x + a.
+\]
+すなわち
+\[
+\forall x \in X, \forall a \in A, a \ne -x + c.
+\]
+よって
+\[
+\forall x \in X, -x + c \in \R \setminus A = B.
+\]
+つまり
+\[
+\forall x \in X, -x \in -c + B
+\]
+なので
+\[
+-X \in -c + B.
+\]
+これは$X \not \in \mathrm{null}, B \in \mathrm{null}$に矛盾するからである。
+</p>
+<p>
+よって$\R$は$|X|$個の$A$の平行移動の和集合であり、各$A$の平行移動はmeagerである。
+したがって、
+\[
+\operatorname{cov}(\mathrm{meager}) \le \operatorname{non}(\mathrm{null}).
+\]
+$\operatorname{cov}(\mathrm{null}) \le \operatorname{non}(\mathrm{meager})$も同様に示せる。 □
+</p>
+<p><a href="../../">トップページ</a></p>
+</body>
+</html>
