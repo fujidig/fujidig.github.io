@@ -130,6 +130,78 @@ $D$がdominatingなので，$\alpha \lt \mathfrak{d}$で$h \le^\ast f_\alpha$と
 $A$がcofinalなので，$\nu \lt |A|$で$\alpha \lt \alpha_\nu$なるものをとる．
 すると$g_\nu \le^\ast h \le^\ast f_\alpha$．ここで$f_\alpha \in D_\nu$なので①に矛盾． // □
 </p>
+<h2 id="3.1.16">Exercise III.1.16</h2>
+<h3>問題</h3>
+<p>
+$\kappa$を無限基数とする．$\kappa$上のウルトラフィルタ―でcharacterが$2^\kappa$であるものはちょうど$2^{2^\kappa}$個ある．
+</p>
+<h3>解答</h3>
+<p>
+$X \subset \kappa$に対し，$X^0 = X, X^1 = \kappa \setminus X$とおく．
+$\mathcal{E} \subset \mathcal{P}(\kappa)$をExercise III.1.15よりとれるサイズ$2^\kappa$のindependent familyとする．
+</p>
+<p>
+各$f: \mathcal{E} \to 2$に対して$\mathcal{U}_f$を$\kappa$上のウルトラフィルタ―で以下を満たすものとする．
+</p>
+<ul>
+<li>$\forall X \in \mathcal{E}, X^{f(X)} \in \mathcal{U}_f $</li>
+<li>$\forall X_0, X_1, \dots \in \mathcal{E} \text{ (互いに異なる可算個の$\mathcal{E}$の元)}, \kappa \setminus \bigcap_{n\lt\omega} X_n^{f(X_n)} \in \mathcal{U}_f$</li>
+</ul>
+<div class="framed">
+主張1: このようなウルトラフィルタ―$\mathcal{U}_f$はとれる．
+</div>
+<p>
+\[ F_f = \{ X^{f(X)} : X \in \mathcal{E} \} \cup \{ \kappa \setminus \bigcap_{n\lt\omega} X_n^{f(X_n)} : \text{$(X_n : n \in \omega)$は互いに異なる可算個の$\mathcal{E}$の元の列} \} \]
+が有限交差性を持つことを言う．
+$X_1, \dots, X_m \in \mathcal{E}$を互いに異なる元，各$k \lt l$に対し，$(Y_{k,n} : n \in \omega)$を互いに異なる可算個の$\mathcal{E}$の元の列とする．
+このとき各$k$に対しうまく$n_k$をとれば$X_1, \dots, X_m, Y_{1,n_1}, Y_{2,n_2}, \dots, Y_{k,n_k}$が互いに異なるようにできる．
+すると
+\begin{align*}
+\bigcap_{i=1}^m X_i^{f(X_i)} \cap \bigcap_{k=1}^l (\kappa \setminus \bigcap_{n \lt \omega} Y_{k,n}^{f(Y_{k,n})})
+&= \bigcap_{i=1}^m X_i^{f(X_i)} \cap \bigcap_{k=1}^l \bigcup_{n \lt \omega} Y_{k,n}^{1-f(Y_{k,n})} \\
+&\supset \bigcap_{i=1}^m X_i^{f(X_i)} \cap \bigcap_{k=1}^l Y_{k,n_k}^{1-f(Y_{k,n_k})}
+\end{align*}
+であるが，independent familyの定義よりこれは最右辺はサイズ$\kappa$，特に非空である．よって有限交差性が示された． //
+</p>
+<div class="framed">
+主張2: どんな$f$に対しても$\mathcal{U}_f$のcharacterは$2^\kappa$である．
+</div>
+<p>
+$F_f = 2^\kappa$よりcharacterが$2^\kappa$以下なのは明らか．
+characterが$2^\kappa$以上なこと，すなわち，$\mathcal{U}_f$が$2^\kappa$未満個の元では生成されないことを言う．
+背理法で，$(A_\alpha : \alpha \lt \lambda), \lambda \lt 2^\kappa$が$\mathcal{U}_f$を生成するとする．
+</p>
+<p>
+写像
+\[
+\varphi: \mathcal{E} \to {}^{\lt\omega}\lambda
+\]
+で$\varphi(X) = (\alpha_1, \dots, \alpha_n)$のとき，$X^{f(X)} \supset A_{\alpha_1} \cap \dots \cap A_{\alpha_n}$なものをとる．
+$|\mathcal{E}| = 2^\kappa \gt \lambda = |{}^{\lt\omega}\lambda|$なので鳩の巣原理より，ある$(\alpha_1, \dots, \alpha_n) \in {}^{\lt\omega}\lambda$があって，$\varphi^{-1}\{(\alpha_1, \dots, \alpha_n)\}$が無限集合．
+</p>
+<p>
+$X_1, X_2, \dots$を互いに異なる$\mathcal{E}$の元で，$\varphi(X_1) = \varphi(X_2) = \dots = (\alpha_1, \dots, \alpha_n)$とすると
+\[
+X_i^{f(X_i)} \supset A_{\alpha_1} \cap \dots \cap A_{\alpha_n}\ \ (\forall i \lt \omega).
+\]
+$i$を動かして共通部分をとると
+\[
+\bigcap_{i\in\omega} X_i^{f(X_i)} \supset A_{\alpha_1} \cap \dots \cap A_{\alpha_n}.
+\]
+よって，$\bigcap_{i\in\omega} X_i^{f(X_i)} \in \mathcal{U}_f$．これは$\mathcal{U}_f$の取り方に反する． //
+</p>
+<div class="framed">
+主張3: $f \ne g$ならば，$\mathcal{U}_f \ne \mathcal{U}_g$．
+</div>
+<p>
+$f \ne g$なら$f(X) \ne g(X)$なる$X \in \mathcal{E}$がある．
+このとき
+\[ X^{f(X)} \in \mathcal{U}_f, X^{g(X)} \in \mathcal{U}_g. \]
+$X^{f(X)}$と$X^{g(X)}$は互いの補集合なため，$\mathcal{U}_f \ne \mathcal{U}_g$． //
+</p>
+<p>
+以上より$U_f, \text{for $f: \mathcal{E}\to 2$}$は$2^{2^\kappa}$個のcharacter$2^\kappa$のウルトラフィルタ―である． □
+</p>
 <p><a href="../../">トップページ</a></p>
 </body>
 </html>
