@@ -98,13 +98,13 @@ A = \{ x \in \R : \text{$f$は$x$で連続} \}
 <p>
 $N \subset \R$に対して
 \[
-V(N) = \sup_{x \in N} f(x) - \inf_{x \in N} f(x)
+V(N) = \sup_{x \in N} f(x) - \inf_{x \in N} f(x)
 \]
 とおき，
 \[
-v(x) = \inf_{\text{$N$: nbd of x}} V(N)
+v(x) = \inf_{\text{$N$: nbd of $x$}} V(N)
 \]
-とおく..．
+とおく．
 </p>
 <div class="framed">
 主張1: $f$が$x$で連続であるためには，$v(x) = 0$が必要十分．
@@ -115,7 +115,8 @@ v(x) = \inf_{\text{$N$: nbd of x}} V(N)
 //
 </p>
 <div class="framed">
-主張2: $\varepsilon > 0$に対して\[
+主張2: $\varepsilon > 0$に対して
+\[
 A_\varepsilon = \{ x \in \R : v(x) \lt \varepsilon \}
 \]
 とおく．このとき$A_\varepsilon$は$\R$の開集合である．
@@ -135,6 +136,74 @@ A = \bigcap_{n \in \omega} A_{1/(n+1)}
 が従う．しかし，主張２より各$A_{1/(n+1)}$は開集合なのだから，$A$は$G_\delta$集合である． □
 </p>
 
+
+<h2>Exercise 1B.6</h2>
+<h3>問題</h3>
+<p>
+$n \ge 3$が奇数ならば、$P$が$\boldsig^0_n$であることはある開集合$G$があって
+\[
+P(x) \iff (\exists t_1) (\forall t_2) (\exists t_3) (\forall t_4) \dots (\forall t_{n-1}) G(x, t_1, \dots, t_{n-1})
+\]
+となること同値である。
+同様に$n$が偶数ならば、$P$が$\boldsig^0_n$であることはある閉集合$F$があって
+\[
+P(x) \iff (\exists t_1) (\forall t_2) (\exists t_3) (\forall t_4) \dots (\exists t_{n-1}) F(x, t_1, \dots, t_{n-1})
+\]
+となること同値である。
+</p>
+<p>同様の標準形を$\boldpi^0_n$ pointsetsに対しても求めよ。</p>
+<h3>解答</h3>
+<p>
+$n$に関する帰納法 (変数が1個でなく一般の$m$個で示し、$\boldpi^0_n$についても同時に帰納法で示す)。
+全ての場合を扱うと大変なので、一つの場合だけ示す。
+$P$が$\boldsig^0_{2k+1}$だとすると、$P = \exists^\omega Q$で$Q$は$\boldpi^0_{2k}$と書ける。
+帰納法の仮定より、$Q$は
+\[
+Q(x_1, \dots x_m, t_1) \iff (\forall t_2) (\exists t_3) (\forall t_4) \dots (\forall t_{n-1}) G(x_1, \dots, x_m, t_1, t_2, \dots, t_{n-1})
+\]
+と書ける。
+よって、
+\begin{align*}
+P(x_1, \dots x_m) &\iff (\exists t_1) Q(x_1, \dots x_m, t_1) \\
+&\iff (\exists t_1)(\forall t_2) (\exists t_3) (\forall t_4) \dots (\forall t_{n-1}) G(x_1, \dots, x_m, t_1, t_2, \dots, t_{n-1})
+\end{align*}
+となるので$P$は題意の形である。 □
+</p>
+
+
+<h2>Exercise 1B.7</h2>
+<h3>問題</h3>
+<p>
+$\mathcal{X}$が$\omega$と$\mathcal{N}$のコピーたちの積であるとする。
+$P$が$\Sigma^0_n$で$n$が奇数であるとする。
+このときclopen set $R$が存在して、
+\[
+P(x) \iff (\exists t_1) (\forall t_2) \dots (\forall t_{n-1}) (\exists t_n) R(x, t_1, \dots, t_n)
+\]
+と表される。偶数の$n$については最後の量化子$\forall$として同様のことが成立する。
+</p>
+<h3>解答</h3>
+<p>
+Exercise 1B.6より開集合$G$があって、
+\[
+P(x) \iff (\exists t_1) (\forall t_2) (\exists t_3) (\forall t_4) \dots (\forall t_{n-1}) G(x, t_1, \dots, t_{n-1})
+\]
+となる。
+今、$\mathcal{X}$は零次元 (かつ第二可算)なのだから、開集合は可算個のclopen集合の可算和で表される:
+\[
+G = \bigcup_n R_n.
+\]
+集合$R$を
+\[
+R(x, t_1, \dots, t_{n-1}, t_n) \iff R_{t_n}(x, t_1, \dots, t_{n-1})
+\]
+と定めると、$R$もclopen集合である。
+すると、
+\[
+P(x) \iff (\exists t_1) (\forall t_2) \dots (\forall t_{n-1}) (\exists t_n) R(x, t_1, \dots, t_n)
+\]
+が成立している。偶数の$n$についても証明は同様。 □
+</p>
 <p><a href="../../">トップページ</a></p>
 </body>
 </html>
