@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DST Exercises 1C 解答</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../css/style.css">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+  TeX: {
+    Macros: {
+      floor: ['{\\lfloor #1 \\rfloor}', 1],
+      pair: ['\\langle #1 \\rangle', 1],
+      R: ['{\\mathbb{R}}', 0],
+      proj: ['\\operatorname{proj}', 0],
+      boldsig: ['{\\boldsymbol{\\Sigma}}', 0],
+      boldpi: ['{\\boldsymbol{\\Pi}}', 0],
+      bolddelta: ['{\\boldsymbol{\\Delta}}', 0],
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+</head>
+<body>
+<h1>DST Exercises 1C 解答</h1>
+<p align="right">作成者: @fujidig, 作成日: 2019/11/2</p>
+<p>
+Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.pdf">Descriptive Set Theory</a>" (2009)の1c節のExercisesの解答です．
+</p>
+<h2>Exercise 1C.5</h2>
+<h3>問題</h3>
+<p>
+$P \subset \mathcal{X}, Q \subset \mathcal{Q}$が$\boldsig^0_n$であるとき、その直積$P \times Q \subset \mathcal{X} \times \mathcal{Y}$も$\boldsig^0_n$であることを示せ。
+</p>
+<h3>解答</h3>
+<p>
+射影$\proj_{\mathcal{X}}: \mathcal{X} \times \mathcal{Y} \to \mathcal{X}, \proj_{\mathcal{Y}}: \mathcal{X} \times \mathcal{Y} \to \mathcal{Y}$は連続写像である。
+</p>
+<p>
+よって、$P, Q$が$\boldsig^0_n$なので、連続代入を行った$\proj_{\mathcal{X}}^{-1}(P), \proj_{\mathcal{Y}}^{-1}(Q)$も$\boldsig^0_n$である。
+ところが、今
+\[
+P \times Q = \proj_{\mathcal{X}}^{-1}(P) \cap \proj_{\mathcal{Y}}^{-1}(Q)
+\]
+である。よって、$\boldsig^0_n$が有限個の共通部分で閉じていることから$P \times Q$は$\boldsig^0_n$である。 □
+</p>
+
+<h2>Exercise 1C.6</h2>
+<h3>問題</h3>
+<p>
+各$n \gt 1$について、もし$P \subset \mathcal{X} \times \omega$が$\boldsig^0_n$ならば、$P^\ast$ in $\boldsig^0_n$で$P$をuniformizeするものが存在する。
+</p>
+<h3>解答</h3>
+<p>
+\[
+P(x, m) \iff (\exists i)Q(x, m, i)
+\]
+で$Q$は$\boldpi^0_{n-1}$であるようにとる。
+\[
+R(x, s) \iff Q(x, (s)_0, (s)_1) \land (\forall t \lt s)\neg Q(x, (t)_0, (t)_1)
+\]
+と$R$を定め、
+\[
+P^\ast(x, m) \iff (\exists i)R(x, \pair{m, i})
+\]
+と定める。
+</p>
+<p>
+このとき$R$は$\boldpi^0_{n-1}$であり、よって$P^\ast$は$\boldsig^0_n$である。
+</p>
+<p>
+$P^\ast$が$P$をuniformizeすることを示そう。
+</p>
+<p>
+$P^\ast \subset P$なことについて。これは明らか。
+</p>
+<p>
+$x \in \exists^\omega P$とする。
+このとき
+\[
+(\exists m)(\exists i)Q(x, m, i)
+\]
+である。
+つまり、$Q(x, (s)_0, (s)_1)$となるような自然数$s$が存在するが、このような$s$のうち最小のものをとる。
+すると$R(x, s)$が成立し、$P^\ast(x, (s)_0)$となる。
+よって、$\exists^\omega P = \exists^\omega P^\ast$。
+</p>
+<p>
+$P^\ast(x, m)$かつ$P^\ast(x, m')$ならば$m = m'$なことは$R$の定義より直ちにわかる。 □
+</p>
+
+<h2>Exercise 1C.7</h2>
+<h3>問題</h3>
+<p>
+各$n > 1$について、どんな集合の組$P, Q$ in $\boldsig^0_n$も$P^\ast, Q^\ast$ in $\boldsig^0_n$によってreducibleであることを示せ。
+</p>
+<h3>解答</h3>
+<p>
+\[
+R(x, m) \iff (P(x) \land m=0) \lor (Q(x) \land m=1)
+\]
+で定義される集合を考える。これは$\boldsig^0_n$である。
+</p>
+<p>
+$R$をuniformizeする$R^\ast$ in $\boldsig^0_n$をとる。
+このとき
+\[
+P^\ast = R_0, Q^\ast = R_1
+\]
+とおく。ただし$R_i$は$R$の$i \in \omega$による切り口である。
+</p>
+<p>
+すると、$P^\ast, Q^\ast$は$\boldsig^0_n$であり、$P, Q$をreduceしている。 □
+</p>
+<div style="text-align:center">
+<img src="exercise-1c7.png" width="300">
+</div>
+
+<h2>Exercise 1C.8</h2>
+<h3>問題</h3>
+<p>
+各$n > 1$について、どんなdisjointな集合の組$P, Q$ in $\boldpi^0_n$も、$\bolddelta^0_n$集合で分離される。
+</p>
+<h3>解答</h3>
+<p>
+$P \cap Q = \emptyset$より$(\mathcal{X} \setminus P) \cup (\mathcal{X} \setminus Q) = \mathcal{X}$である。
+$\mathcal{X} \setminus P$と$\mathcal{X} \setminus Q$は$\boldsig^0_n$集合なのでExercise 1C.7より$P^\ast$, $Q^\ast$ in $\boldsig^0_n$でreduceされる。
+すなわち、
+\begin{align*}
+P^\ast \subset \mathcal{X} \setminus P \\
+Q^\ast \subset \mathcal{X} \setminus Q \\
+P^\ast \cup Q^\ast = \mathcal{X} \\
+P^\ast \cap Q^\ast = \emptyset
+\end{align*}
+となる。
+</p>
+<p> 
+$P^\ast$と$Q^\ast$は互いの補集合だからそれぞれ$\bolddelta^0_n$である。
+$P \subset \mathcal{X} \setminus P^\ast, Q \subset \mathcal{X} \setminus Q^\ast = P^\ast$なのでこれで$P, Q$は$\mathcal{X} \setminus P^\ast$で分離された。 □
+</p>
+<p><a href="../../">トップページ</a></p>
+</body>
+</html>
