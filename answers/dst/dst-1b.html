@@ -85,9 +85,55 @@ P = \exists^\omega P'
 となるので，Pは$\boldsig^0_2$である． □
 </p>
 
-
-
-
+<h2>Exercise 1B.5</h2>
+<h3>問題</h3>
+<p>
+$f: \R \to \R$を任意の関数とする．このとき
+\[
+A = \{ x \in \R : \text{$f$は$x$で連続} \}
+\]
+は$G_\delta$集合なことを示せ.
+</p>
+<h3>解答</h3>
+<p>
+$N \subset \R$に対して
+\[
+V(N) = \sup_{x \in N} f(x) - \inf_{x \in N} f(x)
+\]
+とおき，
+\[
+v(x) = \inf_{\text{$N$: nbd of x}} V(N)
+\]
+とおく..．
+</p>
+<div class="framed">
+主張1: $f$が$x$で連続であるためには，$v(x) = 0$が必要十分．
+</div>
+<p>
+∵) $\inf$の定義に戻ると$v(x) = 0$であることは，
+どんな$\varepsilon > 0$に対しても$x$の近傍$N$が存在して$V(N) \lt \varepsilon$となることと必要十分である．これは$f$が点$x$で連続であることの定義そのものである．
+//
+</p>
+<div class="framed">
+主張2: $\varepsilon > 0$に対して\[
+A_\varepsilon = \{ x \in \R : v(x) \lt \varepsilon \}
+\]
+とおく．このとき$A_\varepsilon$は$\R$の開集合である．
+</div>
+<p>
+∵) $x \in A_\varepsilon$とする．すると$v(x) \lt \varepsilon$なので，ある$x$の近傍$N$が存在して$V(N) \lt \varepsilon$である．
+$N \subset A_\varepsilon$を言う．
+$y \in N$とする．このとき，$y$の近傍$U$で$U \subset N$なものがとれる．
+すると$V(U) \le V(N) \lt \varepsilon$なので$y \in A_\varepsilon$である．
+以上より$A_\varepsilon$が開集合なことが示された． //
+</p>
+<p>
+主張1より，
+\[
+A = \bigcap_{n \in \omega} A_{1/(n+1)}
+\]
+が従う．しかし，主張２より各$A_{1/(n+1)}$は開集合なのだから，$A$は$G_\delta$集合である． □
+</p>
 
 <p><a href="../../">トップページ</a></p>
 </body>
