@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DST Exercises 1E 解答</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../css/style.css">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+  TeX: {
+    Macros: {
+      floor: ['{\\lfloor #1 \\rfloor}', 1],
+      pair: ['\\langle #1 \\rangle', 1],
+      R: ['{\\mathbb{R}}', 0],
+      Graph: ['\\operatorname{Graph}', 0],
+      boldsig: ['{\\boldsymbol{\\Sigma}}', 0],
+      boldpi: ['{\\boldsymbol{\\Pi}}', 0],
+      bolddelta: ['{\\boldsymbol{\\Delta}}', 0],
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+</head>
+<body>
+<h1>DST Exercises 1E 解答</h1>
+<p align="right">作成者: @fujidig, 作成日: 2020/4/14</p>
+<p>
+Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.pdf">Descriptive Set Theory</a>" (2009)の1E節のExercisesの解答です．
+</p>
+<h2>Exercise 1E.4</h2>
+<h3>問題</h3>
+<p>
+$f: \mathcal{X} \to \mathcal{Y}$が連続なら
+\[
+\Graph(f) = \{ (x, y) : f(x) = y \}
+\]
+が閉集合なことを示せ．
+</p>
+<h3>解答</h3>
+<p>
+$\Delta = \{ (y, y) : y \in \mathcal{Y} \}$は$\mathcal{Y} \times \mathcal{Y}$の閉集合である ($\mathcal{Y}$のHausdorff性)．
+今，この集合$\Delta$を$f \times \mathrm{id}: \mathcal{X} \times \mathcal{Y} \to \mathcal{Y} \times \mathcal{Y}; (x, y) \mapsto (f(x), y)$で引き戻せば，$\Graph(f)$が得られる．
+よって，$f \times \mathrm{id}$は連続なことから，$\Graph(f)$は閉集合である． □
+</p>
+
+
+<h2>Exercise 1E.5</h2>
+<h3>問題</h3>
+<p>
+$f: \mathcal{X} \to \mathcal{Y}$が連続かつ$P$が$\mathcal{X}$の$\boldsig^1_n$部分集合ならば，
+\[
+f[P] = \{f(x) : P(x)\}
+\]
+も$\boldsig^1_n$である．
+</p>
+<h3>解答</h3>
+<p>
+$\Graph(f) \cap (P\times\mathcal{Y})$を$\mathcal{Y}$に射影したものが$f[P]$である．
+Exercise 1E.4より$\Graph(f)$は閉集合で$P \times \mathcal{Y}$は$\boldsig^1_n$なので$\Graph(f) \cap (P\times\mathcal{Y})$は$\boldsig^1_n$．
+よってその射影$f[P]$も$\boldsig^1_n$である． □
+</p>
+
+<h2>Exercise 1E.6</h2>
+<h3>問題</h3>
+<p>
+任意の集合$P \subset \mathcal{X}$について，
+\begin{align*}
+\text{$P$が$\boldsig^1_1$} &\iff \text{$P = f[\mathcal{N}]$ for some continuous $f$} \\
+\text{$P$が$\boldsig^1_{n+1}$} &\iff \text{$P = f[Q]$ for some $\boldpi^1_n$ set $Q \subset \mathcal{N}$ and some continuous $f$}
+\end{align*}
+を示せ．
+</p>
+<h3>解答</h3>
+<p>
+$P$を$\boldsig^1_1$集合とすると，ある閉集合$C \subset \mathcal{X} \times \mathcal{N}$があって$P = \exists^\mathcal{N} C$である．
+$C$はポーランド空間の閉集合なので再びポーランド空間である．よって，連続全射$\pi: \mathcal{N} \to C$が存在する．$\pi$と射影$\mathcal{X} \times \mathcal{N} \to \mathcal{X}$の合成が求めていた関数である．
+</p>
+<p>
+$P$を$\boldsig^1_{n+1}$集合とする．
+すると$P = \exists^\mathcal{N} Q$で$Q \subset \mathcal{X} \times \mathcal{N}$で$Q$は$\boldpi^1_n$となる．
+$\mathcal{X} \times \mathcal{N}$から$\mathcal{X}$への射影を$p$とする．
+連続全射$\pi: \mathcal{N} \to \mathcal{X}$をとる．
+また，同相写像$i: \mathcal{N} \to \mathcal{N} \times \mathcal{N}$をとる．
+このとき$p \circ (\pi \times \mathrm{id}) \circ i$と$i^{-1}((\pi \times \mathrm{id})^{-1}(Q))$が求めるべき写像と集合である． □
+</p>
+<div style="text-align:center">
+<img src="exercise-1e6.png" width="400">
+</div>
+
+
+<h2>Exercise 1E.7</h2>
+<h3>問題</h3>
+<p>
+$f: \R \to \mathcal{X}$が連続かつ$F \subset \R$が閉集合なら，$f[F]$は$\boldsig^0_2$である．
+</p>
+<h3>解答</h3>
+<p>
+$\R$は$\sigma$コンパクトなので，閉集合$F$はコンパクト集合の可算和で書ける:
+\[
+F = \bigcup_{i \in \omega} K_i
+\]
+ここに各$K_i$はコンパクト集合．すると
+\[
+f[F] = f[\bigcup_{i \in \omega} K_i] = \bigcup_{i \in \omega} f[K_i].
+\]
+コンパクト集合の連続写像による像はコンパクトなので，各$f[K_i]$はコンパクトである．よって，$f[F]$は閉集合の可算和で表されるので，$\boldsig^0_2$である． □
+</p>
+
+<h2>Exercise 1E.5</h2>
+<h3>問題</h3>
+<p>
+</p>
+<h3>解答</h3>
+<p>
+</p>
+
+
+<p><a href="../../">トップページ</a></p>
+</body>
+</html>
