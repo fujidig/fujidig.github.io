@@ -108,15 +108,46 @@ f[F] = f[\bigcup_{i \in \omega} K_i] = \bigcup_{i \in \omega} f[K_i].
 コンパクト集合の連続写像による像はコンパクトなので，各$f[K_i]$はコンパクトである．よって，$f[F]$は閉集合の可算和で表されるので，$\boldsig^0_2$である． □
 </p>
 
-<h2>Exercise 1E.5</h2>
+<h2>Exercise 1E.8</h2>
 <h3>問題</h3>
 <p>
+空間$C[0, 1]$において
+\begin{align*}
+Q(f) &\iff \text{$f$は$[0,1]$上微分可能} \\
+R(f) &\iff \text{$f$は$[0,1]$上連続微分可能}
+\end{align*}
+とおく．$Q$が$\boldpi^1_1$で$R$が$\boldsig^1_1$なことを示せ．
 </p>
 <h3>解答</h3>
 <p>
+$S \subset C[0, 1] \times [0, 1]$を
+\[
+S(f, x) \iff \text{$f$は点$x$で微分可能}
+\]
+とおくと，$S$は$\boldpi^0_3$である (問題1C.4を参照)．
+
+そこで
+\[
+Q(f) \iff \forall x \in [0, 1], S(f, x)
+\]
+は$\boldsig^1_1$である．
+
+$F: C[0, 1] \to C[0, 1]$を
+\[
+F(f)(x) = \int_0^x f(x) dx
+\]
+とおくと$F$は連続である．よって，
+\[
+R(f) \iff \exists g \in C[0, 1], \exists a \in \R,  f = F(g) + a
+\]
+により，$R$は$\boldsig^1_1$である．
+
+実際は$R$はもっと複雑さが低く，$\boldpi^0_3$になる．<a href="https://faculty.math.illinois.edu/~anush/Teaching_notes/dst_lectures.pdf">Anush Tserunyanの講義ノート</a>を参照せよ．
 </p>
-
-
+<p>参考:</p>
+<ul>
+<li><a href="https://mathoverflow.net/questions/357491/is-there-a-simple-proof-that-proves-c10-1-is-sigma1-1-in-c0-1">gn.general topology - Is there a simple proof that proves $C^1[0, 1]$ is $\Sigma^1_1$ in $C[0, 1]$? - MathOverflow</a></li>
+</ul>
 <p><a href="../../">トップページ</a></p>
 </body>
 </html>
