@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DST Exercises 1C 解答</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../css/style.css">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+  TeX: {
+    Macros: {
+      floor: ['{\\lfloor #1 \\rfloor}', 1],
+      pair: ['\\langle #1 \\rangle', 1],
+      R: ['{\\mathbb{R}}', 0],
+      proj: ['\\operatorname{proj}', 0],
+      boldsig: ['{\\boldsymbol{\\Sigma}}', 0],
+      boldpi: ['{\\boldsymbol{\\Pi}}', 0],
+      bolddelta: ['{\\boldsymbol{\\Delta}}', 0],
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+</head>
+<body>
+<h1>DST Exercises 1F 解答</h1>
+<p align="right">作成者: @fujidig, 作成日: 2021/5/30</p>
+<p>
+Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.pdf">Descriptive Set Theory</a>" (2009)の1f節のExercisesの解答です．
+</p>
+<h2>Exercise 1F.4</h2>
+<h3>問題</h3>
+<p>
+各Borel pointclass $\boldsig^0_\xi$は連続代入、$\lor$, $\&$, $\exists^{\le}, \forall^{\le}, \exists^\omega$と$\bigvee^\omega$で閉じていることを示せ。
+$\boldpi^0_\xi, \bolddelta^0_\xi$の自然な閉包性質を主張を証明せよ。
+</p>
+<h3>解答</h3>
+<p>
+  次の3つの主張をまず示しておく。各pointclassはclopen集合を含むとして次が成り立つ。
+</p>
+<ol>
+  <li>$\Lambda$が連続代入、$\lor$, $\&$で閉じているならば、$\bigvee^\omega \neg \Lambda$も同じ操作で閉じている。</li>
+  <li>$\Lambda$が連続代入、$\lor$, $\&$と$\bigvee^\omega$で閉じているならば、$\Lambda$は$\exists^\le, \forall^\le, \exists^\omega$で閉じている。</li>
+  <li>$\Lambda_0 \subseteq \Lambda_1 \subseteq \dots$がpointclassの列であり、それぞれが連続代入、$\lor$, $\&$で閉じているならば、$\bigcup_i \Lambda_i$も同じ性質を持つ。</li>
+</ol>
+
+<p>
+<u>項目1の証明</u>。$P \in \bigvee^\omega \neg \Lambda$とすると
+\[
+P = \bigcup_{i \in \omega} (\mathcal{X} - P_i),\ \text{each $P_i \in \Lambda$}
+\]
+と書ける。$f: \mathcal{Y} \to \mathcal{X}$を連続写像としたとき
+\[
+f^{-1}(P) = \bigcup_{i \in \omega} (\mathcal{Y} - f^{-1}(P_i))
+\]
+であり、仮定より各$f^{-1}(P_i) \in \Lambda$なので$f^{-1}(P) \in \bigvee^\omega \neg \Lambda$である。
+よって連続代入で閉じている。
+</p>
+<p>
+\begin{align*}
+P = \bigcup_{i \in \omega} (\mathcal{X} - P_i),\ \text{each $P_i \in \Lambda$}, \\
+Q = \bigcup_{i \in \omega} (\mathcal{X} - Q_i),\ \text{each $Q_i \in \Lambda$}
+\end{align*}
+とする。
+$R_{2i} = P_i, R_{2i+1} = Q_i$とおくと
+\[
+P \cup Q = \bigcup_{i \in \omega} (\mathcal{X} - R_i).
+\]
+よって$\lor$で閉じている。また、
+\[
+P \cap Q = \bigcup_{i, j \in \omega} (\mathcal{X} - P_i) \cap (\mathcal{X} - Q_j) = \bigcup_{i, j \in \omega} (\mathcal{X} - (P_i \cup Q_j))
+\]
+であり仮定より各$P_i \cup Q_j \in \Lambda$なことより$P \cap Q \in \bigvee^\omega \neg \Lambda$.よって$\&$で閉じている。 //
+</p>
+
+<p>
+  <u>項目2の証明</u>。
+  $P \subseteq \mathcal{X} \times \omega$とする。
+  $P_i(x) = P(x, i)$とおくと各$P_i$は$P$の連続代入なため、$\Lambda$の元である。
+  \[
+    (\exists^{\omega} P)(x) \iff x \in \bigcup_{i \in \omega} P_i
+  \]
+  となり、$\bigvee^\omega$で閉じていたことから、$\exists^\omega P \in \Lambda$である。
+  
+  \[
+    Q(x, i, n) \iff i \lt n \land P(x, i)
+  \]
+  とおく。仮定より$Q \in \Lambda$である。すると
+  \[
+    (\exists^\le P)(x, n) = \bigcup_{i \in \omega} Q(x, i, n)
+  \]
+  となるため、$\exists^\le P \in \Lambda$である。
+  
+  次に$\forall^\le$について考える。
+  \[
+    Q_i(n, x) \iff n = i \land P(x, 0) \land \dots \land P(x, i)
+  \]
+  とおき、$R(x, n) \iff \bigvee_i Q_i(n, x)$とおけば$R$は$\forall^\le P$に等しい。よって$\forall^\le P \in \Lambda$である。 //
+</p>
+
+<p>
+  <u>項目3の証明</u>。
+  $P \in \bigcup_i \Lambda_i$とすると、ある$i$について$P \in \Lambda_i$。
+  すると連続写像$f$について$f^{-1}(P) \in \Lambda_i \subset \bigcup_i \Lambda_i$である。よって$\bigcup_i \Lambda_i$は連続代入で閉じている。
+</p>
+<p>
+  $P, Q \in \bigcup_i \Lambda_i$とすると、ある$i, j$について$P \in \Lambda_i, Q \in \Lambda_j$。
+  $k = max \{i, j\}$とおくと単調性より$P, Q \in \Lambda_k$。
+  よって、$P \cup Q, P \cap Q \in \Lambda_k \subset \bigcup_i \Lambda_i$. //
+</p>
+<p>
+  さて、以上の主張を使って、問題を示そう。
+  $\xi$に関する帰納法で示す。
+  $\xi = 1$については本文で証明済み。
+  $\eta \lt \xi$まで主張が正しいとする。
+  すると$(\boldsig^0_\eta : \eta \lt \xi)$は連続代入、$\lor$, $\&$で閉じたpointclassの列の増大列であるから、$\bigcup_{\eta \lt \xi} \boldsig^0_\eta$も連続代入、$\lor$, $\&$で閉じている (by 主張の3番)。
+  よって主張1より$\boldsig^0_\xi = \bigvee^\omega \neg (\bigcup_{\eta \lt \xi} \boldsig^0_\eta)$も連続代入、$\lor$, $\&$で閉じている。
+  また、可算和の可算和はまた可算和で表せることから$\boldsig^0_\xi$は$\bigvee^\omega$で閉じている。
+  したがって、主張2より$\boldsig^0_\xi$は$\exists^\le, \forall^\le, \exists^\omega$でも閉じている。
+</p>
+<p>
+  $\boldpi^0_\xi$に関する閉包性質は「連続代入、$\lor$, $\&$, $\exists^{\le}, \forall^{\le}, \forall^\omega$と$\bigwedge^\omega$で閉じている」である。
+  $\bolddelta^0_\xi$に関する閉包性質は「連続代入、$\lor$, $\&$, $\exists^{\le}, \forall^{\le}, \neg$で閉じている」である。
+  これらは$\boldsig^0_\xi$の閉包性質と定義から直ちに分かる。 □
+</p>
+<p><a href="../../">トップページ</a></p>
+</body>
+</html>
