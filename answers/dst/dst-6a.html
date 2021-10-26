@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DST Exercises 6A 解答</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../css/style.css">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+  TeX: {
+    Macros: {
+      floor: ['{\\lfloor #1 \\rfloor}', 1],
+      seq: ['{\\langle #1 \\rangle}', 1],
+      abs: ['{|#1|}', 1],
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+</head>
+<body>
+<h1>DST Exercises 6A 解答</h1>
+<p align="right">作成者: @fujidig, 作成日: 2021/10/26</p>
+<p>
+Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.pdf">Descriptive Set Theory</a>" (2009)の6A節のExercisesの解答です．
+</p>
+<h2>Exercise 6A.6</h2>
+<h3>問題</h3>
+<p>
+(AC) $A \subseteq {}^\omega 2$であって決定的でないものが存在することを示せ。
+</p>
+<h3>解答</h3>
+<p>
+  $\seq{\sigma_\xi : \xi \lt 2^{\aleph_0}}$をプレイヤーIの戦略全体の枚挙、$\seq{\tau_\xi : \xi \lt 2^{\aleph_0}}$をプレイヤーIIの戦略全体の枚挙とする。
+  帰納的に${}^\omega 2$の部分集合の列$\seq{A_\xi : \xi \lt 2^{\aleph_0}}$, $\seq{B_\xi : \xi \lt 2^{\aleph_0}}$を以下を満たすように取る。
+</p>
+<ol>
+  <li>$\seq{A_\xi : \xi \lt 2^{\aleph_0}}$, $\seq{B_\xi : \xi \lt 2^{\aleph_0}}$はともに単調増加な列、</li>
+  <li>$A_\xi$と$B_\xi$は交わらない、</li>
+  <li>$\abs{A_\xi} \le |\xi|$かつ$\abs{B_\xi} \le |\xi|$、</li>
+  <li>$(\exists \tau) [\sigma_\xi \ast \tau \in B_\xi]$、</li>
+  <li>$(\exists \sigma) [\sigma \ast \tau_\xi \in A_\xi]$。</li>
+</ol>
+<p>
+  このような列がとれることを確認しよう。
+  $\xi$未満まで構成されたとする。
+  $A_\xi' = \bigcup_{\zeta \lt \xi} A_\zeta, B_\xi' = \bigcup_{\zeta \lt \xi} B_\zeta$とおく。
+  すると$\abs{A_\xi'}, \abs{B_\xi'} \le \abs{\xi}$である。
+  $\tau \mapsto \sigma_\xi \ast \tau$は単射なので、$A_\xi'$に$\sigma_\xi \ast \tau$が入らないような$\tau$がとれる。
+  その$\tau$を選び、$B_\xi = B_\xi' \cup \{\sigma_\xi \ast \tau\}$とおく。
+  同じく、$B_\xi$に$\sigma \ast \tau_\xi$が入らないような$\sigma$がとれるので、$A_\xi = A_\xi' \cup \{ \sigma \ast \tau_\xi \}$とおく。 
+  これで列の構成ができた。
+</p>
+<p>
+  さて、$A = \bigcup_{\xi \lt 2^{\aleph_0}}$とおく。
+  これが決定的でないことを言おう。
+  Player Iの戦略を任意にとると、それはある$\xi$について$\sigma_\xi$と書ける。
+  すると条件4より$\tau$があって、$\sigma \ast \tau_\xi \in B_\xi \subseteq B$である。$A$と$B$はdisjointなので、$\sigma \ast \tau_\xi \not \in A$である。
+  よってPlayer Iは必勝戦略を持たない。
+</p>
+<p>
+  Player IIの戦略を任意にとると、それはある$\xi$について$\tau_\xi$と書ける。
+  すると条件5より$\sigma$があって、$\sigma_\xi \ast \tau \in A_\xi \subseteq A$である。
+  よってPlayer IIは必勝戦略を持たない。
+</p>
+<p>
+  以上より、$A$は決定的でない。
+</p>
+<p><a href="../../">トップページ</a></p>
+</body>
+</html>
