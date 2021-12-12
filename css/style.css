@@ -17,7 +17,7 @@ em, strong, dfn, code, samp, kbd, var, cite, abbr, acronym {
 }
 
 html {
-	background-color: #99caff;
+	background-color: #e4e6e7;
 	padding-bottom: 1.5em;
 	text-align: center;
 }
@@ -30,7 +30,6 @@ body {
 	padding-bottom: 0.5em;
 	line-height: 1.5;
 	color: #000;
-	background-color: #e9f3f7;
 	font-size: 100%;
 	position: relative;
 }
@@ -48,11 +47,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	margin-left: -50px;
+	/* margin-left: -50px;
 	border-left: 50px solid #492a5c;
 	margin-right: -50px;
 	border-right: 50px solid #492a5c;
-	text-indent: -50px;
+	text-indent: -50px; */
 	margin-top: 0;
 	background-color: #65437a;
 	color: #fff;
@@ -61,11 +60,11 @@ h1 {
 }
 
 h2 {
-	margin-left: -25px;
+	/*margin-left: -25px;
 	border-left: 25px solid #3d5e9c;
 	margin-right: -25px;
 	border-right: 25px solid #3d5e9c;
-	text-indent: -25px;
+	text-indent: -25px; */
 	padding: 0 10px;
 	background-color: #5574ad;
 	color: #fff;
@@ -73,13 +72,13 @@ h2 {
 }
 
 h3 {
-	margin-left: -20px;
+/*	margin-left: -20px;
 	border-left: 20px solid #369ccb;
 	margin-right: -20px;
 	border-right: 20px solid #369ccb;
-	text-indent: -20px;
+	text-indent: -20px; */
 	padding: 0 10px;
-	background-color: #51acd6;
+	background-color: #8a99a0;
 	color: #fff;
 	font-size: 150%;
 }
