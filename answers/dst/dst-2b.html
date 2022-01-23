@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DST Exercises 2B 解答</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../../css/style.css">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+  TeX: {
+    Macros: {
+      floor: ['{\\lfloor #1 \\rfloor}', 1],
+      seq: ['{\\langle #1 \\rangle}', 1],
+      abs: ['{|#1|}', 1],
+      scrN: ['\\mathcal{N}'],
+      A: ['\\mathcal{A}'],
+      boldsig: ['{\\boldsymbol{\\Sigma}}', 0],
+      bolddelta: ['{\\boldsymbol{\\Delta}}', 0],
+      boldpi: ['{\\boldsymbol{\\Pi}}', 0],
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+</head>
+<body>
+<h1>DST Exercises 2B 解答</h1>
+<p align="right">作成者: @fujidig, 作成日: 2021/12/12</p>
+<p>
+Moschovakisの"<a href="http://www.math.ucla.edu/~ynm/lectures/dst2009/dst2009.pdf">Descriptive Set Theory</a>" (2009)の2B節のExercisesの解答です．
+</p>
+<h2>Exercise 2B.3</h2>
+<h3>問題</h3>
+<p>
+  $u \mapsto P_u$を$\kappa$-Suslin systemであって次を満たすものとする．
+</p>
+<ol>
+  <li>$u$が$v$の始切片ならば，$P_u \supseteq P_v$.</li>
+  <li>$u$と$v$が同じ長さ$n$の異なる列ならば，$P_u \cap P_v = \emptyset$.</li>
+</ol>
+<p>
+  このとき次を示せ：
+  \[
+  \A^\kappa_u P_u = \bigcap_n \bigcup_{\xi_0,\dots,\xi_{n-1} \lt \kappa} P_{(\xi_0, \dots, \xi_{n-1})}.
+  \]
+</p>
+<h3>解答</h3>
+<p>
+\[
+\A^\kappa_u P_u \subseteq \bigcap_n \bigcup_{\xi_0,\dots,\xi_{n-1} \lt \kappa} P_{(\xi_0, \dots, \xi_{n-1})}
+\]
+は仮定を使うことなく容易に示せる．そこで逆向き
+\[
+\bigcap_n \bigcup_{\xi_0,\dots,\xi_{n-1} \lt \kappa} P_{(\xi_0, \dots, \xi_{n-1})} \subseteq \A^\kappa_u P_u
+\]
+を示す，．$x \in \bigcap_n \bigcup_{\xi_0,\dots,\xi_{n-1} \lt \kappa} P_{(\xi_0, \dots, \xi_{n-1})}$を任意にとる．すると仮定2から各nに対して
+\[
+x \in P_{(\xi^n_0, \dots, \xi^n_{n-1})} 
+\]
+なる$(\xi^n_0, \dots, \xi^n_{n-1})$が一意に存在する．
+また，仮定1と2より$f = (\xi_0, \xi_1, \xi_2, \dots) \in {}^\omega \kappa$があって，
+\[
+\xi_n = \xi^m_n \text{ (for $m > n$)}
+\]
+である．このとき
+\[
+x \in \bigcap_n P_{f \upharpoonright n}
+\]
+なので
+\[
+x \in \A^\kappa_u P_u.
+\]
+</p>
+
+<h2>Exercise 2B.4</h2>
+<h3>問題</h3>
+<p>
+  $\kappa$を共終数$\gt \omega$の基数とする．
+  pointset $P \subseteq \mathcal{X}$について，$P$が$\kappa$-Suslinなことと$P$が
+  \[
+  P = \bigcup_{\xi \lt \kappa} P_\xi
+  \]
+  と書けて，$\xi$ごとに$P_\xi$はある$\lambda \lt \kappa$について$\lambda$-Suslinなことが同値であることを示せ．
+</p>
+<h3>解答</h3>
+<p>
+定理2B.2より後半の主張から$P$が$\kappa$-Suslinなことが従うのは明らか．
+よって，$P$を$\kappa$-Suslinと仮定して後半の主張を導く．
+$P$が$\kappa$-Suslinだから，
+\[
+P(x) \iff (\exists f \in {}^\omega \kappa) C(x, f)
+\]
+となる閉集合$C \subseteq \mathcal{X} \times {}^\omega \kappa$がとれる．今，各$\xi \lt \kappa$について
+\[
+P_\xi(x) \iff (\exists f \in {}^\omega \xi) C(x, f)
+\]
+とおく．共終数の仮定から
+\[
+P = \bigcup_{\xi \lt \kappa} P_\xi
+\]
+を得る．$\xi$と$\abs{\xi}$の間の全単射をとって固定することにより$P_\xi$は閉集合$C_\xi$を使って次のように書けて，$\abs{\xi}$-Suslinなことが分かる:
+\[
+P_\xi(x) \iff (\exists f \in {}^\omega \abs{\xi}) C_\xi(x, f).
+\]
+</p>
+
+<h2>Exercise 2B.5</h2>
+<h3>問題</h3>
+<p>
+  $n \ge 2$について$\boldsig^1_n, \boldpi^1_n, \bolddelta^1_n$はすべて$\A = \A^{\aleph_0}$で閉じていることを示せ．
+</p>
+<h3>解答</h3>
+<p>
+  $\A$の定義
+  \[
+    \A_u P_u = (\bigvee_f) (\bigwedge_n) P_{f \upharpoonright n}
+  \]
+  と$\boldsig^1_n$が可算conjunction，$\exists^\scrN$で閉じていることから$\boldsig^1_n$が$\A$で閉じていることはすぐ分かる．
+</p>
+<p>
+  そこで$\boldpi^1_n$が$\A$で閉じていることを示そう．各$P_u$が$\boldpi^1_n$とする．すると
+  \[
+    P_u(x) \iff (\forall \alpha)Q_u(x, \alpha) \text{ ($Q_u$ in $\boldsig^1_{n-1}$)}
+  \]
+  である．そして
+  \[
+    P(x) \iff \A_u P_u(x) \iff (\bigvee \beta)(\bigwedge t) (\forall \alpha) Q_{\beta \upharpoonright t}(x, \alpha)
+  \]
+  を考える．すると
+  \[
+    \neg P(x) \iff (\bigwedge \beta)(\bigvee t) (\exists \alpha) \neg Q_{\beta \upharpoonright t}(x, \alpha).
+  \]
+  しかし，すると
+  \[
+    \neg P(x) \iff (\exists \alpha)(\bigwedge \beta)(\bigvee t) (\exists m) \neg Q_{\beta \upharpoonright t}(x, (\alpha)_m). \tag{$\ast$}
+  \]
+  を得る．なぜなら，$\Leftarrow$は明らか．$\Rightarrow$を示す．
+  $(\bigwedge \beta)(\bigvee t) (\exists \alpha) \neg Q_{\beta \upharpoonright t}(x, \alpha)$を仮定する．
+  すると各有限自然数列$\sigma$に対して$\neg Q_{\sigma}(x, \alpha)$を満たす$\alpha$があるならばそのうちの一つを選び，それらを並べて$\{\alpha_\sigma\}_{\sigma \in \omega^{\lt\omega}}$とする．
+  $\omega$と$\omega^{\lt\omega}$の全単射$\pi \colon \omega \to \omega^{\lt\omega}$をとり，$(\alpha)_n = \alpha_{\pi(n)}$なる$\alpha \in \scrN$をとる．
+  すると今定めた$\alpha$について$(\bigwedge \beta)(\bigvee t) (\exists m) \neg Q_{\beta \upharpoonright t}(x, (\alpha)_m)$が言える．よって上の式($\ast$)がわかった．
+</p>
+<p>
+  今
+  \[
+    Q'(x, \alpha, \beta, t, m) \iff \neg Q_{\beta \upharpoonright t}(x, (\alpha)_m)
+  \]
+  は$\boldpi^1_{n-1}$なので，$\neg P(x)$は$(\exists \alpha)(\bigwedge \beta)(\bigvee t) (\exists m) Q'(x, \alpha, \beta t, m)$と同値でこれは$\boldsig^1_n$である．したがって，$P$は$\boldpi^1_n$である．
+</p>
+
+
+<p><a href="../../">トップページ</a></p>
+</body>
+</html>
