@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<canvas></canvas>
+<script>
+function hex(num, len) {
+    return num.toString(16).padStart(len, "0");
+}
+let width = 1200;
+let height = 900;
+let font = "bold 10px 'ＭＳ ゴシック'";
+let fontbig = "bold 16px 'ＭＳ ゴシック'"
+let w = 25;
+let w2 = 60;
+let h = 27;
+let color = "#ddd";
+let colorpoison = "#dad";
+let colordark = "#777";
+let canvas = document.getElementsByTagName("canvas")[0];
+canvas.width = width;
+canvas.height = height;
+let ctx = canvas.getContext("2d");
+ctx.fillStyle = "white";
+ctx.fillRect(0, 0, width, height);
+function main(startaddr, numrows) {
+    ctx.font = fontbig;
+    for (let i = 0; i < 1 + numrows; i ++) {
+        ctx.fillStyle = colordark;
+        ctx.fillRect(0, h * i, w2 - 5, h - 5);
+        for (let j = 0; j < 32; j ++) {  
+            let addr = startaddr + (i - 1) * 32 + j;
+            let addr2 = 0x2000 + startaddr + (i - 1) * 32 + j;
+            let poisonbug = ((addr - 0xd12b) % 44 == 2) || (addr2 - 0xd12b) % 44 == 2;
+            ctx.fillStyle = i > 0 ? (poisonbug ? colorpoison : color) : colordark;
+            ctx.fillRect(w2 + w * j, h * i, w - 5, h - 5);
+            if (i == 0) {
+                ctx.textAlign = "left";
+                ctx.textBaseline = "middle";
+                ctx.fillStyle = "white";
+                ctx.fillText(hex(j, 1), w2 + w * j + 2, h * i + h / 2);
+            }
+        }
+        ctx.fillStyle = "white";
+        if (i > 0) {
+            ctx.fillText(hex(startaddr + (i - 1) * 32, 4), 2, h * i + h / 2);
+        } else {
+            ctx.fillText("＼", 2, h * i + h / 2);
+        }
+    }
+}
+
+let hintcolorflipflop = 0;
+
+function hint(startaddr, addr, len, str, options) {
+    ctx.font = font;
+    hintcolorflipflop ^= 1;
+    ctx.fillStyle = ctx.strokeStyle = hintcolorflipflop == 0 ? "#800" : "#00a";
+    let i = Math.floor((addr - startaddr) / 32) + 1;
+    let j = (addr - startaddr) % 32;
+    ctx.textAlign = "left";
+    ctx.textBaseline = "top";
+    if (options) {
+        ctx.fillText(str, w2 + w * j + options.textx, h * i + options.texty);
+        ctx.beginPath();
+        ctx.moveTo(w2 + w * j + options.linefromx, h * i + options.linefromy);
+        ctx.lineTo(w2 + w * j + options.linetox, h * i + options.linetoy);
+        ctx.stroke();
+    } else {
+        ctx.fillText(str, w2 + w * j, h * i);
+    }
+    let lenstart = len;
+    while (len > 0) {
+        let l = Math.min(len, 32 - j);
+        ctx.beginPath();
+        ctx.moveTo(w2 + w * j, h * i);
+        ctx.lineTo(w2 + w * (j + l) - 5, h * i);
+        if (len - l == 0) {
+            ctx.lineTo(w2 + w * (j + l) - 5, h * i + h - 5);
+        } else {
+            ctx.moveTo(w2 + w * (j + l) - 5, h * i + h - 5);
+        }
+        ctx.lineTo(w2 + w * j, h * i + h - 5);
+        if (len == lenstart) {
+            ctx.lineTo(w2 + w * j, h * i);
+        } else {
+            ctx.moveTo(w2 + w * j, h * i);
+        }
+        ctx.stroke();
+        len -= l;
+        i ++;
+        j = 0;
+    }
+}
+
+ctx.translate(180, 10);
+let startaddr = 0xd100;
+main(startaddr, 23);
+hint(startaddr, 0xd11d, 6, "プレイヤー名");
+hint(startaddr, 0xd123, 1, "手持ち数", {textx: 0, texty: -25, linefromx: 5, linefromy: -15, linetox: 5, linetoy: 0});
+hint(startaddr, 0xd124, 7, "手持ちのポケモンNo");
+for (let i = 0; i < 6; i ++) {
+    hint(startaddr, 0xd12b + i * 44, 44, "手持ち" + (i + 1));
+}
+hint(startaddr, 0xd233, 6 * 6, "手持ちの親の名前");
+hint(startaddr, 0xd257, 6 * 6, "手持ちのニックネーム");
+hint(startaddr, 0xd27b, 19 * 2, "ポケモン図鑑");
+hint(startaddr, 0xd2a1, 1, "アイテムの個数", {textx: -170, texty: -10, linefromx: -80, linefromy: -5, linetox: 10, linetoy: 0});
+hint(startaddr, 0xd2a2, 20 * 2 + 1, "アイテム");
+hint(startaddr, 0xd2cb, 3, "お金");
+hint(startaddr, 0xd2ce, 6, "ライバルの名前");
+hint(startaddr, 0xd2d4, 1, "設定");
+hint(startaddr, 0xd2d5, 1, "バッジ");
+hint(startaddr, 0xd2d8, 2, "プレイヤーID");
+hint(startaddr, 0xd2dd, 1, "マップ", {textx: 100, texty: -20, linefromx: 100, linefromy: -15, linetox: 10, linetoy: 0});
+hint(startaddr, 0xd2de, 2, "タイルポインタ");
+hint(startaddr, 0xd2e0, 1, "y");
+hint(startaddr, 0xd2e1, 1, "x");
+hint(startaddr, 0xd2e9, 2, "mapdataptr");
+hint(startaddr, 0xd2eb, 2, "maptextptr");
+hint(startaddr, 0xd2ed, 2, "mapscriptptr");
+hint(startaddr, 0xd32d, 1, "ワープの個数", {textx: -100, texty: -10, linefromx: -20, linefromy: -5, linetox: 10, linetoy: 0});
+hint(startaddr, 0xd32e, 128, "ワープ");
+
+ctx.translate(0, 700);
+startaddr = 0xd540;
+main(startaddr, 3);
+hint(startaddr, 0xd54d, 17 * 2, "missableオブジェクト");
+</script>
