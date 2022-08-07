@@ -7,7 +7,16 @@
 </head>
 <body>
 <h1>でぃぐのページ</h1>
-<center><img src="mycharacter.png" title="x^4+3x^3+y^3-y=0"></center>
+<div style="text-align:center">
+<img id="top-photo" src="mycharacter.png" title="x^4+3x^3+y^3-y=0" style="max-width:80%">
+<br>
+<button id="change-photo">random photo</button>
+</div>
+<h2>プロフィール</h2>
+<p>
+ハンドルネーム: でぃぐ (fujidig)
+<br>某大学システム情報学研究科D1
+</p>
 <h2>発表スライド・資料</h2>
 <ul>
 <li><a href="https://tsudoionline.netlify.app/03/slides/tsudoi-cpa.pdf">CPAおよび単位閉区間の上へ連続的に写せる実数の集合について</a> <small>(2022年5月発表; 第3回すうがく徒のつどい@オンライン)</small></li>
@@ -87,11 +96,18 @@
 <p>
 <a href="links.html">リンク</a>
 </p>
-<h2>プロフィール</h2>
+<h2>連絡先</h2>
 <p>
-ハンドルネーム: でぃぐ (fujidig)
-<br>システム情報学研究科D1
-<br>e-mail: fuji.rosen [at] gmail.com
+e-mail: fuji.rosen [at] gmail.com
 <br>Twitter: <a href="https://twitter.com/fujidig">@fujidig</a>
+</p>
+<script>
+document.getElementById("change-photo").addEventListener("click", () => {
+    const num = Math.floor(Math.random() * 13) + 1;
+    const img = document.getElementById("top-photo");
+    img.src = "photos/ph" + String(num) + ".jpg";
+    img.title = "";
+});
+</script>
 </body>
 </html>
