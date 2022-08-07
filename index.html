@@ -6,9 +6,9 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<h1>でぃぐのページ</h1>
+<h1><img src="logo.png" alt="でぃぐのページ" style="max-height:2em"></h1>
 <div style="text-align:center">
-<img id="top-photo" src="mycharacter.png" title="x^4+3x^3+y^3-y=0" style="max-width:80%">
+<img id="top-photo" src="photos/ph10.jpg" style="max-height:30em">
 <br>
 <button id="change-photo">random photo</button>
 </div>
@@ -103,7 +103,7 @@ e-mail: fuji.rosen [at] gmail.com
 </p>
 <script>
 document.getElementById("change-photo").addEventListener("click", () => {
-    const num = Math.floor(Math.random() * 13) + 1;
+    const num = Math.floor(Math.random() * 14) + 1;
     const img = document.getElementById("top-photo");
     img.src = "photos/ph" + String(num) + ".jpg";
     img.title = "";
