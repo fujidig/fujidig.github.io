@@ -229,3 +229,37 @@ footer {
 hr {
 	margin: 20px 0;
 }
+
+.pickup-entry {
+	display: flex;
+}
+
+.pickup-desc {
+	margin-left: 10px;
+	width: 600px;
+}
+
+.pickup-title {
+	font-weight: bold;
+}
+
+.pickup-img, .pickup-img img {
+	width: 300px;
+	height: auto;
+}
+
+.pickup-img-by-text {
+	height: 200px;
+	font-size: 25px;
+	padding: auto 0;
+	text-decoration: none;
+	background: #666;
+	display: table;
+}
+
+.pickup-img-by-text a {
+	display: table-cell;
+	vertical-align: middle;
+	border: none;
+	color: white;
+}
