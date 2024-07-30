@@ -26,7 +26,7 @@ body {
 	text-align: left;
 	max-width: 950px;
 	margin: 0 auto;
-	padding-top: 2em;
+	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 	line-height: 1.5;
 	color: #000;
@@ -230,6 +230,10 @@ hr {
 	margin: 20px 0;
 }
 
+#pickup {
+	margin: 0 20px;
+}
+
 .pickup-entry {
 	display: flex;
 }
@@ -263,3 +267,50 @@ hr {
 	border: none;
 	color: white;
 }
+
+/* https://saruwakakun.com/html-css/reference/speech-bubble */
+.balloon {
+	width: 100%;
+	margin: 1.5em 50px;
+	overflow: hidden;
+  }
+  
+  .balloon .faceicon {
+	float: left;
+	margin-right: -90px;
+	width: 80px;
+  }
+  
+  .balloon .faceicon img{
+	width: 100%;
+	height: auto;
+	border-radius: 50%;
+  }
+  
+  .balloon .chatting {
+	width: 100%;
+  }
+  
+  .says {
+	display: inline-block;
+	position: relative; 
+	margin: 5px 0 0 105px;
+	padding: 17px 13px;
+	border-radius: 12px;
+	background: #afc8e0;
+  }
+  
+  .says:after {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	top: 18px; 
+	left: -24px;
+	border: 12px solid transparent;
+	border-right: 12px solid #afc8e0;
+  }
+  
+  .says p {
+	margin: 0;
+	padding: 0;
+  }

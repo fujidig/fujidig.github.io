@@ -8,18 +8,24 @@
 <body>
 <h1><img src="logo.png" alt="でぃぐのページ" style="max-height:2em"></h1>
 <div style="text-align:center">
-<img id="top-photo" src="photos/ph18.jpg" style="max-height:30em">
-<br>
-<button id="change-photo">random photo</button>
+<img id="top-photo" src="photos/ph18.jpg" style="max-height:15em">
 </div>
-<h2>プロフィール</h2>
 <p>
 ハンドルネーム: でぃぐ (fujidig)
 <br>某大学システム情報学研究科D3
 </p>
-<h2>一言</h2>
+
+<div class="balloon">
+    <div class="faceicon">
+      <img src="photos/ph14.jpg">
+    </div>
+    <div class="chatting">
+      <div class="says">
+        <p>トップページに「ピックアップ」という項目を設けました。 (2024/7/30)</p>
+      </div>
+    </div>
+  </div>
 <p>
-トップページに「ピックアップ」という項目を設けました。 (2024/7/30)
 </p>
 <h2>ピックアップ</h2>
 <div id="pickup">
@@ -164,13 +170,6 @@
 <p>
 e-mail: fuji.rosen [at] gmail.com
 </p>
-<script>
-document.getElementById("change-photo").addEventListener("click", () => {
-    const num = Math.floor(Math.random() * 18) + 1;
-    const img = document.getElementById("top-photo");
-    img.src = "photos/ph" + String(num) + ".jpg";
-    img.title = "";
-});
-</script>
+
 </body>
 </html>
